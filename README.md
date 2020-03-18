@@ -27,11 +27,11 @@ Het kunnen invullen van de enquete.
 
 ### Functional Layer
 
-Het kunnen invullen van de enquete.
+Als er niets werkt moet het voor de gebruiker mogelijk zijn om de enquete in te vullen en hij moet kunnen opslaan waar hij gebleven was. Dit ga ik doen door de data op de server op te slaan.
 
 ### Usable Layer
 
-Het onthouden van waar men gebleven was.
+Data opslaan in Local Storage.
 
 ### Pleasurable Layer
 
@@ -53,14 +53,7 @@ Animaties en andere heftige dingen.
 
 ### Features die ik wil gaan gebruiken:
 
-1. CSS FlexBox of CSS Grid
-1. HTML5 Forms
-1. Werkend zonder muis
-1. Werkend zonder afbeeldingen
-1. Skeleton ontwerp
-1. Animaties
-1. Werkend zonder JavaScript
-1. Kleur en kleurenblindheid
-1.
+1. Local Storage / Data opslaan op de server
+1. Form Validatie
 
 ## Accessibility Issues
