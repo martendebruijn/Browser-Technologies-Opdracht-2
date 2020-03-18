@@ -9,7 +9,7 @@
   - [Usable Layer](#Usable-Layer)
   - [Pleasurable Layer](#Pleasurable-Layer)
 - [Wireflow Sketch](#Wireflow-Sketch)
-  - [First Sketch](#First-Sketch)`
+  - [First Sketch](#First-Sketch)
     - [Mobile Sketch](#Mobile-Sketch)
     - [Desktop Sketch](#Desktop-Sketch)
 - [Features en browser technologies](#Features-en-browser-technologies)
@@ -50,5 +50,15 @@ Animaties en andere heftige dingen.
 ![Desktop Sketch](/img/desktop.JPG)
 
 ## Features en browser technologies
+
+### Features die ik wil gaan gebruiken:
+
+1. CSS FlexBox of CSS Grid
+1. HTML5 Forms
+1. Werkend zonder muis
+1. Werkend zonder afbeeldingen
+1. Skeleton ontwerp
+1. Animaties
+1. Werkend zonder JavaScript
 
 ## Accessibility Issues
