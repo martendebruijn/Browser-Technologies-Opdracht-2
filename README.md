@@ -13,7 +13,13 @@
     - [Mobile Sketch](#Mobile-Sketch)
     - [Desktop Sketch](#Desktop-Sketch)
 - [Features en browser technologies](#Features-en-browser-technologies)
+  - [Form Validatie](#Form-Validatie)
+    - [Required en pattern](#Required-en-pattern)
+    - [Checken of een veld leeg is of niet](#Checken-of-een-veld-leeg-is-of-niet)
+    - [Checken of een veld focused is of niet](#Checken-of-een-veld-focused-is-of-niet)
+    - [Sources](#Sources)
 - [Accessibility Issues](#Accessibility-Issues)
+- [All Sources](#All-Sources)
 
 ## Use Case
 
@@ -57,10 +63,29 @@ Animaties en andere heftige dingen.
 1. Local Storage / Data opslaan op de server
 1. Form Validatie
 
-#### Local Storage / Data opslaan op de server
+#### Form Validatie
+
+##### Required en pattern
+
+Door de attribute `required` toe te voegen aan `input` velden, kan men ervoor zorgen dat een form niet gesubmit kan worden wanneer de `input` velden leeg zijn. Dit zorgt er echter alleen voor dat men de input velden niet leeg mag laten. Maar als een gebruiker, bijvoorbeeld, 'xxx@y' zou invullen bij een `input` element voor het mail adres, wordt deze goedgekeurd. Dit kan verholpen worden door de `pattern` attribute te gebruiken. De `pattern` attribute maakt gebruik van regex patterns, en zorgt ervoor dat de gebruiker alleen een bepaald format kan invoeren. Wanneer de gebruiker een ander format heeft gebruikt en wilt submitten, krijgt hij de volgende error te zien:
+
+> Please match the requested format.
+> Men kan gebruik maken van de pseudo-class `:invalid` om feedback te geven aan de gebruiker.
+
+##### Checken of een veld leeg is of niet
+
+Men voegt `placeholder=" "` toe aan `input` element. Als de placeholder wordt getoond, is het veld leeg.
+
+##### Checken of een veld focused is of niet
+
+Use: `:focus`.
+
+###### Sources
+
+1. [Form validatie zonder JavaScript](https://medium.com/@fionnachan/form-field-validation-without-javascript-2e40696ba999)
 
 ## Accessibility Issues
 
-## Sources
+## All Sources
 
 1. [Form Field Validation without JavaScript - Fionna Chan - Medium](https://medium.com/@fionnachan/form-field-validation-without-javascript-2e40696ba999)
