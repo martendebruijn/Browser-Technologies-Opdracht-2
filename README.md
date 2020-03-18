@@ -60,5 +60,7 @@ Animaties en andere heftige dingen.
 1. Skeleton ontwerp
 1. Animaties
 1. Werkend zonder JavaScript
+1. Kleur en kleurenblindheid
+1.
 
 ## Accessibility Issues
