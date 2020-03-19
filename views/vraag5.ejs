@@ -4,10 +4,11 @@
     <section>
       <form method="post" action="/vraag6">
         <p>Vraag 5 van 6</p>
-       <label>Wanneer ben je geboren?<input type="date" name="verjaardag"></label>
+       <label>Wanneer ben je geboren?<input type="date" name="verjaardag" required></label>
 
         <button type="submit">Volgende</button>
       </form>
+      <%- include('./partials/back.ejs') %>
     </section>
   </main>
 <%- include('./partials/footer.ejs') %>

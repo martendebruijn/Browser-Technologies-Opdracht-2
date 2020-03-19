@@ -4,10 +4,11 @@
     <section>
       <form method="post" action="/vraag5">
         <p>Vraag 4 van 6</p>
-       <label>Kies je favoriete kleur:<input type="color" name="kleur"></label>
+       <label>Kies je favoriete kleur:<input type="color" name="kleur" value="<%- answer %>" required></label>
 
         <button type="submit">Volgende</button>
       </form>
+      <%- include('./partials/back.ejs') %>
     </section>
   </main>
 <%- include('./partials/footer.ejs') %>

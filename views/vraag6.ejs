@@ -2,12 +2,13 @@
 <%- include('./partials/header.ejs') %>
 <main>
     <section>
-      <form method="post" action="/finished">
+      <form method="post" action="/vraag7">
         <p>Vraag 6 van 6</p>
-       <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer">10</label>
+       <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer" required>10</label>
 
         <button type="submit">Volgende</button>
       </form>
+      <%- include('./partials/back.ejs') %>
     </section>
   </main>
 <%- include('./partials/footer.ejs') %>

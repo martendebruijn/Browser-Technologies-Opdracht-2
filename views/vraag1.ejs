@@ -5,10 +5,14 @@
       <form method="post" action="/vraag2">
         <p>Vraag 1 van 6</p>
         <label
-          >Voer je naam in: <input name="name" type="text" placeholder="John Doe" required
-        /></label>
+          >Voer je naam in:      
+              <input name="name" type="text" placeholder="John Doe" required value="<%- answer %>" >
+          </label>
         <button type="submit">Volgende</button>
       </form>
+      
     </section>
   </main>
 <%- include('./partials/footer.ejs') %>
+
+
