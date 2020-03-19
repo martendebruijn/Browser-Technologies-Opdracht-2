@@ -19,6 +19,7 @@
     - [Checken of een veld focused is of niet](#Checken-of-een-veld-focused-is-of-niet)
     - [Sources](#Sources)
 - [Accessibility Issues](#Accessibility-Issues)
+- [Tools Used](#Tools-Used)
 - [All Sources](#All-Sources)
 
 ## Use Case
@@ -58,25 +59,23 @@ Animaties en andere heftige dingen.
 
 ## Features en browser technologies
 
-### Features
-
 1. Local Storage / Data opslaan op de server
 1. Form Validatie
 
-#### Form Validatie
+### Form Validatie
 
-##### Required en pattern
+#### Required en pattern
 
 Door de attribute `required` toe te voegen aan `input` velden, kan men ervoor zorgen dat een form niet gesubmit kan worden wanneer de `input` velden leeg zijn. Dit zorgt er echter alleen voor dat men de input velden niet leeg mag laten. Maar als een gebruiker, bijvoorbeeld, 'xxx@y' zou invullen bij een `input` element voor het mail adres, wordt deze goedgekeurd. Dit kan verholpen worden door de `pattern` attribute te gebruiken. De `pattern` attribute maakt gebruik van regex patterns, en zorgt ervoor dat de gebruiker alleen een bepaald format kan invoeren. Wanneer de gebruiker een ander format heeft gebruikt en wilt submitten, krijgt hij de volgende error te zien:
 
 > Please match the requested format.
 > Men kan gebruik maken van de pseudo-class `:invalid` om feedback te geven aan de gebruiker.
 
-##### Checken of een veld leeg is of niet
+#### Checken of een veld leeg is of niet
 
 Men voegt `placeholder=" "` toe aan `input` element. Als de placeholder wordt getoond, is het veld leeg.
 
-##### Checken of een veld focused is of niet
+#### Checken of een veld focused is of niet
 
 Use: `:focus`.
 
@@ -85,6 +84,14 @@ Use: `:focus`.
 1. [Form validatie zonder JavaScript](https://medium.com/@fionnachan/form-field-validation-without-javascript-2e40696ba999)
 
 ## Accessibility Issues
+
+## Tools Used
+
+- [Nodejs](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/get-npm)
+- [Express](https://www.npmjs.com/package/express)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [ejs](https://www.npmjs.com/package/ejs)
 
 ## All Sources
 
