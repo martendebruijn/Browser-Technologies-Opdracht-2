@@ -1,0 +1,1 @@
+name = Marten de Bruijn leeftijd = 19 opleiding = cmd kleur = #000000 verjaardag = 2020-03-16 verjaardag = 2020-03-16 cijfer = 10

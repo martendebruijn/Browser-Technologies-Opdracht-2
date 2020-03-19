@@ -2,11 +2,10 @@
 <%- include('./partials/header.ejs') %>
 <main>
     <section>
-      <form method="post" action="/vraag2">
-        <p>Vraag 1 van 6</p>
-        <label
-          >Voer je naam in: <input name="name" type="text" placeholder="John Doe" required
-        /></label>
+      <form method="post" action="/finished">
+        <p>Vraag 6 van 6</p>
+       <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer">10</label>
+
         <button type="submit">Volgende</button>
       </form>
     </section>

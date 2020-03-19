@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/vraag2', function(req, res) {
   console.log(req.body);
+  // res.redirect(307, req.path + '?q=' + req.body.name); // zet de naam in de url
   fs.writeFile('./answers/answers.txt', 'name = ' + req.body.name, function(
     err
   ) {
@@ -39,12 +40,11 @@ app.post('/vraag2', function(req, res) {
   });
   res.render('vraag2', {
     title: 'Vraag 2',
-    name: req.body.name,
   });
   res.end();
 });
 
-app.post('/vraag3', async function(req, res) {
+app.post('/vraag3', function(req, res) {
   console.log(req.body);
 
   fs.appendFile(
@@ -57,6 +57,68 @@ app.post('/vraag3', async function(req, res) {
   );
   res.render('vraag3', {
     title: 'Vraag 3',
+  });
+  res.end();
+});
+
+app.post('/vraag4', function(req, res) {
+  console.log(req.body);
+  fs.appendFile(
+    './answers/answers.txt',
+    ' opleiding = ' + req.body.opleiding,
+    function(err) {
+      if (err) throw err;
+      console.log('The file was updated!');
+    }
+  );
+  res.render('vraag4', {
+    title: 'Vraag 4',
+  });
+  res.end();
+});
+
+app.post('/vraag5', function(req, res) {
+  console.log(req.body);
+  fs.appendFile('./answers/answers.txt', ' kleur = ' + req.body.kleur, function(
+    err
+  ) {
+    if (err) throw err;
+    console.log('The file was updated!');
+  });
+  res.render('vraag5', {
+    title: 'Vraag 5',
+  });
+  res.end();
+});
+
+app.post('/vraag6', function(req, res) {
+  console.log(req.body);
+  fs.appendFile(
+    './answers/answers.txt',
+    ' verjaardag = ' + req.body.verjaardag,
+    function(err) {
+      if (err) throw err;
+      console.log('The file was updated!');
+    }
+  );
+  res.render('vraag6', {
+    title: 'Vraag 6',
+  });
+  res.end();
+});
+
+app.post('/finished', function(req, res) {
+  console.log(req.body);
+  fs.appendFile(
+    './answers/answers.txt',
+    ' cijfer = ' + req.body.cijfer,
+    function(err) {
+      if (err) throw err;
+      console.log('The file was updated!');
+    }
+  );
+  res.render('Finished', {
+    title: 'Finished',
   });
   res.end();
 });
