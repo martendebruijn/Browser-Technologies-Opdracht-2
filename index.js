@@ -47,11 +47,14 @@ app.post('/vraag2', function(req, res) {
 app.post('/vraag3', async function(req, res) {
   console.log(req.body);
 
-  // const data = opleiding;
-  // fs.appendFile('./answers/answers.txt', ' opleiding = ' + data, function(err) {
-  // if (err) throw err;
-  // console.log('The file was updated!');
-  // });
+  fs.appendFile(
+    './answers/answers.txt',
+    ' leeftijd = ' + req.body.leeftijd,
+    function(err) {
+      if (err) throw err;
+      console.log('The file was updated!');
+    }
+  );
   res.render('vraag3', {
     title: 'Vraag 3',
   });
