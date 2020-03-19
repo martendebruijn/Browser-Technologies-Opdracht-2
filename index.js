@@ -1,5 +1,6 @@
 // Require third-party modules
 const express = require('express');
+const fs = require('fs'); // node.js file server module
 
 // Create new express app in 'app'
 const app = express();
@@ -30,9 +31,51 @@ app.get('/', (req, res) => {
 
 app.post('/vraag2', function(req, res) {
   console.log(req.body);
-  res.end(); // end the response
+  fs.writeFile('./answers/answers.txt', 'name = ' + req.body.name, function(
+    err
+  ) {
+    if (err) throw err;
+    console.log('The file was saved!');
+  });
+  res.render('vraag2', {
+    title: 'Vraag 2',
+    name: req.body.name,
+  });
+  res.end();
 });
 
+app.post('/vraag3', async function(req, res) {
+  console.log(req.body);
+
+  // const data = opleiding;
+  // fs.appendFile('./answers/answers.txt', ' opleiding = ' + data, function(err) {
+  // if (err) throw err;
+  // console.log('The file was updated!');
+  // });
+  res.render('vraag3', {
+    title: 'Vraag 3',
+  });
+  res.end();
+});
+
+// //READ
+//  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+//    //use utf8 to read txt file
+//    if (err) throw err;
+//    console.log(data);
+//  });
+
+//  //WRITE
+// fs.writeFile('./answers/answers.txt', data, err => {
+//   if (err) throw err;
+//   console.log('Data written to file');
+// });
+
+// //UPDATE
+// fs.appendFile('./answers/answers.txt', data2, function(err) {
+//   if (err) throw err;
+//   console.log('Updated!');
+// });
 // Set up the server
 app.listen(port, function() {
   console.log(`Application started on port: ${port}`);

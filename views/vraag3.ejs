@@ -1,0 +1,20 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
+<main>
+    <section>
+      <form method="post" action="/vraag3">
+        <fieldset>
+            <legend>Welke opleiding doe je?</legend>
+
+            <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required></label>
+            <label>ICT <input type="radio" name="opleiding" value="ict" required></label>
+            <label>Anders <input type="radio" name="opleiding" value="anders" required></label>
+            
+        </fieldset>
+        <label>Anders: <input type="text" name="andereOpleiding"></label>
+
+        <button type="submit">Volgende</button>
+      </form>
+    </section>
+  </main>
+<%- include('./partials/footer.ejs') %>

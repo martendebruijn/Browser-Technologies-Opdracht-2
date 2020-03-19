@@ -1,0 +1,23 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/header.ejs') %>
+<main>
+    <section>
+      <form method="post" action="/vraag3">
+        <fieldset>
+            <legend>Hoe oud ben je?</legend>
+
+            <label>18 of jonger <input type="radio" name="leeftijd" value="18" required></label>
+            <label>19 <input type="radio" name="leeftijd" value="19" required></label>
+            <label>20 <input type="radio" name="leeftijd" value="20" required></label>
+            <label>21 <input type="radio" name="leeftijd" value="21" required></label>
+            <label>22 <input type="radio" name="leeftijd" value="22" required></label>
+            <label>23 <input type="radio" name="leeftijd" value="23" required></label>
+            <label>24 <input type="radio" name="leeftijd" value="24" required></label>
+            <label>25 of ouder <input type="radio" name="leeftijd" value="25" required></label>
+        </fieldset>
+
+        <button type="submit">Volgende</button>
+      </form>
+    </section>
+  </main>
+<%- include('./partials/footer.ejs') %>

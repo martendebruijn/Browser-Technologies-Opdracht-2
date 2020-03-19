@@ -146,6 +146,11 @@ Use: `:focus`.
 1. [Use Expressjs to get url and post parameters - Scotch.io](https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters)
    Bovenstaande source maakt gebruik van een bodyparser, echter is dit niet meer nodig omdat expressjs dit zelf ook kan i.v.m. nieuwere versie (én heeft security issues).
 1. [Expressjs documentation - app.post + req.body](https://expressjs.com/en/api.html#req.body)
+1. [Writing files in node js - Stackoverflow](https://stackoverflow.com/questions/2496710/writing-files-in-node-js)
+1. [Nodejs as filesystem - w3schools](https://www.w3schools.com/nodejs/nodejs_filesystem.asp)
+1. [Nodejs filesystem documentation](https://nodejs.org/api/fs.html)
+1. [Reading a JSON file - Nodejs Filesystem](https://stackabuse.com/reading-and-writing-json-files-with-node-js/)
+1. [MDN - fieldset + legend](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
 
 <!-- www.browserstack.com -->
 <!-- hamburger menu onderaan de pagina en dan met een a link in het top menu naar de onderkant -->

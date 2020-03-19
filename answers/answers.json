@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Mike",
+    "age": 23,
+    "gender": "Male",
+    "department": "English",
+    "car": "Honda"
+  },
+  {
+    "name": "Draak",
+    "age": 23,
+    "gender": "Other",
+    "department": "English",
+    "car": "Honda"
+  }
+]
