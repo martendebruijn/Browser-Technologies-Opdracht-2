@@ -79,6 +79,8 @@ app.post('/vraag2', function(req, res) {
 // wanneer een gebruiker de enquete laad moet de app checken of answers leeg is of niet, wanneer deze leeg is moet hij naar q1 anders naar de laatst beantwoorde q
 // ook moet men op een terug knop moeten kunnen drukken
 // en dan moet de waarde ingevuld zijn
+// als txt niet leeg is -> zet die string om naar een bruikbaar obj / arr en zet die in dataArr
+// also rename dataArr naar dataObj
 app.post('/vraag3', function(req, res) {
   console.log(req.body);
   dataArr.leeftijd = req.body.leeftijd;
