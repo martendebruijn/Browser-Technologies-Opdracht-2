@@ -138,7 +138,15 @@ Use: `:focus`.
 - [Express](https://www.npmjs.com/package/express)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [ejs](https://www.npmjs.com/package/ejs)
+- [Postman](https://www.postman.com/)
 
 ## All Sources
 
 1. [Form Field Validation without JavaScript - Fionna Chan - Medium](https://medium.com/@fionnachan/form-field-validation-without-javascript-2e40696ba999)
+1. [Use Expressjs to get url and post parameters - Scotch.io](https://scotch.io/tutorials/use-expressjs-to-get-url-and-post-parameters)
+   Bovenstaande source maakt gebruik van een bodyparser, echter is dit niet meer nodig omdat expressjs dit zelf ook kan i.v.m. nieuwere versie (én heeft security issues).
+1. [Expressjs documentation - app.post + req.body](https://expressjs.com/en/api.html#req.body)
+
+<!-- www.browserstack.com -->
+<!-- hamburger menu onderaan de pagina en dan met een a link in het top menu naar de onderkant -->
+<!-- als je op ios chrome test dan test je op een versie van safari (chrome moet je testen op een android telefoon, op ios is het niet mogelijk om een andere webview te installeren dan safari) -->

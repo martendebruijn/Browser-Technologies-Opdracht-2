@@ -10,6 +10,12 @@ const port = 3000;
 // Sending something (responding) ends the response cycle
 app.use(express.static('public'));
 
+// for parsing application/json
+app.use(express.json());
+
+// for parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
+
 // Use view enging ejs
 app.set('view engine', 'ejs');
 // Tell ejs where the template files are stored (settingname, value)
@@ -20,6 +26,11 @@ app.get('/', (req, res) => {
   res.render('home', {
     title: 'Enquete Minor WebDevelopment',
   });
+});
+
+app.post('/vraag2', function(req, res) {
+  console.log(req.body);
+  res.end(); // end the response
 });
 
 // Set up the server
