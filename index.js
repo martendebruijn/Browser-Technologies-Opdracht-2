@@ -22,32 +22,166 @@ app.set('view engine', 'ejs');
 // Tell ejs where the template files are stored (settingname, value)
 app.set('views', 'views');
 
-// Set home route
-// app.get('/', (req, res) => {
-//   res.render('vraag1', {
-//     title: 'Enquete Minor WebDevelopment',
-//     answer: '',
-//   });
-// });
-
-let dataArr = {};
-
+// GET REQUESTS
 app.get('/', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    // use utf8 to read txt file
+    //use utf8 to read txt file
     if (err) throw err;
-    console.log(data);
-    // const parsedData = JSON.parse(`{${data}}`); // Creates an object
-    // const objKeys = Object.keys(parsedData);
-    // const objLength = objKeys.length; // Returnes the length of the object (returnes 0 if answers.txt is empty)
-    // const lastKey = objKeys[objLength - 1];
-    // const lastAnswer = parsedData[lastKey];
-    // console.log(lastAnswer);
-    const lastAnswer = '';
-    if (lastAnswer) {
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
       res.render('vraag1', {
         title: 'Vraag 1',
-        answer: lastAnswer,
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag2', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag3', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag4', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag5', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag6', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/vraag7', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
+app.get('/finished', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
       });
     } else {
       res.render('vraag1', {
@@ -58,13 +192,12 @@ app.get('/', function(req, res) {
   });
 });
 
+// POST REQUESTS
 app.post('/vraag2', function(req, res) {
   console.log(req.body);
   // res.redirect(req.path + '?q=' + req.body.name); // zet de naam in de url
-  dataArr.naam = req.body.name;
-
-  console.log(dataArr);
-  fs.writeFile('./answers/answers.txt', `naam: ${dataArr.naam}`, function(err) {
+  const name = req.body.name;
+  fs.writeFile('./answers/answers.txt', `{"vraag1": "${name}"}`, function(err) {
     if (err) throw err;
     console.log('The file was saved!');
   });
@@ -74,144 +207,161 @@ app.post('/vraag2', function(req, res) {
   });
   res.end();
 });
-// TO DO rewrite every route als onderstaande
-// maak een functie die checkt of answers.txt leeg is of niet
-// wanneer een gebruiker de enquete laad moet de app checken of answers leeg is of niet, wanneer deze leeg is moet hij naar q1 anders naar de laatst beantwoorde q
-// ook moet men op een terug knop moeten kunnen drukken
-// en dan moet de waarde ingevuld zijn
-// als txt niet leeg is -> zet die string om naar een bruikbaar obj / arr en zet die in dataArr
-// also rename dataArr naar dataObj
 app.post('/vraag3', function(req, res) {
-  console.log(req.body);
-  dataArr.leeftijd = req.body.leeftijd;
-  console.log(dataArr);
-  fs.writeFile(
-    './answers/answers.txt',
-    `naam: ${dataArr.naam}, leeftijd: ${dataArr.leeftijd}`,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-      console.log(dataArr);
-    }
-  );
+  const age = req.body.leeftijd;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    const name = parsedData.vraag1;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('vraag3', {
     title: 'Vraag 3',
     answer: '',
   });
   res.end();
 });
-
 app.post('/vraag4', function(req, res) {
-  console.log(req.body);
-  fs.appendFile(
-    './answers/answers.txt',
-    `,"vraag3":"${req.body.opleiding}" `,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-    }
-  );
+  const opleiding = req.body.opleiding;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    const name = parsedData.vraag1;
+    const age = parsedData.vraag2;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}", "vraag3":"${opleiding}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('vraag4', {
     title: 'Vraag 4',
     answer: '',
   });
   res.end();
 });
-
 app.post('/vraag5', function(req, res) {
-  console.log(req.body);
-  fs.appendFile(
-    './answers/answers.txt',
-    `,"vraag4":"${req.body.kleur}" `,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-    }
-  );
+  const kleur = req.body.kleur;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    console.log('parsed:');
+    console.log(parsedData);
+    const name = parsedData.vraag1;
+    const age = parsedData.vraag2;
+    const opleiding = parsedData.vraag3;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}", "vraag3":"${opleiding}", "vraag4":"${kleur}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('vraag5', {
     title: 'Vraag 5',
     answer: '',
   });
   res.end();
 });
-
 app.post('/vraag6', function(req, res) {
-  console.log(req.body);
-  fs.appendFile(
-    './answers/answers.txt',
-    `,"vraag5":"${req.body.verjaardag}" `,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-    }
-  );
+  const verjaardag = req.body.verjaardag;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    const name = parsedData.vraag1;
+    const age = parsedData.vraag2;
+    const opleiding = parsedData.vraag3;
+    const kleur = parsedData.vraag4;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}", "vraag3":"${opleiding}", "vraag4":"${kleur}", "vraag5":"${verjaardag}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('vraag6', {
     title: 'Vraag 6',
     answer: '',
   });
   res.end();
 });
-
 app.post('/vraag7', function(req, res) {
-  console.log(req.body);
-  fs.appendFile(
-    './answers/answers.txt',
-    `,"vraag6":"${req.body.cijfer}" `,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-    }
-  );
+  const cijfer = req.body.cijfer;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    const name = parsedData.vraag1;
+    const age = parsedData.vraag2;
+    const opleiding = parsedData.vraag3;
+    const kleur = parsedData.vraag4;
+    const verjaardag = parsedData.vraag5;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}", "vraag3":"${opleiding}", "vraag4":"${kleur}", "vraag5":"${verjaardag}", "vraag6":"${cijfer}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('vraag7', {
     title: 'Vraag 7',
     answer: '',
   });
   res.end();
 });
-
 app.post('/finished', function(req, res) {
-  console.log(req.body);
-  fs.appendFile(
-    './answers/answers.txt',
-    `,"vraag7":"${req.body.docent}"`,
-    function(err) {
-      if (err) throw err;
-      console.log('The file was updated!');
-    }
-  );
+  const docent = req.body.docent;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const dataObj = data;
+    const parsedData = JSON.parse(dataObj);
+    const name = parsedData.vraag1;
+    const age = parsedData.vraag2;
+    const opleiding = parsedData.vraag3;
+    const kleur = parsedData.vraag4;
+    const verjaardag = parsedData.vraag5;
+    const cijfer = parsedData.vraag6;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}", "vraag3":"${opleiding}", "vraag4":"${kleur}", "vraag5":"${verjaardag}", "vraag6":"${cijfer}", "vraag7": "${docent}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
   res.render('finished', {
     title: 'Finished',
+    answer: '',
   });
   res.end();
 });
-
-app.get('/test', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    // use utf8 to read txt file
-    if (err) throw err;
-    // console.log(data);
-
-    const parsedData = JSON.parse(`{${data}}`); // Creates an object
-    // console.log(Object.keys(parsedData).length);
-    const objKeys = Object.keys(parsedData);
-    const objLength = objKeys.length; // Returnes the length of the object (returnes 0 if answers.txt is empty)
-    if (objLength > 0) {
-      console.log(parsedData);
-      const lastKey = objKeys[objLength - 1]; // -1 because the index counts from 0 but the length = 1 (if there is 1 item)
-      console.log(lastKey);
-      const redirectURL = `/continue/${lastKey}`; // redirect to the last page the user was
-      console.log(redirectURL);
-      const lastAnswer = parsedData[lastKey]; // get the answer
-      res.render(lastKey, {
-        title: 'Read',
-        answer: lastAnswer,
-      });
-    }
-  });
-});
-
-app.get('/test2', goToLastAnsweredPage);
-
 // //READ
 //  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
 //    //use utf8 to read txt file
@@ -231,40 +381,6 @@ app.get('/test2', goToLastAnsweredPage);
 //   console.log('Updated!');
 // });
 // Set up the server
-
-function goToLastAnsweredPage(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    if (data) {
-      // check if answers.txt is not empty
-      console.log('Wel data');
-      //hier wil ik de vraag renderen waar de gebruiker gebleven was
-      fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-        // Render the last answered question
-        // use utf8 to read txt file
-        if (err) throw err;
-        console.log(data);
-        const parsedData = JSON.parse(`{${data}}`); // Creates an object
-        const objKeys = Object.keys(parsedData);
-        const objLength = objKeys.length; // Returnes the length of the object (returnes 0 if answers.txt is empty)
-        const lastKey = objKeys[objLength - 1];
-        const lastAnswer = parsedData[lastKey];
-        console.log(lastAnswer);
-        res.render(lastKey, {
-          title: '_test',
-          answer: lastAnswer,
-        });
-      });
-    } else {
-      console.log('Geen data');
-      // hier wil ik dan vraag 1 renderen
-      res.render('vraag1', {
-        //render question 1
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
-}
 
 app.listen(port, function() {
   console.log(`Application started on port: ${port}`);
