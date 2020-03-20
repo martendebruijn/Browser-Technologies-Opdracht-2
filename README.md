@@ -24,6 +24,7 @@
 - [Accessibility Issues](#Accessibility-Issues)
 - [Tools Used](#Tools-Used)
 - [All Sources](#All-Sources)
+- [Feature Wishlist](#Future-Wishlist)
 
 ## Live Demo
 
@@ -37,8 +38,8 @@
 
 ## To Do
 
-- [ ] Terug knop gaat nu naar de laatst beantwoorde pagina. -> Veranderen naar terug knop die daadwerkelijk terug gaat.
-- [ ] Ingevulde antwoorden laten renderen wanneer de gebruiker terug gaat.
+- [x] Terug knop gaat nu naar de laatst beantwoorde pagina. -> Veranderen naar terug knop die daadwerkelijk terug gaat.
+- [x] Ingevulde antwoorden laten renderen wanneer de gebruiker terug gaat.
 - [ ] Home page maken
 - [ ] Pattern toevoegen als form validatie
 - [ ] CSS feedback geven bij form validatie
@@ -48,7 +49,6 @@
 - [ ] Testen op mobiel
 - [ ] Update README
 - [ ] Feature dat de ingevulde data opgeslagen wordt.
-- [ ] Laatste pagina met wat er is ingevuld en de mogelijkheid om terug te gaan of te submitten
 - [ ] Change home btn url to heraku app url
 
 ## Use Case
@@ -185,6 +185,10 @@ Use: `:focus`.
 1. [MDN - fieldset + legend](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
 1. [Reading and writing files with nodejs](https://tutorialedge.net/nodejs/reading-writing-files-with-nodejs/)
 1. [Heroku deployment guide Nodejs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
+
+## Feature Wishlist
+
+- [ ] Laatste pagina met wat er is ingevuld en de mogelijkheid om terug te gaan of te submitten
 
 <!-- www.browserstack.com -->
 <!-- hamburger menu onderaan de pagina en dan met een a link in het top menu naar de onderkant -->

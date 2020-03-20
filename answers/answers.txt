@@ -1,1 +1,1 @@
-{"vraag1": "Marten de Bruijn", "vraag2":"19"}
+{"vraag1": "Marten de Bruijn", "vraag2":"21", "vraag3":"cmd", "vraag4":"#000000", "vraag5":"2020-03-10", "vraag6":"6", "vraag7": "Vasillis"}

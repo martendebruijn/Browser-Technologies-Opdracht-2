@@ -24,29 +24,7 @@ app.set('view engine', 'ejs');
 // Tell ejs where the template files are stored (settingname, value)
 app.set('views', 'views');
 
-// HOME ROUTE
-app.get('/', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
-});
-
+// ROUTE FUNCTIONS
 function checkIfThereAreAnswers(req, res, i) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     if (err) throw err;
@@ -93,6 +71,9 @@ function goToQuestion(req, res, i) {
 }
 
 // GET REQUESTS
+app.get('/', function(req, res) {
+  checkIfThereAreAnswers(req, res, 1);
+});
 app.get('/vraag1', function(req, res) {
   checkIfThereAreAnswers(req, res, 1);
 });
@@ -129,8 +110,8 @@ app.get('/continue', function(req, res) {
       const keysLength = keys.length;
       const lastKey = keys[keysLength - 1];
       const lastAnswer = parsedData[lastKey];
-      res.render(lastKey, {
-        title: lastKey,
+      res.render(`vraag${keysLength - 1}`, {
+        title: `Vraag ${keysLength - 1}`,
         answer: lastAnswer,
       });
     } else {
@@ -162,8 +143,7 @@ app.post('/vraag3', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     const name = parsedData.vraag1;
     fs.writeFile(
       './answers/answers.txt',
@@ -185,8 +165,7 @@ app.post('/vraag4', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     const name = parsedData.vraag1;
     const age = parsedData.vraag2;
     fs.writeFile(
@@ -209,8 +188,7 @@ app.post('/vraag5', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     console.log('parsed:');
     console.log(parsedData);
     const name = parsedData.vraag1;
@@ -236,8 +214,7 @@ app.post('/vraag6', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     const name = parsedData.vraag1;
     const age = parsedData.vraag2;
     const opleiding = parsedData.vraag3;
@@ -262,8 +239,7 @@ app.post('/vraag7', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     const name = parsedData.vraag1;
     const age = parsedData.vraag2;
     const opleiding = parsedData.vraag3;
@@ -289,8 +265,7 @@ app.post('/finished', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
-    const dataObj = data;
-    const parsedData = JSON.parse(dataObj);
+    const parsedData = JSON.parse(data);
     const name = parsedData.vraag1;
     const age = parsedData.vraag2;
     const opleiding = parsedData.vraag3;
@@ -312,6 +287,19 @@ app.post('/finished', function(req, res) {
   });
   res.end();
 });
+
+// app.post('/save', function(req, res) {
+//   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+//     //use utf8 to read txt file
+//     if (err) throw err;
+
+//   });
+//   res.render('finished', {
+//     title: 'Finished',
+//     answer: '',
+//   });
+//   res.end();
+// });
 // //READ
 //  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
 //    //use utf8 to read txt file
@@ -330,8 +318,8 @@ app.post('/finished', function(req, res) {
 //   if (err) throw err;
 //   console.log('Updated!');
 // });
-// Set up the server
 
+// Set up the server
 app.listen(port, function() {
   console.log(`Application started on port: ${port}`);
 });
