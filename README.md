@@ -2,6 +2,7 @@
 
 ## Inhoud
 
+- [Live Demo](#Live-Demo)
 - [Use Case](#Use-Case)
 - [Core functionaliteit](#Core-functionaliteit)
 - [Layers](#Layers)
@@ -22,6 +23,10 @@
 - [Accessibility Issues](#Accessibility-Issues)
 - [Tools Used](#Tools-Used)
 - [All Sources](#All-Sources)
+
+## Live Demo
+
+[Live Demo](https://enquete-minor-webdev.herokuapp.com/)
 
 ## Use Case
 
