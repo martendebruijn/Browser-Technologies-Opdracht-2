@@ -1,10 +1,11 @@
 // Require third-party modules
 const express = require('express');
 const fs = require('fs'); // node.js file server module
-
+const dotenv = require('dotenv');
+dotenv.config();
 // Create new express app in 'app'
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Tell express to use a 'static' folder (the public folder)
 // If the url matches a file it will send that file

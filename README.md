@@ -139,6 +139,7 @@ Use: `:focus`.
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [ejs](https://www.npmjs.com/package/ejs)
 - [Postman](https://www.postman.com/)
+- [Heroku](https://www.heroku.com)
 
 ## All Sources
 
@@ -152,6 +153,7 @@ Use: `:focus`.
 1. [Reading a JSON file - Nodejs Filesystem](https://stackabuse.com/reading-and-writing-json-files-with-node-js/)
 1. [MDN - fieldset + legend](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset)
 1. [Reading and writing files with nodejs](https://tutorialedge.net/nodejs/reading-writing-files-with-nodejs/)
+1. [Heroku deployment guide Nodejs](https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true)
 
 <!-- www.browserstack.com -->
 <!-- hamburger menu onderaan de pagina en dan met een a link in het top menu naar de onderkant -->
