@@ -30,11 +30,13 @@
 [Live Demo](https://enquete-minor-webdev.herokuapp.com/)
 
 ## Tussentijdse beoordeling
+
 1. Zijn er HTML 'hacks' om met alleen HTML je pagina toch een beetje te stylen?
 1. Hoe kun je het beste testen als je zelf niet al te veel apparaten hebt (en alleen van Apple...)?
 1. Dit vak gaat niet per se over wat je op de server doet, maar is hoe ik het (ervoor zorgen dat de gebruiker verder kan gaan, waar hij of zij gebleven is) nu heb gedaan (in mijn index.js) een handige manier? Het voelt niet zo... (en was er ook lang mee bezig, om het werkend te krijgen).
 
 ## To Do
+
 - [ ] Terug knop gaat nu naar de laatst beantwoorde pagina. -> Veranderen naar terug knop die daadwerkelijk terug gaat.
 - [ ] Ingevulde antwoorden laten renderen wanneer de gebruiker terug gaat.
 - [ ] Home page maken
@@ -45,6 +47,9 @@
 - [ ] Testen op verschillende browsers
 - [ ] Testen op mobiel
 - [ ] Update README
+- [ ] Feature dat de ingevulde data opgeslagen wordt.
+- [ ] Laatste pagina met wat er is ingevuld en de mogelijkheid om terug te gaan of te submitten
+- [ ] Change home btn url to heraku app url
 
 ## Use Case
 
@@ -82,7 +87,9 @@ Animaties en andere heftige dingen.
 ![Desktop Sketch](/img/desktop.JPG)
 
 ## Enquete
+
 **Enquete vragen zijn veranderd om meerdere input types te gebruiken**
+
 #### Vraag 1: Wat is je naam?
 
 Gebruiker moet zijn naam kunnen typen.

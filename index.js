@@ -1,8 +1,9 @@
 // Require third-party modules
 const express = require('express');
 const fs = require('fs'); // node.js file server module
-const dotenv = require('dotenv');
+const dotenv = require('dotenv'); // require dotenv: module that loads env var from .env into process.env
 dotenv.config();
+
 // Create new express app in 'app'
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,7 +24,7 @@ app.set('view engine', 'ejs');
 // Tell ejs where the template files are stored (settingname, value)
 app.set('views', 'views');
 
-// GET REQUESTS
+// HOME ROUTE
 app.get('/', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
@@ -45,154 +46,80 @@ app.get('/', function(req, res) {
     }
   });
 });
-app.get('/vraag2', function(req, res) {
+
+function checkIfThereAreAnswers(req, res, i) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
     if (err) throw err;
     if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
+      goToQuestion(req, res, i); // render the question
     } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
+      res.render(`vraag1`, {
+        // render question 1 if there aren't any answers given
+        title: `Vraag 1`,
         answer: '',
       });
     }
   });
+}
+
+// FUNCTION TO ROUTE TO THE QUESTION
+function goToQuestion(req, res, i) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const parsedData = JSON.parse(data); // make an object // if answers.txt is empty it wont parse and vraag1 has to render
+    const keys = Object.keys(parsedData); // get the keys
+    const values = Object.values(parsedData); // get the values
+    const keysLength = keys.length; // get the length
+    const question = keys[i - 1]; // get the question minus 1 because the array counts from 0
+    const answer = values[i - 1]; // get the answer minus 1 because the array counts from 0
+    const lastKey = keys[keysLength - 1]; // get the last key
+    const lastAnswer = parsedData[lastKey]; // get the last answer
+    if (keysLength >= i) {
+      // check if the question is answered
+      res.render(question, {
+        // render the question with the given answer
+        title: question,
+        answer: answer,
+      });
+    } else {
+      // if the question trying to load isn't answered go to the last question answered
+      res.render(`vraag${keysLength}`, {
+        title: `Vraag ${keysLength}`,
+        answer: lastAnswer, // the last answer given
+      });
+    }
+  });
+}
+
+// GET REQUESTS
+app.get('/vraag1', function(req, res) {
+  checkIfThereAreAnswers(req, res, 1);
+});
+app.get('/vraag2', function(req, res) {
+  checkIfThereAreAnswers(req, res, 2);
 });
 app.get('/vraag3', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+  checkIfThereAreAnswers(req, res, 3);
 });
 app.get('/vraag4', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+  checkIfThereAreAnswers(req, res, 4);
 });
 app.get('/vraag5', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+  checkIfThereAreAnswers(req, res, 5);
 });
 app.get('/vraag6', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+  checkIfThereAreAnswers(req, res, 6);
 });
 app.get('/vraag7', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+  checkIfThereAreAnswers(req, res, 7);
 });
-app.get('/finished', function(req, res) {
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (data) {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData);
-      const keysLength = keys.length;
-      const lastKey = keys[keysLength - 1];
-      res.render(lastKey, {
-        title: lastKey,
-        answer: '',
-      });
-    } else {
-      res.render('vraag1', {
-        title: 'Vraag 1',
-        answer: '',
-      });
-    }
-  });
+app.get('finished', function(req, res) {
+  checkIfThereAreAnswers(req, res, 8);
 });
-app.get('/back', function(req, res) {
+
+// Go to last answered question or the first question if there aren't any answers
+app.get('/continue', function(req, res) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
     if (err) throw err;
@@ -201,9 +128,10 @@ app.get('/back', function(req, res) {
       const keys = Object.keys(parsedData);
       const keysLength = keys.length;
       const lastKey = keys[keysLength - 1];
+      const lastAnswer = parsedData[lastKey];
       res.render(lastKey, {
         title: lastKey,
-        answer: '',
+        answer: lastAnswer,
       });
     } else {
       res.render('vraag1', {

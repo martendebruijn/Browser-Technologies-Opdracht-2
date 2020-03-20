@@ -7,16 +7,27 @@
         <fieldset>
             <legend>Welke opleiding doe je?</legend>
 
-            <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required></label>
-            <label>ICT <input type="radio" name="opleiding" value="ict" required></label>
-            <label>Anders <input type="radio" name="opleiding" value="anders" required></label>
-            
+            <% if(answer === 'cmd') {%>
+              <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required checked></label>
+              <% } else { %>
+                <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required></label>
+              <% } %>
+            <% if(answer === 'ict') {%>
+              <label>ICT <input type="radio" name="opleiding" value="ict" required checked></label>
+              <% } else { %>
+                <label>ICT <input type="radio" name="opleiding" value="ict" required></label>
+              <% } %>
+            <% if(answer === 'anders') {%>
+              <label>Anders <input type="radio" name="opleiding" value="anders" required checked></label>
+              <% } else { %>
+                <label>Anders <input type="radio" name="opleiding" value="anders" required></label>
+              <% } %>
         </fieldset>
-        <!-- <label>Anders: <input type="text" name="andereOpleiding"></label> -->
 
         <button type="submit">Volgende</button>
       </form>
-      <%- include('./partials/back.ejs') %>
+      <a href="/vraag2"><button type="button">Terug</button></a>
+    <%- include('./partials/continue.ejs') %>
     </section>
   </main>
 <%- include('./partials/footer.ejs') %>
