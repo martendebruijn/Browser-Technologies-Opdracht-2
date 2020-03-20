@@ -3,6 +3,7 @@
 ## Inhoud
 
 - [Live Demo](#Live-Demo)
+- [Tussentijdse beoordeling](#Tussentijdse-beoordeling)
 - [Use Case](#Use-Case)
 - [Core functionaliteit](#Core-functionaliteit)
 - [Layers](#Layers)
@@ -27,6 +28,23 @@
 ## Live Demo
 
 [Live Demo](https://enquete-minor-webdev.herokuapp.com/)
+
+## Tussentijdse beoordeling
+1. Zijn er HTML 'hacks' om met alleen HTML je pagina toch een beetje te stylen?
+1. Hoe kun je het beste testen als je zelf niet al te veel apparaten hebt (en alleen van Apple...)?
+1. Dit vak gaat niet per se over wat je op de server doet, maar is hoe ik het (ervoor zorgen dat de gebruiker verder kan gaan, waar hij of zij gebleven is) nu heb gedaan (in mijn index.js) een handige manier? Het voelt niet zo... (en was er ook lang mee bezig, om het werkend te krijgen).
+
+## To Do
+- [ ] Terug knop gaat nu naar de laatst beantwoorde pagina. -> Veranderen naar terug knop die daadwerkelijk terug gaat.
+- [ ] Ingevulde antwoorden laten renderen wanneer de gebruiker terug gaat.
+- [ ] Home page maken
+- [ ] Pattern toevoegen als form validatie
+- [ ] CSS feedback geven bij form validatie
+- [ ] CSS Sausje toevoegen
+- [ ] JS toevoegen + animaties
+- [ ] Testen op verschillende browsers
+- [ ] Testen op mobiel
+- [ ] Update README
 
 ## Use Case
 
@@ -64,7 +82,7 @@ Animaties en andere heftige dingen.
 ![Desktop Sketch](/img/desktop.JPG)
 
 ## Enquete
-
+**Enquete vragen zijn veranderd om meerdere input types te gebruiken**
 #### Vraag 1: Wat is je naam?
 
 Gebruiker moet zijn naam kunnen typen.
@@ -143,6 +161,7 @@ Use: `:focus`.
 - [Express](https://www.npmjs.com/package/express)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [ejs](https://www.npmjs.com/package/ejs)
+- [Nodejs File System](https://nodejs.org/api/fs.html)
 - [Postman](https://www.postman.com/)
 - [Heroku](https://www.heroku.com)
 
