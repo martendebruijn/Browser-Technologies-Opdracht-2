@@ -191,6 +191,27 @@ app.get('/finished', function(req, res) {
     }
   });
 });
+app.get('/back', function(req, res) {
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (data) {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData);
+      const keysLength = keys.length;
+      const lastKey = keys[keysLength - 1];
+      res.render(lastKey, {
+        title: lastKey,
+        answer: '',
+      });
+    } else {
+      res.render('vraag1', {
+        title: 'Vraag 1',
+        answer: '',
+      });
+    }
+  });
+});
 
 // POST REQUESTS
 app.post('/vraag2', function(req, res) {
