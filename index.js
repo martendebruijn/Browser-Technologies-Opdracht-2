@@ -72,6 +72,11 @@ function goToQuestion(req, res, i) {
 
 // GET REQUESTS
 app.get('/', function(req, res) {
+  const data = '';
+  fs.writeFile('./answers/answers.txt', data, err => {
+    if (err) throw err;
+    console.log('Data written to file');
+  });
   checkIfThereAreAnswers(req, res, 1);
 });
 app.get('/vraag1', function(req, res) {
