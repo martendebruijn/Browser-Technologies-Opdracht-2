@@ -48,6 +48,7 @@ function checkIfAlreadyAnswered(req, res, i) {
     if (err) throw err;
     if (!data) {
       const name = req.body.name;
+      const name = parsedData.vraag1;
       const age = req.body.leeftijd;
       const opleiding = req.body.opleiding;
       const kleur = req.body.kleur;
@@ -71,9 +72,9 @@ function checkIfAlreadyAnswered(req, res, i) {
       const writtenIndex = isItUndefined.filter(isFalse);
       console.log(writtenIndex.length);
       const writeUntil = writtenIndex.length; /// outcome = 1
-      // return statement dat hij moet doorgaan totdat hij writeuntil tegen komt
-
-      fs.writeFile('./answers/answers.txt', `{${writeArray[i - 1]}}`, function(
+      const elementsToWrite = writeArray.slice(0, writeUntil); // dit doet die nu alleen maar wanneer er geen data is, zet dit bij console.log(i  = i) en zorg ervoor dat hij of req.body pakt of parsedData.name bv
+      console.log(elementsToWrite);
+      fs.writeFile('./answers/answers.txt', `{${elementsToWrite}}`, function(
         err
       ) {
         if (err) throw err;
@@ -225,26 +226,27 @@ app.post('/vraag2', function(req, res) {
   // res.end();
 });
 app.post('/vraag3', function(req, res) {
-  const age = req.body.leeftijd;
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    const parsedData = JSON.parse(data);
-    const name = parsedData.vraag1;
-    fs.writeFile(
-      './answers/answers.txt',
-      `{"vraag1": "${name}", "vraag2":"${age}"}`,
-      function(err) {
-        if (err) throw err;
-        console.log('The file was updated!');
-      }
-    );
-  });
-  res.render('vraag3', {
-    title: 'Vraag 3',
-    answer: '',
-  });
-  res.end();
+  checkIfAlreadyAnswered(req, res, 2);
+  // const age = req.body.leeftijd;
+  // fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+  //   //use utf8 to read txt file
+  //   if (err) throw err;
+  //   const parsedData = JSON.parse(data);
+  //   const name = parsedData.vraag1;
+  //   fs.writeFile(
+  //     './answers/answers.txt',
+  //     `{"vraag1": "${name}", "vraag2":"${age}"}`,
+  //     function(err) {
+  //       if (err) throw err;
+  //       console.log('The file was updated!');
+  //     }
+  //   );
+  // });
+  // res.render('vraag3', {
+  //   title: 'Vraag 3',
+  //   answer: '',
+  // });
+  // res.end();
 });
 app.post('/vraag4', function(req, res) {
   const age = req.body.leeftijd;
