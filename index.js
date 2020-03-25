@@ -22,7 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 // Use view enging ejs
 app.set('view engine', 'ejs');
 // Tell ejs where the template files are stored (settingname, value)
-app.set('views', 'views');
 
 // ROUTE FUNCTIONS
 function checkIfThereAreAnswers(req, res, i) {
@@ -40,6 +39,86 @@ function checkIfThereAreAnswers(req, res, i) {
   });
 }
 
+// check last question
+function checkIfAlreadyAnswered(req, res, i) {
+  console.log('this has to be written:');
+  console.log();
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    if (!data) {
+      const name = req.body.name;
+      const age = req.body.leeftijd;
+      const opleiding = req.body.opleiding;
+      const kleur = req.body.kleur;
+      const verjaardag = req.body.verjaardag;
+      const cijfer = req.body.cijfer;
+      const docent = req.body.docent;
+      const writeArray = [
+        `"vraag1": "${name}"`,
+        `"vraag2": "${age}"`,
+        `"vraag3": "${opleiding}"`,
+        `"vraag4": "${kleur}"`,
+        `"vraag5": "${verjaardag}"`,
+        `"vraag6": "${cijfer}"`,
+        `"vraag7": "${docent}"`,
+      ];
+      console.log(writeArray);
+      const isItUndefined = writeArray.map(item => item.includes('undefined'));
+      function isFalse(val) {
+        return val === false;
+      }
+      const writtenIndex = isItUndefined.filter(isFalse);
+      console.log(writtenIndex.length);
+      const writeUntil = writtenIndex.length; /// outcome = 1
+      // return statement dat hij moet doorgaan totdat hij writeuntil tegen komt
+
+      fs.writeFile('./answers/answers.txt', `{${writeArray[i - 1]}}`, function(
+        err
+      ) {
+        if (err) throw err;
+        console.log('The file was saved!');
+      });
+      res.render('vraag2', {
+        title: 'Vraag 2',
+        answer: '',
+      });
+    } else {
+      const parsedData = JSON.parse(data);
+      const keys = Object.keys(parsedData); // get the keys
+      const values = Object.values(parsedData); // get the values
+      const keysLength = keys.length; // get the length
+      if (keysLength >= i) {
+        console.log(`keysLength >= ${i}`);
+        if (!values[i + 1] === undefined) {
+          console.log('hois');
+          console.log(values[i + 1]);
+          res.render(`vraag${i + 1}`, {
+            title: `Vraag ${i + 1}`,
+            answer: '',
+          });
+        } else {
+          res.render(`vraag${i + 1}`, {
+            title: `Vraag ${i + 1}`,
+            answer: values[i],
+          });
+        }
+      }
+      const name = req.body.name;
+      console.log(`i = ${i}`); // outcome = 1
+
+      fs.writeFile(
+        './answers/answers.txt',
+        `{ "vraag1": "${name}", }`,
+        function(err) {
+          if (err) throw err;
+          console.log('The file was saved!');
+        }
+      );
+    }
+  });
+}
+
 // FUNCTION TO ROUTE TO THE QUESTION
 function goToQuestion(req, res, i) {
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
@@ -52,6 +131,8 @@ function goToQuestion(req, res, i) {
     const question = keys[i - 1]; // get the question minus 1 because the array counts from 0
     const answer = values[i - 1]; // get the answer minus 1 because the array counts from 0
     const lastKey = keys[keysLength - 1]; // get the last key
+    console.log('last question:');
+    console.log(lastKey);
     const lastAnswer = parsedData[lastKey]; // get the last answer
     if (keysLength >= i) {
       // check if the question is answered
@@ -75,7 +156,7 @@ app.get('/', function(req, res) {
   const data = '';
   fs.writeFile('./answers/answers.txt', data, err => {
     if (err) throw err;
-    console.log('Data written to file');
+    console.log('Data written to file'); // is niet perse waar
   });
   checkIfThereAreAnswers(req, res, 1);
 });
@@ -115,8 +196,8 @@ app.get('/continue', function(req, res) {
       const keysLength = keys.length;
       const lastKey = keys[keysLength - 1];
       const lastAnswer = parsedData[lastKey];
-      res.render(`vraag${keysLength - 1}`, {
-        title: `Vraag ${keysLength - 1}`,
+      res.render(`vraag${keysLength}`, {
+        title: `Vraag ${keysLength}`, //dit werkt niet voor de laatste vraag
         answer: lastAnswer,
       });
     } else {
@@ -130,18 +211,18 @@ app.get('/continue', function(req, res) {
 
 // POST REQUESTS
 app.post('/vraag2', function(req, res) {
-  console.log(req.body);
-  // res.redirect(req.path + '?q=' + req.body.name); // zet de naam in de url
-  const name = req.body.name;
-  fs.writeFile('./answers/answers.txt', `{"vraag1": "${name}"}`, function(err) {
-    if (err) throw err;
-    console.log('The file was saved!');
-  });
-  res.render('vraag2', {
-    title: 'Vraag 2',
-    answer: '',
-  });
-  res.end();
+  checkIfAlreadyAnswered(req, res, 1);
+  // console.log(req.body);
+  // const name = req.body.name;
+  // fs.writeFile('./answers/answers.txt', `{"vraag1": "${name}"}`, function(err) {
+  //   if (err) throw err;
+  //   console.log('The file was saved!');
+  // });
+  // res.render('vraag2', {
+  //   title: 'Vraag 2',
+  //   answer: '',
+  // });
+  // res.end();
 });
 app.post('/vraag3', function(req, res) {
   const age = req.body.leeftijd;
@@ -166,6 +247,7 @@ app.post('/vraag3', function(req, res) {
   res.end();
 });
 app.post('/vraag4', function(req, res) {
+  const age = req.body.leeftijd;
   const opleiding = req.body.opleiding;
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
@@ -189,6 +271,8 @@ app.post('/vraag4', function(req, res) {
   res.end();
 });
 app.post('/vraag5', function(req, res) {
+  const age = req.body.leeftijd;
+  const opleiding = req.body.opleiding;
   const kleur = req.body.kleur;
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
@@ -215,6 +299,9 @@ app.post('/vraag5', function(req, res) {
   res.end();
 });
 app.post('/vraag6', function(req, res) {
+  const age = req.body.leeftijd;
+  const opleiding = req.body.opleiding;
+  const kleur = req.body.kleur;
   const verjaardag = req.body.verjaardag;
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
@@ -240,6 +327,10 @@ app.post('/vraag6', function(req, res) {
   res.end();
 });
 app.post('/vraag7', function(req, res) {
+  const age = req.body.leeftijd;
+  const opleiding = req.body.opleiding;
+  const kleur = req.body.kleur;
+  const verjaardag = req.body.verjaardag;
   const cijfer = req.body.cijfer;
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
@@ -266,6 +357,11 @@ app.post('/vraag7', function(req, res) {
   res.end();
 });
 app.post('/finished', function(req, res) {
+  const age = req.body.leeftijd;
+  const opleiding = req.body.opleiding;
+  const kleur = req.body.kleur;
+  const verjaardag = req.body.verjaardag;
+  const cijfer = req.body.cijfer;
   const docent = req.body.docent;
   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
     //use utf8 to read txt file
