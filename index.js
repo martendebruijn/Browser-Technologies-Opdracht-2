@@ -59,7 +59,7 @@ function checkIfAlreadyAnswered(req, res, i) {
         `"vraag1": "${name}"`,
         `"vraag2": "${age}"`,
         `"vraag3": "${opleiding}"`,
-        `"vraag4": "${kleur}"`,
+        `"vraag4": "${kleur}"`, //maak dit 'schoner' en just copy it over alle post request en iedere keer met nieuwe propertys
         `"vraag5": "${verjaardag}"`,
         `"vraag6": "${cijfer}"`,
         `"vraag7": "${docent}"`,
