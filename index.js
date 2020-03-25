@@ -40,85 +40,85 @@ function checkIfThereAreAnswers(req, res, i) {
 }
 
 // check last question
-function checkIfAlreadyAnswered(req, res, i) {
-  console.log('this has to be written:');
-  console.log();
-  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-    //use utf8 to read txt file
-    if (err) throw err;
-    if (!data) {
-      const name = req.body.name;
-      const name = parsedData.vraag1;
-      const age = req.body.leeftijd;
-      const opleiding = req.body.opleiding;
-      const kleur = req.body.kleur;
-      const verjaardag = req.body.verjaardag;
-      const cijfer = req.body.cijfer;
-      const docent = req.body.docent;
-      const writeArray = [
-        `"vraag1": "${name}"`,
-        `"vraag2": "${age}"`,
-        `"vraag3": "${opleiding}"`,
-        `"vraag4": "${kleur}"`, //maak dit 'schoner' en just copy it over alle post request en iedere keer met nieuwe propertys
-        `"vraag5": "${verjaardag}"`,
-        `"vraag6": "${cijfer}"`,
-        `"vraag7": "${docent}"`,
-      ];
-      console.log(writeArray);
-      const isItUndefined = writeArray.map(item => item.includes('undefined'));
-      function isFalse(val) {
-        return val === false;
-      }
-      const writtenIndex = isItUndefined.filter(isFalse);
-      console.log(writtenIndex.length);
-      const writeUntil = writtenIndex.length; /// outcome = 1
-      const elementsToWrite = writeArray.slice(0, writeUntil); // dit doet die nu alleen maar wanneer er geen data is, zet dit bij console.log(i  = i) en zorg ervoor dat hij of req.body pakt of parsedData.name bv
-      console.log(elementsToWrite);
-      fs.writeFile('./answers/answers.txt', `{${elementsToWrite}}`, function(
-        err
-      ) {
-        if (err) throw err;
-        console.log('The file was saved!');
-      });
-      res.render('vraag2', {
-        title: 'Vraag 2',
-        answer: '',
-      });
-    } else {
-      const parsedData = JSON.parse(data);
-      const keys = Object.keys(parsedData); // get the keys
-      const values = Object.values(parsedData); // get the values
-      const keysLength = keys.length; // get the length
-      if (keysLength >= i) {
-        console.log(`keysLength >= ${i}`);
-        if (!values[i + 1] === undefined) {
-          console.log('hois');
-          console.log(values[i + 1]);
-          res.render(`vraag${i + 1}`, {
-            title: `Vraag ${i + 1}`,
-            answer: '',
-          });
-        } else {
-          res.render(`vraag${i + 1}`, {
-            title: `Vraag ${i + 1}`,
-            answer: values[i],
-          });
-        }
-      }
-      const name = req.body.name;
-      console.log(`i = ${i}`); // outcome = 1
+// function checkIfAlreadyAnswered(req, res, i) {
+//   console.log('this has to be written:');
+//   console.log();
+//   fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+//     //use utf8 to read txt file
+//     if (err) throw err;
+//     if (!data) {
+//       const name = req.body.name;
+//       const name = parsedData.vraag1;
+//       const age = req.body.leeftijd;
+//       const opleiding = req.body.opleiding;
+//       const kleur = req.body.kleur;
+//       const verjaardag = req.body.verjaardag;
+//       const cijfer = req.body.cijfer;
+//       const docent = req.body.docent;
+//       const writeArray = [
+//         `"vraag1": "${name}"`,
+//         `"vraag2": "${age}"`,
+//         `"vraag3": "${opleiding}"`,
+//         `"vraag4": "${kleur}"`, //maak dit 'schoner' en just copy it over alle post request en iedere keer met nieuwe propertys
+//         `"vraag5": "${verjaardag}"`,
+//         `"vraag6": "${cijfer}"`,
+//         `"vraag7": "${docent}"`,
+//       ];
+//       console.log(writeArray);
+//       const isItUndefined = writeArray.map(item => item.includes('undefined'));
+//       function isFalse(val) {
+//         return val === false;
+//       }
+//       const writtenIndex = isItUndefined.filter(isFalse);
+//       console.log(writtenIndex.length);
+//       const writeUntil = writtenIndex.length; /// outcome = 1
+//       const elementsToWrite = writeArray.slice(0, writeUntil); // dit doet die nu alleen maar wanneer er geen data is, zet dit bij console.log(i  = i) en zorg ervoor dat hij of req.body pakt of parsedData.name bv
+//       console.log(elementsToWrite);
+//       fs.writeFile('./answers/answers.txt', `{${elementsToWrite}}`, function(
+//         err
+//       ) {
+//         if (err) throw err;
+//         console.log('The file was saved!');
+//       });
+//       res.render('vraag2', {
+//         title: 'Vraag 2',
+//         answer: '',
+//       });
+//     } else {
+//       const parsedData = JSON.parse(data);
+//       const keys = Object.keys(parsedData); // get the keys
+//       const values = Object.values(parsedData); // get the values
+//       const keysLength = keys.length; // get the length
+//       if (keysLength >= i) {
+//         console.log(`keysLength >= ${i}`);
+//         if (!values[i + 1] === undefined) {
+//           console.log('hois');
+//           console.log(values[i + 1]);
+//           res.render(`vraag${i + 1}`, {
+//             title: `Vraag ${i + 1}`,
+//             answer: '',
+//           });
+//         } else {
+//           res.render(`vraag${i + 1}`, {
+//             title: `Vraag ${i + 1}`,
+//             answer: values[i],
+//           });
+//         }
+//       }
+//       const name = req.body.name;
+//       console.log(`i = ${i}`); // outcome = 1
 
-      fs.writeFile(
-        './answers/answers.txt',
-        `{ "vraag1": "${name}", }`,
-        function(err) {
-          if (err) throw err;
-          console.log('The file was saved!');
-        }
-      );
-    }
-  });
-}
+//       fs.writeFile(
+//         './answers/answers.txt',
+//         `{ "vraag1": "${name}", }`,
+//         function(err) {
+//           if (err) throw err;
+//           console.log('The file was saved!');
+//         }
+//       );
+//     }
+//   });
+// }
 
 // FUNCTION TO ROUTE TO THE QUESTION
 function goToQuestion(req, res, i) {
@@ -210,43 +210,45 @@ app.get('/continue', function(req, res) {
   });
 });
 
+//store the answers in a different module -> array
+// and get them from there
 // POST REQUESTS
 app.post('/vraag2', function(req, res) {
-  checkIfAlreadyAnswered(req, res, 1);
-  // console.log(req.body);
-  // const name = req.body.name;
-  // fs.writeFile('./answers/answers.txt', `{"vraag1": "${name}"}`, function(err) {
-  //   if (err) throw err;
-  //   console.log('The file was saved!');
-  // });
-  // res.render('vraag2', {
-  //   title: 'Vraag 2',
-  //   answer: '',
-  // });
-  // res.end();
+  // checkIfAlreadyAnswered(req, res, 1);
+  console.log(req.body);
+  const name = req.body.name;
+  fs.writeFile('./answers/answers.txt', `{"vraag1": "${name}"}`, function(err) {
+    if (err) throw err;
+    console.log('The file was saved!');
+  });
+  res.render('vraag2', {
+    title: 'Vraag 2',
+    answer: '',
+  });
+  res.end();
 });
 app.post('/vraag3', function(req, res) {
-  checkIfAlreadyAnswered(req, res, 2);
-  // const age = req.body.leeftijd;
-  // fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
-  //   //use utf8 to read txt file
-  //   if (err) throw err;
-  //   const parsedData = JSON.parse(data);
-  //   const name = parsedData.vraag1;
-  //   fs.writeFile(
-  //     './answers/answers.txt',
-  //     `{"vraag1": "${name}", "vraag2":"${age}"}`,
-  //     function(err) {
-  //       if (err) throw err;
-  //       console.log('The file was updated!');
-  //     }
-  //   );
-  // });
-  // res.render('vraag3', {
-  //   title: 'Vraag 3',
-  //   answer: '',
-  // });
-  // res.end();
+  // checkIfAlreadyAnswered(req, res, 2);
+  const age = req.body.leeftijd;
+  fs.readFile('./answers/answers.txt', 'utf8', function(err, data) {
+    //use utf8 to read txt file
+    if (err) throw err;
+    const parsedData = JSON.parse(data);
+    const name = parsedData.vraag1;
+    fs.writeFile(
+      './answers/answers.txt',
+      `{"vraag1": "${name}", "vraag2":"${age}"}`,
+      function(err) {
+        if (err) throw err;
+        console.log('The file was updated!');
+      }
+    );
+  });
+  res.render('vraag3', {
+    title: 'Vraag 3',
+    answer: '',
+  });
+  res.end();
 });
 app.post('/vraag4', function(req, res) {
   const age = req.body.leeftijd;
