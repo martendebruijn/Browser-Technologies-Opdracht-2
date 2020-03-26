@@ -1,18 +1,19 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
+<%- include('./partials/head.ejs') %> 
 <main>
-    <section>
-      <form method="post" action="/vraag2">
-        <p>Vraag 1 van 6</p>
-        <label
-          >Voer je naam in:      
-              <input name="name" type="text" placeholder="John Doe" required value="<%- answer %>" >
-          </label>
-        <button type="submit">Volgende</button>
-      </form>
-      <%- include('./partials/continue.ejs') %>
-    </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+  <section>
+    <form method="post" action="/vraag2" survey>
+      <label
+        >Voer je naam in:
+        <input name="name" type="text" placeholder="John Doe" required />
+      </label>
 
+      <input type="hidden" name="userid" value=<%= userid %>>
 
+      <!-- Navigation -->
+      <nav>
+        <button type="submit" value="vraag2">Vraag 2</button>
+      </nav>
+    </form>
+  </section>
+  <%- include('./partials/footer.ejs') %>
+</main>

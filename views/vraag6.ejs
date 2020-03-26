@@ -1,15 +1,20 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
-<main>
-    <section>
-      <form method="post" action="/vraag7">
-        <p>Vraag 6 van 6</p>
-       <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer" value="<%- answer %>" required>10</label>
+<%- include ('./partials/head') %>
 
-        <button type="submit">Volgende</button>
-      </form>
-      <a href="/vraag5"><button type="button">Terug</button></a>
-    <%- include('./partials/continue.ejs') %>
+<main class="survey">
+
+    <section>
+
+        <form method="post" action="/vraag7" survey>
+            <p>Vraag 6 van 6</p>
+            <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer" required>10</label>
+
+            <input type="hidden" name="userid" value=<%= userid %>>
+
+            <!-- Navigation -->
+            <nav>
+                <button type="submit" value="vraag7">Verder</button>
+            </nav>
+        </form>
     </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+
+    <%- include ('./partials/footer') %>

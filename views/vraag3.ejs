@@ -1,33 +1,23 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
-<main>
+<%- include ('./partials/head') %>
+
+<main class="survey">
     <section>
-      <form method="post" action="/vraag4">
-        <p>Vraag 3 van 6</p>
-        <fieldset>
-            <legend>Welke opleiding doe je?</legend>
 
-            <% if(answer === 'cmd') {%>
-              <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required checked></label>
-              <% } else { %>
+        <form method="post" action="/vraag4" survey>
+            <p>Vraag 3 van 6</p>
+            <fieldset>
+                <legend>Welke opleiding doe je?</legend>
                 <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required></label>
-              <% } %>
-            <% if(answer === 'ict') {%>
-              <label>ICT <input type="radio" name="opleiding" value="ict" required checked></label>
-              <% } else { %>
                 <label>ICT <input type="radio" name="opleiding" value="ict" required></label>
-              <% } %>
-            <% if(answer === 'anders') {%>
-              <label>Anders <input type="radio" name="opleiding" value="anders" required checked></label>
-              <% } else { %>
                 <label>Anders <input type="radio" name="opleiding" value="anders" required></label>
-              <% } %>
-        </fieldset>
+            </fieldset>
+            <input type="hidden" name="userid" value=<%= userid %>>
 
-        <button type="submit">Volgende</button>
-      </form>
-      <a href="/vraag2"><button type="button">Terug</button></a>
-    <%- include('./partials/continue.ejs') %>
+            <!-- Navigation -->
+            <nav>
+                <button type="submit" value="vraag4">Verder</button>
+            </nav>
+        </form>
     </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+
+    <%- include ('./partials/footer') %>

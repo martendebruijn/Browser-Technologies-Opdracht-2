@@ -1,15 +1,20 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
-<main>
-    <section>
-      <form method="post" action="/vraag6">
-        <p>Vraag 5 van 6</p>
-       <label>Wanneer ben je geboren?<input type="date" name="verjaardag" value="<%- answer %>" required></label>
+<%- include ('./partials/head') %>
 
-        <button type="submit">Volgende</button>
-      </form>
-      <a href="/vraag4"><button type="button">Terug</button></a>
-    <%- include('./partials/continue.ejs') %>
+<main class="survey">
+
+    <section>
+
+        <form method="post" action="/vraag6" survey>
+            <p>Vraag 5 van 6</p>
+            <label>Wanneer ben je geboren?<input type="date" name="verjaardag" required></label>
+
+            <input type="hidden" name="userid" value=<%= userid %>>
+
+            <!-- Navigation -->
+            <nav>
+                <button type="submit" value="vraag6">Verder</button>
+            </nav>
+        </form>
     </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+
+    <%- include ('./partials/footer') %>

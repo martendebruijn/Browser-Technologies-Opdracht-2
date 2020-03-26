@@ -1,15 +1,19 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
-<main>
-    <section>
-      <form method="post" action="/vraag5">
-        <p>Vraag 4 van 6</p>
-       <label>Kies je favoriete kleur:<input type="color" name="kleur" value="<%- answer %>" required></label>
+<%- include ('./partials/head') %>
 
-        <button type="submit">Volgende</button>
-      </form>
-      <a href="/vraag3"><button type="button">Terug</button></a>
-    <%- include('./partials/continue.ejs') %>
+<main class="survey">
+    <section>
+
+        <form method="post" action="/vraag5" survey>
+            <p>Vraag 4 van 6</p>
+            <label>Kies je favoriete kleur:<input type="color" name="kleur" required></label>
+
+            <input type="hidden" name="userid" value=<%= userid %>>
+
+            <!-- Navigation -->
+            <nav>
+                <button type="submit" value="vraag5">Verder</button>
+            </nav>
+        </form>
     </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+
+    <%- include ('./partials/footer') %>

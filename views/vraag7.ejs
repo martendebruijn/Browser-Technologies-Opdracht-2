@@ -1,38 +1,25 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/header.ejs') %>
-<main>
+<%- include ('./partials/head') %>
+
+<main class="survey">
+
     <section>
-      <form method="post" action="/finished">
-        <p>Vraag 7 van 7</p>
+
+        <form method="post" action="/finished" survey>
+            <p>Vraag 7 van 7</p>
         <fieldset>
             <legend>Wie is je favoriete docent?</legend>
+            <label>Koop <input type="radio" name="docent" value="koop" required></label>
+            <label>Joost <input type="radio" name="docent" value="Joost" required></label>
+            <label>Vasillis <input type="radio" name="docent" value="Vasillis" required></label>
+            <label>Laurens <input type="radio" name="docent" value="Laurens" required></label>
 
-            <% if(answer === 'koop') {%>
-              <label>Koop <input type="radio" name="docent" value="koop" required checked></label>
-              <% } else { %>
-                <label>Koop <input type="radio" name="docent" value="koop" required></label>
-              <% } %>
-            <% if(answer === 'Joost') {%>
-              <label>Joost <input type="radio" name="docent" value="Joost" required checked></label>
-              <% } else { %>
-                <label>Joost <input type="radio" name="docent" value="Joost" required></label>
-              <% } %>
-            <% if(answer === 'Vasillis') {%>
-              <label>Vasillis <input type="radio" name="docent" value="Vasillis" required checked></label>
-              <% } else { %>
-                <label>Vasillis <input type="radio" name="docent" value="Vasillis" required></label>
-              <% } %>
-            <% if(answer === 'Laurens') {%>
-              <label>Laurens <input type="radio" name="docent" value="Laurens" required checked></label>
-              <% } else { %>
-                <label>Laurens <input type="radio" name="docent" value="Laurens" required></label>
-              <% } %>            
-        </fieldset>
+            <input type="hidden" name="userid" value=<%= userid %>>
 
-        <button type="submit">Volgende</button>
-      </form>
-      <a href="/vraag6"><button type="button">Terug</button></a>
-    <%- include('./partials/continue.ejs') %>
+            <!-- Navigation -->
+            <nav>
+                <button type="submit" value="finished">Verder</button>
+            </nav>
+        </form>
     </section>
-  </main>
-<%- include('./partials/footer.ejs') %>
+
+    <%- include ('./partials/footer') %>
