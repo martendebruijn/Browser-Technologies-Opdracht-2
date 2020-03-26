@@ -1,14 +1,15 @@
 <%- include ('./partials/head') %>
 
-<main class="user-code">
+<main>
 
     <section>
-        <h1>Je persoonlijke code</h1>
-        <p><span>Wil je later verdergaan met de ingevulde gegevens?</span><span>Bewaar deze code dan en vul deze bij je
-                volgende bezoek in.</span></p>
+        <div>
+            <h2>Je persoonlijke code</h2>
+            <p>Bewaar deze code om later verder te gaan.</p>
+        </div>
 
-        <form method="post" action="/vraag1">
-            <input type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
+        <form class="f1" method="post" action="/vraag1">
+            <input class="i1" type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
             <button type="submit" value="start">Beginnen</button>
         </form>
     </section>

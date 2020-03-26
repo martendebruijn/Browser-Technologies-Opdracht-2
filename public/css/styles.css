@@ -1,0 +1,244 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/* body {
+	line-height: 1;
+} */
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* --- --- --- */
+
+body {
+    line-height: 1.5 !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* headers */
+h2 {
+   font-weight: 700; 
+}
+
+/* layout */
+body {
+    height: 100vh;
+}
+header, footer {
+    height: 4em;
+    background: #72b5b7;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+}
+ main {
+    height: calc(100vh - 8em);
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+button, .btn {
+   display: flex;
+   background: #40e0d0;
+   height: 5em;
+   width: 13em;
+   align-items: center;
+   justify-content: center;
+   border-radius: 6px;
+   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+   transition: all .2s ease-in-out;
+   text-transform: uppercase;
+}
+section {
+    height: calc(100% - 2em); 
+    padding: 1em;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+}
+section > ul {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover, .btn:hover {
+    transform: scale(.9);
+}
+header a:hover {
+    color: white;
+}
+form, label, input[type=text] {
+    width: 100%;
+}
+
+input[type=text] {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid grey;
+    transition: all .3s ease-in-out;
+}
+
+/* generate-code */
+.f1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 2em);
+}
+.i1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+    width: 100%;
+}
+.f2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+/* hide hint */
+.hint {
+    display: none;
+    font-size: small;
+}
+/* show hint */
+input:focus ~ .hint {
+    display: inline;
+}
+
+/* FORM VALIDATION */
+/* focused + not empty + valid */
+label input[type=text] {
+    border-bottom: 2px solid green;
+}
+/* focused + empty + not valid */
+label input[type=text]:focus:invalid:placeholder-shown {
+    border-bottom: 2px solid blue;
+}
+/* not focused + empty + not valid */
+label input[type=text]:invalid:placeholder-shown {
+    border-bottom: 2px solid gray;
+}
+/* focused + not empty + not valid */
+/* not focused + not empty + not valid */
+input[type=text]:invalid:not(:placeholder-shown) {
+    border-bottom: 2px solid red;
+}
+
+/* vraag 2 */
+fieldset label {
+    display: flex;
+    align-items: center;
+}
+input[type=radio] {
+    display: none;
+}
+fieldset label:before {
+    content: '';
+    border: 2px solid gray;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+input[type=radio]:checked + label:before {
+    background: green;
+}
+form nav, fieldset nav {
+    display: flex;
+    justify-content: center;
+}
+
+section > form {
+    height: calc(100% - 2em);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+input[type=color] {
+    height: 20em;
+    width: 100%;
+}
+input[type=date] {
+    border: 2px solid grey;
+    border-radius: 6px;
+    padding: 1em;
+}
+input[type=range] {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 6px;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 25px; 
+  height: 25px; 
+  background: #4CAF50; 
+  cursor: pointer; 
+}
+input[type=range]::-moz-range-thumb {
+  width: 25px; 
+  height: 25px; 
+  background: #4CAF50; 
+  cursor: pointer; 
+}
+fieldset {
+    height: 100%;
+}

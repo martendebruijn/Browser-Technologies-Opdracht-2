@@ -1,15 +1,14 @@
 <%- include ('./partials/head') %>
 
-<main class="survey">
+<main>
     <section>
-
+        <h2>Vraag 3 van 7</h2>
         <form method="post" action="/vraag4" survey>
-            <p>Vraag 3 van 6</p>
             <fieldset>
-                <legend>Welke opleiding doe je?</legend>
-                <label>Communicatie Multimedia Design <input type="radio" name="opleiding" value="cmd" required></label>
-                <label>ICT <input type="radio" name="opleiding" value="ict" required></label>
-                <label>Anders <input type="radio" name="opleiding" value="anders" required></label>
+                <legend><h2>Welke opleiding doe je?</h2></legend>
+                <input id="cmd" type="radio" name="opleiding" value="cmd" required><label for="cmd">Communicatie Multimedia Design</label>
+                <input id="ict" type="radio" name="opleiding" value="ict" required><label for="ict">ICT</label>
+                <input type="radio" id="anders" name="opleiding" value="anders" required><label for="anders">Anders</label>
             </fieldset>
             <input type="hidden" name="userid" value=<%= userid %>>
 

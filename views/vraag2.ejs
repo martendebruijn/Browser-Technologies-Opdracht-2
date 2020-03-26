@@ -1,21 +1,20 @@
 <%- include ('./partials/head') %>
 
-<main class="survey">
+<main>
 
     <section>
-
-        <form method="post" action="/vraag3" survey>
-            <p>Vraag 2 van 6</p>
+        <h2>Vraag 2 van 7</h2>
+        <form method="post" action="/vraag3">
             <fieldset>
-                <legend>Hoe oud ben je?</legend>
-                <label>18 of jonger <input type="radio" name="leeftijd" value="18 of jonger" required></label>
-                <label>19 <input type="radio" name="leeftijd" value="19" required></label>
-                <label>20<input type="radio" name="leeftijd" value="20" required></label>
-                <label>21 <input type="radio" name="leeftijd" value="21" required></label>
-                <label>22 <input type="radio" name="leeftijd" value="22" required></label>
-                <label>23 <input type="radio" name="leeftijd" value="23" required></label>
-                <label>24 <input type="radio" name="leeftijd" value="24"" required></label>
-                <label>25 of ouder <input type="radio" name="leeftijd" value="25 of ouder" required></label>
+                <legend><h2>Hoe oud ben je?</h2></legend>
+                <input id="18" type="radio" name="leeftijd" value="18 of jonger" required><label for="18">18 of jonger</label>
+                <input type="radio" id="19" name="leeftijd" value="19" required><label for="19">19</label>
+                <input type="radio" id="20" name="leeftijd" value="20" required><label for="20">20</label>
+                <input type="radio" id="21" name="leeftijd" value="21" required><label for="21">21</label>
+                <input type="radio" id="22" name="leeftijd" value="22" required><label for="22">22</label>
+                <input type="radio" id="23" name="leeftijd" value="23" required><label for="23">23</label>
+                <input type="radio" id="24" name="leeftijd" value="24"" required><label for="24">24</label>
+                <input type="radio" id="25" name="leeftijd" value="25 of ouder" required><label for="25">25 of ouder</label>
             </fieldset>
             <input type="hidden" name="userid" value=<%= userid %>>
 

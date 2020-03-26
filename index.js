@@ -38,7 +38,7 @@ app
     storage.addDataToArray(req.body, 'vraag3', 'vraag4', res)
   )
   .post('/vraag5', urlencodedParser, (req, res) =>
-    storage.addDataToArray(req.body, 'vraag5', 'vraag6', res)
+    storage.addDataToArray(req.body, 'vraag4', 'vraag5', res)
   )
   .post('/vraag6', urlencodedParser, (req, res) =>
     storage.addDataToArray(req.body, 'vraag5', 'vraag6', res)

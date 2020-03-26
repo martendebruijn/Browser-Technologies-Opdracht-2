@@ -1,14 +1,13 @@
 <%- include ('./partials/head') %>
 
-<main class="survey">
+<main>
 
     <section>
-
+        <h2>Vraag 6 van 7</h2>
         <form method="post" action="/vraag7" survey>
-            <p>Vraag 6 van 6</p>
-            <label>Welk cijfer zou jij deze minor geven?  1<input type="range" min="1" max="10" name="cijfer" required>10</label>
+            <label><h2>Welk cijfer zou jij deze minor geven? (1 tot 10)</h2><input type="range" min="1" value="5" max="10" name="cijfer" required></label>
 
-            <input type="hidden" name="userid" value=<%= userid %>>
+            <input type="hidden" name="userid" value=<%= userid %>
 
             <!-- Navigation -->
             <nav>
@@ -16,5 +15,6 @@
             </nav>
         </form>
     </section>
+  
 
     <%- include ('./partials/footer') %>

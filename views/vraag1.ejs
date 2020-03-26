@@ -1,17 +1,18 @@
 <%- include('./partials/head.ejs') %> 
 <main>
   <section>
-    <form method="post" action="/vraag2" survey>
-      <label
-        >Voer je naam in:
-        <input name="name" type="text" placeholder="John Doe" required />
+    <h2>Vraag 1 van 7</h2>
+    <form class="f2" method="post" action="/vraag2">
+      <label><h2>Wat is je naam?</h2>
+        <input name="name" type="text" placeholder=" " required pattern="^[A-Za-z -]+$"/>
+        <p class="hint">Gebruik alleen "a-z" en "-" of spatie.</p>
       </label>
 
       <input type="hidden" name="userid" value=<%= userid %>>
 
       <!-- Navigation -->
       <nav>
-        <button type="submit" value="vraag2">Vraag 2</button>
+        <button type="submit" value="vraag2">Verder</button>
       </nav>
     </form>
   </section>
