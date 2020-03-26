@@ -58,7 +58,7 @@ body {
 h1 {
     font-size: 1.5em;
 }
-h1, h2, header, footer {
+h1, h2, header, footer, a, button {
    font-weight: 700; 
 }
 header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset nav, section > form {
@@ -69,21 +69,23 @@ header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset 
 /* layout */
 body {
     height: 100vh;
+    background: black;
+    color: white;
 }
 header, footer {
     height: 4em;
-    background: #72b5b7;
     padding: 0 1em;
+    
 }
  main {
     height: calc(100vh - 8em);
 }
-a {
+a, button {
     text-decoration: none;
-    color: black;
+    color: #1089ff;
 }
 button, .btn {
-   background: #40e0d0;
+   background: white;
    height: 5em;
    width: 13em;
    justify-content: center;
@@ -93,9 +95,12 @@ button, .btn {
    transition: all .2s ease-in-out;
    text-transform: uppercase;
 }
+input {
+    color: white;
+}
 main > section {
     height: calc(100% - 2em); 
-    padding: 1em;
+    padding: 0 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -115,8 +120,12 @@ button:hover, .btn:hover {
 a:hover {
     text-decoration: underline;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+}
 header a:hover {
-    color: white;
+    color: green;
 }
 form, label, input[type=text], input[type=color], input[type=range] {
     width: 100%;
@@ -293,4 +302,10 @@ input:-moz-read-only {
     background: #4CAF50;
     height: 100%;
     width: 100%;
+}
+section > section > section:first-of-type {
+    margin-top: 0;
+}
+section > section > section {
+    margin-top: 1em;
 }
