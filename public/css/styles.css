@@ -174,10 +174,10 @@ input[type=text]:focus:invalid:-ms-input-placeholder {
 }
 /* not focused + empty + not valid */
 input[type=text]:invalid:placeholder-shown {
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid white;
 }
 input[type=text]:invalid:-ms-input-placeholder {
-    border-bottom: 2px solid lightgray;
+    border-bottom: 2px solid white;
 }
 /* focused + not empty + not valid */
 /* not focused + not empty + not valid */
@@ -192,7 +192,7 @@ input[type=radio] {
 }
 fieldset label:before {
     content: '';
-    border: 2px solid lightgray;
+    border: 2px solid white;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -263,7 +263,7 @@ input:-moz-read-only {
 .progress-bar {
     height: 20px;
     width: 100%;
-    background: lightgray;
+    background: white;
     border-radius: 6px;
     overflow: hidden;
 }
