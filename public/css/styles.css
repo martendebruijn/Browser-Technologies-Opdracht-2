@@ -60,6 +60,7 @@ h2, header, footer {
 }
 header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset nav, section > form {
     display: flex;
+    display: -ms-flexbox;
     align-items: center;
 }
 /* layout */
@@ -84,6 +85,7 @@ button, .btn {
    width: 13em;
    justify-content: center;
    border-radius: 6px;
+   border-collapse: separate;
    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
    transition: all .2s ease-in-out;
    text-transform: uppercase;
@@ -100,6 +102,9 @@ section > ul {
 
 button:hover, .btn:hover {
     transform: scale(.9);
+}
+a:hover {
+    text-decoration: underline;
 }
 header a:hover {
     color: white;
@@ -126,9 +131,7 @@ input[type=text] {
     text-align: center;
     margin-bottom: 2em;
 }
-input:read-only {
-    border: none;
-}
+
 /* hide hint */
 .hint {
     display: none;
@@ -141,20 +144,29 @@ input:focus ~ .hint {
 
 /* FORM VALIDATION */
 /* focused + not empty + valid */
-label input[type=text] {
+input[type=text] {
     border-bottom: 2px solid green;
 }
 /* focused + empty + not valid */
-label input[type=text]:focus:invalid:placeholder-shown {
+input[type=text]:focus:invalid:placeholder-shown {
+    border-bottom: 2px solid blue;
+}
+input[type=text]:focus:invalid:-ms-input-placeholder {
     border-bottom: 2px solid blue;
 }
 /* not focused + empty + not valid */
-label input[type=text]:invalid:placeholder-shown {
+input[type=text]:invalid:placeholder-shown {
+    border-bottom: 2px solid gray;
+}
+input[type=text]:invalid:-ms-input-placeholder {
     border-bottom: 2px solid gray;
 }
 /* focused + not empty + not valid */
 /* not focused + not empty + not valid */
 input[type=text]:invalid:not(:placeholder-shown) {
+    border-bottom: 2px solid red;
+}
+input[type=text]:invalid:not(:-ms-input-placeholder) {
     border-bottom: 2px solid red;
 }
 input[type=radio] {
@@ -174,6 +186,7 @@ input[type=radio]:checked + label:before {
 section > form {
     height: calc(100% - 4em);
     flex-direction: column;
+    -moz-box-direction: column;
     justify-content: space-between;
 }
 input[type=color] {
@@ -191,7 +204,6 @@ input[type=range] {
   background: #d3d3d3; 
   outline: none;
   opacity: 0.7; 
-  -webkit-transition: .2s; 
   transition: opacity .2s;
   border-radius: 6px;
 }
@@ -213,6 +225,7 @@ input[type=range]::-moz-range-thumb {
 fieldset {
     height: 100%;
     align-self: flex-start;
+    -ms-grid-column-align: start;
 }
 /* DESKTOP and TABLET */
 @media (min-width: 750px) {
@@ -222,4 +235,10 @@ fieldset {
     section > ul > li:last-of-type {
         margin-left: 1em;
     }
+}
+input:read-only {
+    border-bottom: none;
+}
+input:-moz-read-only {
+    border-bottom: none;
 }
