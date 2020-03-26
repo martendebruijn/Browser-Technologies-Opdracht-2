@@ -55,7 +55,10 @@ body {
 }
 
 /* headers */
-h2, header, footer {
+h1 {
+    font-size: 1.5em;
+}
+h1, h2, header, footer {
    font-weight: 700; 
 }
 header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset nav, section > form {
@@ -90,14 +93,20 @@ button, .btn {
    transition: all .2s ease-in-out;
    text-transform: uppercase;
 }
-section {
+main > section {
     height: calc(100% - 2em); 
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 section > ul {
     height: 100%;
     flex-wrap: wrap;
     justify-content: center;
+}
+section > ul li:first-of-type {
+    margin-bottom: 1em;
 }
 
 button:hover, .btn:hover {
@@ -124,7 +133,7 @@ input[type=text] {
 .f1 {
     flex-wrap: wrap;
     justify-content: center;
-    width: calc(100% - 2em);
+    width: 100%;
 }
 .i1 {
     font-size: 2em;
@@ -145,7 +154,7 @@ input:focus ~ .hint {
 /* FORM VALIDATION */
 /* focused + not empty + valid */
 input[type=text] {
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid #4CAF50;
 }
 /* focused + empty + not valid */
 input[type=text]:focus:invalid:placeholder-shown {
@@ -156,10 +165,10 @@ input[type=text]:focus:invalid:-ms-input-placeholder {
 }
 /* not focused + empty + not valid */
 input[type=text]:invalid:placeholder-shown {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid lightgray;
 }
 input[type=text]:invalid:-ms-input-placeholder {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid lightgray;
 }
 /* focused + not empty + not valid */
 /* not focused + not empty + not valid */
@@ -174,14 +183,14 @@ input[type=radio] {
 }
 fieldset label:before {
     content: '';
-    border: 2px solid gray;
+    border: 2px solid lightgray;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     margin-right: 1em;
 }
 input[type=radio]:checked + label:before {
-    background: green;
+    background: #4CAF50;
 }
 section > form {
     height: calc(100% - 4em);
@@ -245,43 +254,43 @@ input:-moz-read-only {
 .progress-bar {
     height: 20px;
     width: 100%;
-    background: grey;
+    background: lightgray;
     border-radius: 6px;
     overflow: hidden;
 }
 .progress-v1  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( 100% / 7 );
     border-radius: 6px 0 0 6px;
 }
 .progress-v2  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( calc( 100% / 7 ) * 2);
 }
 .progress-v3  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( calc( 100% / 7 ) * 3);
 }
 .progress-v4  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( calc( 100% / 7 ) * 4);
 }
 .progress-v5  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( calc( 100% / 7 ) * 5);
 }
 .progress-v6  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: calc( calc( 100% / 7 ) * 6);
 }
 .progress-v7  {
-    background: green;
+    background: #4CAF50;
     height: 100%;
     width: 100%;
 }
