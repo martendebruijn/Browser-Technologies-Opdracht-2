@@ -55,10 +55,13 @@ body {
 }
 
 /* headers */
-h2 {
+h2, header, footer {
    font-weight: 700; 
 }
-
+header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset nav, section > form {
+    display: flex;
+    align-items: center;
+}
 /* layout */
 body {
     height: 100vh;
@@ -66,9 +69,6 @@ body {
 header, footer {
     height: 4em;
     background: #72b5b7;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
     padding: 0 1em;
 }
  main {
@@ -79,11 +79,9 @@ a {
     color: black;
 }
 button, .btn {
-   display: flex;
    background: #40e0d0;
    height: 5em;
    width: 13em;
-   align-items: center;
    justify-content: center;
    border-radius: 6px;
    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
@@ -93,15 +91,10 @@ button, .btn {
 section {
     height: calc(100% - 2em); 
     padding: 1em;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
 }
 section > ul {
     height: 100%;
-    display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
 }
 
@@ -111,7 +104,7 @@ button:hover, .btn:hover {
 header a:hover {
     color: white;
 }
-form, label, input[type=text] {
+form, label, input[type=text], input[type=color], input[type=range] {
     width: 100%;
 }
 
@@ -123,11 +116,8 @@ input[type=text] {
     transition: all .3s ease-in-out;
 }
 
-/* generate-code */
 .f1 {
-    display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     width: calc(100% - 2em);
 }
@@ -135,13 +125,9 @@ input[type=text] {
     font-size: 2em;
     text-align: center;
     margin-bottom: 2em;
-    width: 100%;
 }
-.f2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+input:read-only {
+    border: none;
 }
 /* hide hint */
 .hint {
@@ -171,12 +157,6 @@ label input[type=text]:invalid:placeholder-shown {
 input[type=text]:invalid:not(:placeholder-shown) {
     border-bottom: 2px solid red;
 }
-
-/* vraag 2 */
-fieldset label {
-    display: flex;
-    align-items: center;
-}
 input[type=radio] {
     display: none;
 }
@@ -191,21 +171,13 @@ fieldset label:before {
 input[type=radio]:checked + label:before {
     background: green;
 }
-form nav, fieldset nav {
-    display: flex;
-    justify-content: center;
-}
-
 section > form {
     height: calc(100% - 4em);
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 input[type=color] {
     height: 20em;
-    width: 100%;
 }
 input[type=date] {
     border: 2px solid grey;
@@ -215,17 +187,15 @@ input[type=date] {
 input[type=range] {
   -webkit-appearance: none; 
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  height: 25px; 
+  background: #d3d3d3; 
+  outline: none;
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
   transition: opacity .2s;
   border-radius: 6px;
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; 
   appearance: none;
@@ -243,4 +213,13 @@ input[type=range]::-moz-range-thumb {
 fieldset {
     height: 100%;
     align-self: flex-start;
+}
+/* DESKTOP and TABLET */
+@media (min-width: 750px) {
+    section > ul > li:first-of-type {
+        margin-right: 1em;
+    }
+    section > ul > li:last-of-type {
+        margin-left: 1em;
+    }
 }
