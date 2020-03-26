@@ -197,10 +197,11 @@ form nav, fieldset nav {
 }
 
 section > form {
-    height: calc(100% - 2em);
+    height: calc(100% - 4em);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 input[type=color] {
     height: 20em;
@@ -241,4 +242,5 @@ input[type=range]::-moz-range-thumb {
 }
 fieldset {
     height: 100%;
+    align-self: flex-start;
 }

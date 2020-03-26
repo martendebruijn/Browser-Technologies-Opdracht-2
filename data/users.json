@@ -235,5 +235,36 @@
   },
   {
     "id": "z4f2Gh"
+  },
+  {
+    "id": "TRaF8f",
+    "vraag1": {
+      "name": "jhjk",
+      "userid": "TRaF8f"
+    },
+    "vraag2": {
+      "leeftijd": "23",
+      "userid": "TRaF8f"
+    },
+    "vraag3": {
+      "opleiding": "ict",
+      "userid": "TRaF8f"
+    },
+    "vraag4": {
+      "kleur": "#ff40ff",
+      "userid": "TRaF8f"
+    },
+    "vraag5": {
+      "verjaardag": "2020-03-11",
+      "userid": "TRaF8f"
+    },
+    "vraag6": {
+      "cijfer": "6",
+      "userid": "TRaF8f"
+    },
+    "vraag7": {
+      "docent": "Joost",
+      "userid": "TRaF8f"
+    }
   }
 ]
