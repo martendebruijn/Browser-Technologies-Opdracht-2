@@ -242,3 +242,46 @@ input:read-only {
 input:-moz-read-only {
     border-bottom: none;
 }
+.progress-bar {
+    height: 20px;
+    width: 100%;
+    background: grey;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.progress-v1  {
+    background: green;
+    height: 100%;
+    width: calc( 100% / 7 );
+    border-radius: 6px 0 0 6px;
+}
+.progress-v2  {
+    background: green;
+    height: 100%;
+    width: calc( calc( 100% / 7 ) * 2);
+}
+.progress-v3  {
+    background: green;
+    height: 100%;
+    width: calc( calc( 100% / 7 ) * 3);
+}
+.progress-v4  {
+    background: green;
+    height: 100%;
+    width: calc( calc( 100% / 7 ) * 4);
+}
+.progress-v5  {
+    background: green;
+    height: 100%;
+    width: calc( calc( 100% / 7 ) * 5);
+}
+.progress-v6  {
+    background: green;
+    height: 100%;
+    width: calc( calc( 100% / 7 ) * 6);
+}
+.progress-v7  {
+    background: green;
+    height: 100%;
+    width: 100%;
+}
