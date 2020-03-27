@@ -53,6 +53,9 @@ body {
     line-height: 1.5 !important;
     font-family: 'Roboto', sans-serif;
 }
+footer {
+    justify-content: flex-end;
+}
 
 /* headers */
 h1 {
@@ -219,11 +222,10 @@ input[type=range] {
   -webkit-appearance: none; 
   appearance: none;
   height: 25px; 
-  background: #d3d3d3; 
+  background: white; 
   outline: none;
-  opacity: 0.7; 
-  transition: opacity .2s;
   border-radius: 6px;
+  overflow: hidden;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -246,14 +248,7 @@ fieldset {
     -ms-grid-column-align: start;
 }
 /* DESKTOP and TABLET */
-@media (min-width: 750px) {
-    section > ul > li:first-of-type {
-        margin-right: 1em;
-    }
-    section > ul > li:last-of-type {
-        margin-left: 1em;
-    }
-}
+
 input:read-only {
     border-bottom: none;
 }
@@ -267,40 +262,29 @@ input:-moz-read-only {
     border-radius: 6px;
     overflow: hidden;
 }
-.progress-v1  {
+.progress-v1, .progress-v2, .progress-v3, .progress-v4, .progress-v5, .progress-v6, .progress-v7 {
     background: #4CAF50;
     height: 100%;
+}
+.progress-v1  {
     width: calc( 100% / 7 );
-    border-radius: 6px 0 0 6px;
 }
 .progress-v2  {
-    background: #4CAF50;
-    height: 100%;
     width: calc( calc( 100% / 7 ) * 2);
 }
 .progress-v3  {
-    background: #4CAF50;
-    height: 100%;
     width: calc( calc( 100% / 7 ) * 3);
 }
 .progress-v4  {
-    background: #4CAF50;
-    height: 100%;
     width: calc( calc( 100% / 7 ) * 4);
 }
 .progress-v5  {
-    background: #4CAF50;
-    height: 100%;
     width: calc( calc( 100% / 7 ) * 5);
 }
 .progress-v6  {
-    background: #4CAF50;
-    height: 100%;
     width: calc( calc( 100% / 7 ) * 6);
 }
 .progress-v7  {
-    background: #4CAF50;
-    height: 100%;
     width: 100%;
 }
 section > section > section:first-of-type {
@@ -308,4 +292,29 @@ section > section > section:first-of-type {
 }
 section > section > section {
     margin-top: 1em;
+}
+@media (min-width: 750px) {
+    section > ul > li:first-of-type {
+        margin-right: 1em;
+    }
+    section > ul > li:last-of-type {
+        margin-left: 1em;
+    }
+    section > ul li:first-of-type {
+        margin-bottom: 0em;
+    }
+    section > section > section {
+        min-width: 25em;
+    }
+    section > section, main > section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    section > section > section h1, section > section > section h2, section > section > section p {
+        width: 100%;
+    }
+    .progress-bar, form {
+        width: 70%;
+    }
 }
