@@ -88,6 +88,9 @@ app.post('/finished/:id', urlencodedParser, (req, res) => {
     script: './../js/main.js',
   });
 });
+app.get('/swipe-test', (req, res) => {
+  res.send('HOERA JE HEBT GESWIPTED');
+});
 app.get('/vraag1/:id', urlencodedParser, (req, res) => {
   const id = req.params.id;
   storage.checkAnswer(id, 'vraag1', 'vraag1', res);
