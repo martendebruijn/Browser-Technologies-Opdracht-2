@@ -21,7 +21,7 @@ window.addEventListener(
       }
     }
     function handleswipeleft(isleftswipe) {
-      if (isrightswipe) {
+      if (isleftswipe) {
         // right swipe
         window.location.replace('/swipe-test-left');
       } else {
