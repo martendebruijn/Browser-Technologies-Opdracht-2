@@ -31,16 +31,15 @@ function checkAnswer(userid, name, route, res) {
   const index = json.map(o => o.id).indexOf(user.id);
   const data = json[index];
   const vraagObj = data[name];
-  const question = Object.keys(vraagObj)[0];
   let answer = '';
   let answerReversed = answer;
   if (vraagObj) {
     const objKeys = Object.keys(vraagObj);
     const key = objKeys[0];
     answer = vraagObj[key];
-  }
-  if (question === 'verjaardag') {
-    answerReversed = checkDateFormat(answer);
+    if (key === 'verjaardag') {
+      answerReversed = checkDateFormat(answer);
+    }
   }
 
   res.render(route, {
