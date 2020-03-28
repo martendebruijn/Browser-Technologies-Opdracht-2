@@ -53,22 +53,22 @@ body {
     line-height: 1.5 !important;
     font-family: 'Roboto', sans-serif;
 }
-footer {
-    justify-content: flex-end;
-}
-
 /* headers */
 h1 {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 h1, h2, header, footer, a, button, h3, h4 {
    font-weight: 700; 
 }
-header, footer, button, .btn, .secundair, fieldset label, form nav, fieldset nav, section > form {
-    display: flex;
-    display: -ms-flexbox;
-    align-items: center;
-}
+
+/* utility */
+.hide {
+    display: none;
+  }
+  .show {
+      visibility: visible;
+      transition: none;  
+  }
 /* layout */
 body {
     height: 100vh;
@@ -83,7 +83,10 @@ header, footer {
 header {
     background: #1089ff;
 }
- main {
+header {
+    justify-content: space-between;
+}
+main {
     margin: 1em;
     min-height: 468px;
     height: calc(100vh - 8em);
@@ -91,6 +94,58 @@ header {
     z-index: 2;
     width: calc(100% - 2em);
 }
+main > section {
+    height: 90%;
+    padding: 0 1em;
+}
+section > section > section:first-of-type {
+    margin-top: 0;
+}
+section > section > section {
+    margin-top: 1em;
+}
+section > section {
+    width: 100%;
+}
+main > section {
+    flex-direction: column;
+}
+form > section {
+    width: 100%;
+}
+form section:last-of-type {
+    position: absolute;
+    bottom: 3em;
+    right: 0;
+    z-index: 2;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+footer {
+    justify-content: flex-end;
+}
+/* generate-user-code */
+.f1 {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.i1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+/* flex-box */
+header, footer, button, .btn, .secundair, fieldset label, form nav, fieldset nav, section > form, main > section {
+    display: flex;
+    display: -ms-flexbox;
+    align-items: center;
+}
+/* links and buttons */
 a, button {
     text-decoration: none;
     color: #1089ff;
@@ -106,6 +161,7 @@ button, .btn {
 }
 .secundair {
     border: 2px solid #1089ff;
+    background: black;
 }
 .btn, .secundair {
     height: 3em;
@@ -116,9 +172,6 @@ button {
     width: calc(8em + 4px);
 }
 button, .btn, .secundair {
-   /* height: 5em;
-   width: 13em; */
-  
    justify-content: center;
    border-radius: 6px;
    border-collapse: separate;
@@ -127,18 +180,6 @@ button, .btn, .secundair {
    text-transform: uppercase;
    font-size: .8em;
 }
-input {
-    color: white;
-}
-main > section {
-    height: 90%;
-    padding: 0 1em;
-}
-/* section > ul {
-    height: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
 button:hover, .btn:hover, .secundair:hover {
     transform: scale(.9);
 }
@@ -148,14 +189,13 @@ button:hover {
 a:hover, button:hover {
     text-decoration: underline;
 }
-header {
-    display: flex;
-    justify-content: space-between;
+/* forms */
+input {
+    color: white;
 }
 form, label, input[type=text], input[type=color], input[type=range], input[type=date] {
     width: 100%;
 }
-
 input[type=text] {
     border: 0;
     outline: 0;
@@ -166,18 +206,9 @@ input[type=text] {
 input[type=date] {
     color: black;
 }
-
-.f1 {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+.label > h3, legend {
+    margin-bottom: 1em;
 }
-.i1 {
-    font-size: 2em;
-    text-align: center;
-    margin-bottom: 2em;
-}
-
 /* hide hint */
 .hint {
     display: none;
@@ -187,8 +218,7 @@ input[type=date] {
 input:focus ~ .hint {
     display: inline;
 }
-
-/* FORM VALIDATION */
+/* form validation */
 /* focused + not empty + valid */
 input[type=text] {
     border-bottom: 2px solid #4CAF50;
@@ -233,7 +263,6 @@ section > form {
     height: calc(100% - 4em);
     flex-direction: column;
     -moz-box-direction: column;
-    justify-content: space-between;
 }
 input[type=color] {
     height: 20em;
@@ -252,7 +281,6 @@ input[type=range] {
   border-radius: 6px;
   overflow: hidden;
 }
-
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none; 
   appearance: none;
@@ -272,8 +300,6 @@ fieldset {
     align-self: flex-start;
     -ms-grid-column-align: start;
 }
-/* DESKTOP and TABLET */
-
 input:read-only {
     border-bottom: none;
 }
@@ -313,23 +339,48 @@ input:-moz-read-only {
 .progress-v7  {
     width: 100%;
 }
-section > section > section:first-of-type {
-    margin-top: 0;
-}
-section > section > section {
-    margin-top: 1em;
-}
-section > section {
-    width: 100%;
-}
-main > section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .justify-space-between {
     justify-content: space-between;
 }
+/* pop-up */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+.close:after {
+    content: '\00d7';
+    font-size: 2em;
+}
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1em;
+}
+
+section > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.content > ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+/* desktop and tablets */
 @media (min-width: 750px) {
     section > section > section {
         min-width: 25em;
@@ -345,64 +396,4 @@ main > section {
     .progress-bar, form {
         width: 70%;
     }
-}
-
-/* .warning {
-    display: none;
-} */
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  }
-  .close:after {
-      content: '\00d7';
-      font-size: 2em;
-  }
-  .hide {
-    display: none;
-  }
-  .show {
-      visibility: visible;
-      transition: none;  
-  }
-
-.popup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 0 1em;
-}
-form > section {
-    width: 100%;
-}
-section > ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-}
-.content > ul {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1em;
-}
-.label > h3, legend {
-    margin-bottom: 1em;
 }
