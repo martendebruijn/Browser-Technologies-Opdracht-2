@@ -55,7 +55,7 @@ body {
 }
 /* headers */
 h1 {
-    font-size: 1em;
+    font-size: 1.5em;
 }
 h1, h2, header, footer, a, button, h3, h4 {
    font-weight: 700; 
@@ -104,7 +104,7 @@ section > section > section:first-of-type {
 section > section > section {
     margin-top: 1em;
 }
-section > section, form > section, section > ul {
+section section:last-of-type, form > section, section > ul {
     width: 100%;
 }
 form section:last-of-type {
@@ -115,7 +115,7 @@ form section:last-of-type {
 }
 section > ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 footer {
     position: fixed;
@@ -336,6 +336,9 @@ input:-moz-read-only {
     width: 100%;
 }
 /* pop-up */
+.close:hover {
+    text-decoration: none;
+}
 .overlay {
     position: fixed;
     top: 0;
@@ -346,6 +349,8 @@ input:-moz-read-only {
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+    display: flex;
+    justify-content: center;
 }
 .overlay:target {
     visibility: visible;
@@ -361,6 +366,7 @@ input:-moz-read-only {
     justify-content: center;
     height: 100%;
     padding: 0 1em;
+    width: 70%;
 }
 .content > ul {
     display: flex;
@@ -383,4 +389,17 @@ input:-moz-read-only {
     .progress-bar, form {
         width: 70%;
     }
+    .pop-up {
+        width: 60%;
+    }
+}
+#touchsurface {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 1.1em;
+    background: lightyellow;
+    border: 1px solid orange;
+    color: black;
 }
