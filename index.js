@@ -92,7 +92,7 @@ app.get('/swipe-test', (req, res) => {
   res.send('HOERA JE HEBT NAAR RECHTS GESWIPTED');
 });
 app.get('/swipe-test-left', (req, res) => {
-  res.send('HOERA JE HEBT NAAR RECHTS GESWIPTED');
+  res.send('HOERA JE HEBT NAAR LINKS GESWIPTED');
 });
 app.get('/vraag1/:id', urlencodedParser, (req, res) => {
   const id = req.params.id;

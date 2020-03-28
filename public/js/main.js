@@ -10,11 +10,13 @@ window.addEventListener(
     const allowedTime = 200; // maximum time allowed to travel that distance
     var elapsedTime;
     var startTime;
+    const backIcon = document.getElementsByClassName('swipe-left');
 
     function handleswipe(isrightswipe) {
       if (isrightswipe) {
         // right swipe
-        window.location.replace('/swipe-test');
+        // window.location.replace('/swipe-test');
+        backIcon.classList.toggle('js-swiped-left');
       } else {
         // no right swipe
         console.log('sad boiiiii');
@@ -22,10 +24,10 @@ window.addEventListener(
     }
     function handleswipeleft(isleftswipe) {
       if (isleftswipe) {
-        // right swipe
+        // left swipe
         window.location.replace('/swipe-test-left');
       } else {
-        // no right swipe
+        // no left swipe
         console.log('sad boiiiii');
       }
     }
