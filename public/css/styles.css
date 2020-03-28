@@ -422,7 +422,7 @@ input:-moz-read-only {
     left: calc(-100px - 3em);
 }
 .js-swiped-left {
-    right: 0;
+    left: 55vw;
 }
 .js-swiped-right {
     left: 0;
