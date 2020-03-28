@@ -10,7 +10,7 @@ window.addEventListener(
     const allowedTime = 200; // maximum time allowed to travel that distance
     var elapsedTime;
     var startTime;
-    const backIcon = document.getElementsByClassName('swipe-left');
+    const backIcon = document.getElementById('js-swipe-left');
 
     function handleswipe(isrightswipe) {
       if (isrightswipe) {
