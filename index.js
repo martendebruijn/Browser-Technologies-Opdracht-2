@@ -17,26 +17,23 @@ const generate = require('./modules/generate.js');
 const user = require('./modules/user.js');
 
 // Routes
-// app.get('/', (req, res) => {
-//   res.render('home', {
-//     title: 'Ontdek het Rijksmuseum bij kleur',
-//     style: './css/styles.min.css.gz',
-//   });
-// });
 app.get('/', (req, res) => {
   res.render('home', {
     style: './css/styles.css',
+    script: './js/main.js',
   });
 });
 app.get('/generate-user-code', (req, res) => {
   res.render('generate-user-code', {
     userid: generate.userid(),
     style: './css/styles.css',
+    script: './js/main.js',
   });
 });
 app.get('/use-user-code', (req, res) => {
   res.render('use-user-code', {
     style: './css/styles.css',
+    script: './js/main.js',
   });
 });
 
@@ -87,6 +84,7 @@ app.post('/finished/:id', urlencodedParser, (req, res) => {
   res.render('finished', {
     userid: id,
     style: './../css/styles.css',
+    script: './../js/main.js',
   });
 });
 app.get('/vraag1/:id', urlencodedParser, (req, res) => {

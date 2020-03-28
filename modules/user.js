@@ -45,5 +45,6 @@ function renderNewRoute(input, res) {
   res.render(unanswerdCategories[0], {
     userid: existingUser.id,
     style: './css/styles.css',
+    script: './../js/main.js',
   });
 }

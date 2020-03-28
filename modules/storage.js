@@ -31,6 +31,7 @@ function checkAnswer(userid, name, route, res) {
   res.render(route, {
     userid: userid,
     style: './../css/styles.css',
+    script: './../js/main.js',
     answer: answer,
   });
 }
@@ -72,5 +73,6 @@ function setup(data, res) {
     userid: data.usercode,
     style: './../css/styles.css',
     answer: '',
+    script: './../js/main.js',
   });
 }
