@@ -15,8 +15,7 @@ window.addEventListener(
     function handleswipe(isrightswipe) {
       if (isrightswipe) {
         // right swipe
-        // window.location.replace('/swipe-test');
-        backIcon.classList.toggle('js-swiped-left');
+        window.location.replace('/swipe-test');
       } else {
         // no right swipe
         console.log('sad boiiiii');
@@ -25,7 +24,8 @@ window.addEventListener(
     function handleswipeleft(isleftswipe) {
       if (isleftswipe) {
         // left swipe
-        window.location.replace('/swipe-test-left');
+        backIcon.classList.toggle('js-swiped-left');
+        // window.location.replace('/swipe-test-left');
       } else {
         // no left swipe
         console.log('sad boiiiii');
