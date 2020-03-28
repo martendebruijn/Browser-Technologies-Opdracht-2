@@ -40,16 +40,16 @@
 
 - [x] Terug knop gaat nu naar de laatst beantwoorde pagina. -> Veranderen naar terug knop die daadwerkelijk terug gaat.
 - [x] Ingevulde antwoorden laten renderen wanneer de gebruiker terug gaat.
-- [ ] Home page maken
-- [ ] Pattern toevoegen als form validatie
-- [ ] CSS feedback geven bij form validatie
-- [ ] CSS Sausje toevoegen
+- [x] Home page maken
+- [x] Pattern toevoegen als form validatie
+- [x] CSS feedback geven bij form validatie
+- [x] CSS Sausje toevoegen
 - [ ] JS toevoegen + animaties
 - [ ] Testen op verschillende browsers
 - [ ] Testen op mobiel
 - [ ] Update README
-- [ ] Feature dat de ingevulde data opgeslagen wordt.
-- [ ] Change home btn url to heraku app url
+- [x] Feature dat de ingevulde data opgeslagen wordt.
+- [x] Change home btn url to heraku app url
 
 ## Use Case
 
