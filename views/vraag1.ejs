@@ -3,18 +3,18 @@
   <section>
     <h2>Vraag 1 van 7</h2>
     <div class="progress-bar"><div class="progress-v1"></div></div>
-    <form method="post" action="/vraag2">
-      <label><h2>Wat is je naam?</h2>
-        <input name="name" type="text" autocomplete="off" placeholder=" " required pattern="^[A-Za-z -]+$"/>
-        <p class="hint">Gebruik alleen "a-z" en "-" of spatie.</p>
+    <form method="post" action="/vraag2/<%= userid %>">
+      <label><h3>Wat is je naam?</h3>
+        <input name="name" type="text" autocomplete="off" placeholder=" " required pattern="^[A-Za-z -]+" value="<%= answer %>"/>
+
+        <p class="hint"><i>Gebruik alleen "a-z" en "-" of spatie.</i></p>
       </label>
-
-      <input type="hidden" name="userid" value=<%= userid %>>
-
-      <!-- Navigation -->
-      <nav>
-        <button type="submit" value="vraag2">Verder</button>
-      </nav>
+      <section>
+        <ul>
+            <li><a class="btn" href="/">Terug</a> <b>Als je terug gaat, kun je verder gaan door je persoonlijke code in te vullen bij het beginscherm.</b></li>
+            <li><button type="submit" value="vraag2">Verder</button></li>
+        </ul>
+    </section>
     </form>
   </section>
   <%- include('./partials/footer.ejs') %>

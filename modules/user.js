@@ -12,6 +12,9 @@ function check(input, res) {
 
 function getUser(input) {
   const json = storage.readFromJson();
+  // hier krijgen we een array terug van de gebruiker
+  console.log('get User: ');
+  console.log(json.find(user => user.id == input.userid));
   return json.find(user => user.id == input.userid);
 }
 
@@ -37,6 +40,10 @@ function renderNewRoute(input, res) {
       }
     });
   }
+  console.log('unanswered');
   console.log(unanswerdCategories);
-  res.render(unanswerdCategories[0], { userid: existingUser.id });
+  res.render(unanswerdCategories[0], {
+    userid: existingUser.id,
+    style: './css/styles.css',
+  });
 }

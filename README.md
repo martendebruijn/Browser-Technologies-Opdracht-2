@@ -86,52 +86,11 @@ Animaties en andere heftige dingen.
 
 ![Desktop Sketch](/img/desktop.JPG)
 
-## Enquete
+## Credits
 
-**Enquete vragen zijn veranderd om meerdere input types te gebruiken**
+Data opslaan op server:
 
-#### Vraag 1: Wat is je naam?
-
-Gebruiker moet zijn naam kunnen typen.
-
-#### Vraag 2: Hoe oud ben je?
-
-- [ ] 18 of jonger
-- [ ] 19
-- [ ] 20
-- [ ] 21
-- [ ] 22
-- [ ] 23
-- [ ] 24
-- [ ] 25 of ouder
-
-#### Vraag 3: Welke opleiding doe je?
-
-- [ ] Communicatie Multimedia Design
-- [ ] ICT
-- [ ] Anders: ...
-
-#### Vraag 4: Wie is je favoriete docent?
-
-- [ ] Koop
-- [ ] Joost
-- [ ] Vassilis
-- [ ] Laurens
-- [ ] Anders: ...
-
-#### Vraag 5: Wat was je niveau voor het begin van de minor?
-
-- [ ] beginner
-- [ ] intermide
-- [ ] advanced
-- [ ] expert
-
-#### Vraag 6: Hoe moeilijk vind je het tot nu toe?
-
-- [ ] Erg makkelijk
-- [ ] Makkelijk - Neutraal
-- [ ] Neutraal - Moeilijk
-- [ ] Erg moeilijk
+2. `https://github.com/Choerd/browser-technologies-1920.git`
 
 ## Features en browser technologies
 

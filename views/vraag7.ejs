@@ -5,21 +5,38 @@
     <section>
         <h2>Vraag 7 van 7</h2>
         <div class="progress-bar"><div class="progress-v7"></div></div>
-        <form method="post" action="/finished">
+        <form method="post" action="/finished/<%= userid %>">
             
         <fieldset>
             <legend><h2>Wie is je favoriete docent?</h2></legend>
-            <input id="koop" type="radio" name="docent" value="koop" required><label for="koop">Koop</label>
-            <input id="joost" type="radio" name="docent" value="Joost" required><label for="joost">Joost</label>
-            <input id="vasillis" type="radio" name="docent" value="Vasillis" required><label for="vasillis">Vasillis</label>
-            <input id="laurens" type="radio" name="docent" value="Laurens" required><label for="laurens">Laurens</label>
+            <% if(answer === 'koop') {%>
+                <input id="koop" type="radio" name="docent" value="koop" required checked><label for="koop">Koop</label>
+                <% } else { %>
+                    <input id="koop" type="radio" name="docent" value="koop" required><label for="koop">Koop</label>
+            <% } %>
+            <% if(answer === 'Vasilis') {%>
+                <input id="vasilis" type="radio" name="docent" value="Vasilis" required checked><label for="vasilis">Vasilis</label>
+                <% } else { %>
+                    <input id="vasilis" type="radio" name="docent" value="Vasilis" required><label for="vasilis">Vasilis</label>
+            <% } %>
+            <% if(answer === 'Joost') {%>
+                <input id="joost" type="radio" name="docent" value="Joost" required checked><label for="joost">Joost</label>
+                <% } else { %>
+                    <input id="joost" type="radio" name="docent" value="Joost" required><label for="joost">Joost</label>
+            <% } %>
+            <% if(answer === 'Laurens') {%>
+                <input id="laurens" type="radio" name="docent" value="Laurens" required checked><label for="laurens">Laurens</label>
+                <% } else { %>
+                    <input id="laurens" type="radio" name="docent" value="Laurens" required><label for="laurens">Laurens</label>
+            <% } %>
         </fieldset>
-            <input type="hidden" name="userid" value=<%= userid %>>
 
-            <!-- Navigation -->
-            <nav>
-                <button type="submit" value="finished">Verder</button>
-            </nav>
+        <section>
+            <ul>
+                <li><a class="btn" href="/vraag6/<%= userid %>">Terug</a></li>
+                <li><button type="submit" value="finished">Verder</button></li>
+            </ul>
+        </section>
         </form>
     </section>
 

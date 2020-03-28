@@ -4,19 +4,32 @@
     <section>
         <h2>Vraag 3 van 7</h2>
         <div class="progress-bar"><div class="progress-v3"></div></div>
-        <form method="post" action="/vraag4">
+        <form method="post" action="/vraag4/<%= userid %>">
             <fieldset>
                 <legend><h2>Welke opleiding doe je?</h2></legend>
-                <input id="cmd" type="radio" name="opleiding" value="cmd" required><label for="cmd">Communicatie Multimedia Design</label>
-                <input id="ict" type="radio" name="opleiding" value="ict" required><label for="ict">ICT</label>
-                <input type="radio" id="anders" name="opleiding" value="anders" required><label for="anders">Anders</label>
+                <% if(answer === 'cmd') {%>
+                    <input id="cmd" type="radio" name="opleiding" value="cmd" required checked><label for="cmd">Communicatie Multimedia Design</label>
+                    <% } else { %>
+                        <input id="cmd" type="radio" name="opleiding" value="cmd" required><label for="cmd">Communicatie Multimedia Design</label>
+                    <% } %>
+                <% if(answer === 'ict') {%>
+                    <input id="ict" type="radio" name="opleiding" value="ict" required checked><label for="ict">ICT</label>
+                   <% } else { %>
+                    <input id="ict" type="radio" name="opleiding" value="ict" required><label for="ict">ICT</label>
+                   <% } %>
+                <% if(answer === 'anders') {%>
+                    <input type="radio" id="anders" name="opleiding" value="anders" required checked><label for="anders">Anders</label>
+                   <% } else { %>
+                    <input type="radio" id="anders" name="opleiding" value="anders" required><label for="anders">Anders</label>
+                   <% } %>
             </fieldset>
-            <input type="hidden" name="userid" value=<%= userid %>>
-
-            <!-- Navigation -->
-            <nav>
-                <button type="submit" value="vraag4">Verder</button>
-            </nav>
+            
+            <section>
+                <ul>
+                    <li><a class="btn" href="/vraag2/<%= userid %>">Terug</a></li>
+                    <li> <button type="submit" value="vraag4">Verder</button></li>
+                </ul>
+            </section>
         </form>
     </section>
 

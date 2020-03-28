@@ -5,24 +5,57 @@
     <section>
         <h2>Vraag 2 van 7</h2>
         <div class="progress-bar"><div class="progress-v2"></div></div>
-        <form method="post" action="/vraag3">
+        <form method="post" action="/vraag3/<%= userid %>">
             <fieldset>
                 <legend><h2>Hoe oud ben je?</h2></legend>
-                <input id="18" type="radio" name="leeftijd" value="18 of jonger" required><label for="18">18 of jonger</label>
-                <input type="radio" id="19" name="leeftijd" value="19" required><label for="19">19</label>
-                <input type="radio" id="20" name="leeftijd" value="20" required><label for="20">20</label>
-                <input type="radio" id="21" name="leeftijd" value="21" required><label for="21">21</label>
-                <input type="radio" id="22" name="leeftijd" value="22" required><label for="22">22</label>
-                <input type="radio" id="23" name="leeftijd" value="23" required><label for="23">23</label>
-                <input type="radio" id="24" name="leeftijd" value="24"" required><label for="24">24</label>
-                <input type="radio" id="25" name="leeftijd" value="25 of ouder" required><label for="25">25 of ouder</label>
+                <% if(answer === '18 of jonger') {%>
+                    <input id="18" type="radio" name="leeftijd" value="18 of jonger" required checked><label for="18">18 of jonger</label>
+                    <% } else { %>
+                        <input id="18" type="radio" name="leeftijd" value="18 of jonger" required><label for="18">18 of jonger</label>
+                    <% } %>
+                <% if(answer === '19') {%>
+                    <input id="19" type="radio" name="leeftijd" value="19" required checked><label for="19">19</label>
+                    <% } else { %>
+                        <input id="19" type="radio" name="leeftijd" value="19" required><label for="19">19</label>
+                    <% } %>
+                <% if(answer === '20') {%>
+                    <input id="20" type="radio" name="leeftijd" value="20" required checked><label for="20">20</label>
+                    <% } else { %>
+                        <input id="21" type="radio" name="leeftijd" value="20" required><label for="20">20</label>
+                    <% } %>
+                <% if(answer === '21') {%>
+                    <input id="21" type="radio" name="leeftijd" value="21" required checked><label for="21">21</label>
+                    <% } else { %>
+                        <input id="21" type="radio" name="leeftijd" value="21" required><label for="21">21</label>
+                    <% } %>
+                <% if(answer === '22') {%>
+                    <input id="22" type="radio" name="leeftijd" value="22" required checked><label for="22">22</label>
+                    <% } else { %>
+                        <input id="22" type="radio" name="leeftijd" value="22" required><label for="22">22</label>
+                    <% } %>
+                <% if(answer === '23') {%>
+                    <input id="23" type="radio" name="leeftijd" value="23" required checked><label for="23">23</label>
+                    <% } else { %>
+                        <input id="23" type="radio" name="leeftijd" value="23" required><label for="23">23</label>
+                    <% } %>
+                <% if(answer === '24') {%>
+                    <input id="24" type="radio" name="leeftijd" value="24" required checked><label for="24">24</label>
+                    <% } else { %>
+                        <input id="24" type="radio" name="leeftijd" value="24"" required><label for="24">24</label>
+                    <% } %>
+                <% if(answer === '25 of ouder') {%>
+                    <input id="25" type="radio" name="leeftijd" value="25 of ouder" required checked><label for="25">25 of ouder</label>
+                    <% } else { %>
+                        <input id="25" type="radio" name="leeftijd" value="25 of ouder" required><label for="25">25 of ouder</label>
+                    <% } %>
             </fieldset>
-            <input type="hidden" name="userid" value=<%= userid %>>
 
-            <!-- Navigation -->
-            <nav>
-                <button type="submit" value="vraag3">Verder</button>
-            </nav>
+            <section>
+                <ul>
+                    <li><a class="btn" href="/vraag1/<%= userid %>">Terug</a></li>
+                    <li><button type="submit" value="vraag3">Verder</button></li>
+                </ul>
+            </section>
         </form>
     </section>
 

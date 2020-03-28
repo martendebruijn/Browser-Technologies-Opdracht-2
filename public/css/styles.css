@@ -97,6 +97,7 @@ button, .btn {
    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
    transition: all .2s ease-in-out;
    text-transform: uppercase;
+   font-size: .8em;
 }
 input {
     color: white;
@@ -120,15 +121,15 @@ section > ul li:first-of-type {
 button:hover, .btn:hover {
     transform: scale(.9);
 }
-a:hover {
+button:hover {
+    cursor: pointer;
+}
+a:hover, button:hover {
     text-decoration: underline;
 }
 header {
     display: flex;
     justify-content: space-between;
-}
-header a:hover {
-    color: green;
 }
 form, label, input[type=text], input[type=color], input[type=range] {
     width: 100%;

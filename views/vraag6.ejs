@@ -5,15 +5,16 @@
     <section>
         <h2>Vraag 6 van 7</h2>
         <div class="progress-bar"><div class="progress-v6"></div></div>
-        <form method="post" action="/vraag7">
-            <label><h2>Welk cijfer zou jij deze minor geven? (1 tot 10)</h2><input type="range" min="1" value="5" max="10" name="cijfer" required></label>
+        <form method="post" action="/vraag7/<%= userid %>">
+            <label><h2>Welk cijfer zou jij deze minor geven? (1 tot 10)</h2><input type="range" min="1" value="<%= answer %>" max="10" name="cijfer" required></label>
 
-            <input type="hidden" name="userid" value=<%= userid %>
 
-            <!-- Navigation -->
-            <nav>
-                <button type="submit" value="vraag7">Verder</button>
-            </nav>
+            <section>
+                <ul>
+                    <li><a class="btn" href="/vraag5/<%= userid %>">Terug</a></li>
+                    <li><button type="submit" value="vraag7">Verder</button></li>
+                </ul>
+            </section>
         </form>
     </section>
   
