@@ -60,15 +60,16 @@ h1 {
 h1, h2, header, footer, a, button, h3, h4 {
    font-weight: 700; 
 }
-
 /* utility */
 .hide {
     display: none;
-  }
-  .show {
-      visibility: visible;
-      transition: none;  
-  }
+}
+.show {
+    visibility: visible;
+}
+.justify-space-between {
+    justify-content: space-between;
+}
 /* layout */
 body {
     height: 100vh;
@@ -82,8 +83,6 @@ header, footer {
 }
 header {
     background: #1089ff;
-}
-header {
     justify-content: space-between;
 }
 main {
@@ -97,6 +96,7 @@ main {
 main > section {
     height: 90%;
     padding: 0 1em;
+    flex-direction: column;
 }
 section > section > section:first-of-type {
     margin-top: 0;
@@ -104,13 +104,7 @@ section > section > section:first-of-type {
 section > section > section {
     margin-top: 1em;
 }
-section > section {
-    width: 100%;
-}
-main > section {
-    flex-direction: column;
-}
-form > section {
+section > section, form > section, section > ul {
     width: 100%;
 }
 form section:last-of-type {
@@ -119,13 +113,15 @@ form section:last-of-type {
     right: 0;
     z-index: 2;
 }
+section > ul {
+    display: flex;
+    justify-content: space-around;
+}
 footer {
     position: fixed;
     bottom: 0;
     right: 0;
     z-index: 1;
-}
-footer {
     justify-content: flex-end;
 }
 /* generate-user-code */
@@ -339,9 +335,6 @@ input:-moz-read-only {
 .progress-v7  {
     width: 100%;
 }
-.justify-space-between {
-    justify-content: space-between;
-}
 /* pop-up */
 .overlay {
     position: fixed;
@@ -368,12 +361,6 @@ input:-moz-read-only {
     justify-content: center;
     height: 100%;
     padding: 0 1em;
-}
-
-section > ul {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
 }
 .content > ul {
     display: flex;
