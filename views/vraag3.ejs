@@ -6,7 +6,7 @@
         <div class="progress-bar"><div class="progress-v3"></div></div>
         <form method="post" action="/vraag4/<%= userid %>">
             <fieldset>
-                <legend><h2>Welke opleiding doe je?</h2></legend>
+                <legend><h3>Welke opleiding doe je?</h3></legend>
                 <% if(answer === 'cmd') {%>
                     <input id="cmd" type="radio" name="opleiding" value="cmd" required checked><label for="cmd">Communicatie Multimedia Design</label>
                     <% } else { %>
@@ -26,7 +26,7 @@
             
             <section>
                 <ul>
-                    <li><a class="btn" href="/vraag2/<%= userid %>">Terug</a></li>
+                    <li><a class="secundair" href="/vraag2/<%= userid %>">Terug</a></li>
                     <li> <button type="submit" value="vraag4">Verder</button></li>
                 </ul>
             </section>

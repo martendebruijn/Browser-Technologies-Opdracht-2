@@ -6,9 +6,8 @@
         <h2>Vraag 7 van 7</h2>
         <div class="progress-bar"><div class="progress-v7"></div></div>
         <form method="post" action="/finished/<%= userid %>">
-            
         <fieldset>
-            <legend><h2>Wie is je favoriete docent?</h2></legend>
+            <legend><h3>Wie is je favoriete docent?</h3></legend>
             <% if(answer === 'koop') {%>
                 <input id="koop" type="radio" name="docent" value="koop" required checked><label for="koop">Koop</label>
                 <% } else { %>
@@ -33,7 +32,7 @@
 
         <section>
             <ul>
-                <li><a class="btn" href="/vraag6/<%= userid %>">Terug</a></li>
+                <li><a class="secundair" href="/vraag6/<%= userid %>">Terug</a></li>
                 <li><button type="submit" value="finished">Verder</button></li>
             </ul>
         </section>

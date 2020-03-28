@@ -7,7 +7,7 @@
         <div class="progress-bar"><div class="progress-v2"></div></div>
         <form method="post" action="/vraag3/<%= userid %>">
             <fieldset>
-                <legend><h2>Hoe oud ben je?</h2></legend>
+                <legend><h3>Hoe oud ben je?</h3></legend>
                 <% if(answer === '18 of jonger') {%>
                     <input id="18" type="radio" name="leeftijd" value="18 of jonger" required checked><label for="18">18 of jonger</label>
                     <% } else { %>
@@ -52,7 +52,7 @@
 
             <section>
                 <ul>
-                    <li><a class="btn" href="/vraag1/<%= userid %>">Terug</a></li>
+                    <li><a class="secundair" href="/vraag1/<%= userid %>">Terug</a></li>
                     <li><button type="submit" value="vraag3">Verder</button></li>
                 </ul>
             </section>

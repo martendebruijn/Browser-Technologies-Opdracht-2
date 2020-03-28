@@ -61,10 +61,10 @@ footer {
 h1 {
     font-size: 1.5em;
 }
-h1, h2, header, footer, a, button {
+h1, h2, header, footer, a, button, h3, h4 {
    font-weight: 700; 
 }
-header, footer, button, .btn, section > ul,  fieldset label, form nav, fieldset nav, section > form {
+header, footer, button, .btn, .secundair, fieldset label, form nav, fieldset nav, section > form {
     display: flex;
     display: -ms-flexbox;
     align-items: center;
@@ -76,21 +76,49 @@ body {
     color: white;
 }
 header, footer {
-    height: 4em;
-    padding: 0 1em;
-    
+    padding: .6em 1em;
+    flex-wrap: wrap;
+    width: calc(100% - 2em);
+}
+header {
+    background: #1089ff;
 }
  main {
+    margin: 1em;
+    min-height: 468px;
     height: calc(100vh - 8em);
+    position: absolute;
+    z-index: 2;
+    width: calc(100% - 2em);
 }
 a, button {
     text-decoration: none;
     color: #1089ff;
 }
+header a {
+    color: black;
+}
+.btn {
+    border: 2px solid white;
+}
 button, .btn {
-   background: white;
-   height: 5em;
-   width: 13em;
+    background: white;
+}
+.secundair {
+    border: 2px solid #1089ff;
+}
+.btn, .secundair {
+    height: 3em;
+    width: 8em;
+}
+button {
+    height: calc(3em + 4px);
+    width: calc(8em + 4px);
+}
+button, .btn, .secundair {
+   /* height: 5em;
+   width: 13em; */
+  
    justify-content: center;
    border-radius: 6px;
    border-collapse: separate;
@@ -103,22 +131,15 @@ input {
     color: white;
 }
 main > section {
-    height: calc(100% - 2em); 
+    height: 90%;
     padding: 0 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
-section > ul {
+/* section > ul {
     height: 100%;
     flex-wrap: wrap;
     justify-content: center;
-}
-section > ul li:first-of-type {
-    margin-bottom: 1em;
-}
-
-button:hover, .btn:hover {
+} */
+button:hover, .btn:hover, .secundair:hover {
     transform: scale(.9);
 }
 button:hover {
@@ -262,6 +283,7 @@ input:-moz-read-only {
     background: white;
     border-radius: 6px;
     overflow: hidden;
+    margin: 1em 0;
 }
 .progress-v1, .progress-v2, .progress-v3, .progress-v4, .progress-v5, .progress-v6, .progress-v7 {
     background: #4CAF50;
@@ -294,20 +316,22 @@ section > section > section:first-of-type {
 section > section > section {
     margin-top: 1em;
 }
+section > section {
+    width: 100%;
+}
+main > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.justify-space-between {
+    justify-content: space-between;
+}
 @media (min-width: 750px) {
-    section > ul > li:first-of-type {
-        margin-right: 1em;
-    }
-    section > ul > li:last-of-type {
-        margin-left: 1em;
-    }
-    section > ul li:first-of-type {
-        margin-bottom: 0em;
-    }
     section > section > section {
         min-width: 25em;
     }
-    section > section, main > section {
+    section > section{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -318,4 +342,64 @@ section > section > section {
     .progress-bar, form {
         width: 70%;
     }
+}
+
+/* .warning {
+    display: none;
+} */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  .close:after {
+      content: '\00d7';
+      font-size: 2em;
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+      visibility: visible;
+      transition: none;  
+  }
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1em;
+}
+form > section {
+    width: 100%;
+}
+section > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+.content > ul {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+.label > h3, legend {
+    margin-bottom: 1em;
 }
