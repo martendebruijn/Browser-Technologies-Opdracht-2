@@ -14,7 +14,16 @@ window.addEventListener(
     function handleswipe(isrightswipe) {
       if (isrightswipe) {
         // right swipe
-        window.location.replace('/finished');
+        window.location.replace('/swipe-test');
+      } else {
+        // no right swipe
+        console.log('sad boiiiii');
+      }
+    }
+    function handleswipeleft(isleftswipe) {
+      if (isrightswipe) {
+        // right swipe
+        window.location.replace('/swipe-test-left');
       } else {
         // no right swipe
         console.log('sad boiiiii');
@@ -35,13 +44,13 @@ window.addEventListener(
       false
     );
 
-    touchsurface.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault(); // prevent scrolling when inside DIV
-      },
-      false
-    );
+    // touchsurface.addEventListener(
+    //   'touchmove',
+    //   function(e) {
+    //     e.preventDefault(); // prevent scrolling when inside DIV
+    //   },
+    //   false
+    // );
 
     touchsurface.addEventListener(
       'touchend',
@@ -54,7 +63,12 @@ window.addEventListener(
           elapsedTime <= allowedTime &&
           dist >= threshold &&
           Math.abs(touchobj.pageY - startY) <= 100;
+        const swipeleftBol =
+          elapsedTime <= allowedTime &&
+          dist <= threshold &&
+          Math.abs(touchobj.pageY - startY) <= 100;
         handleswipe(swiperightBol);
+        handleswipeleft(swipeleftBol);
         e.preventDefault();
       },
       false
