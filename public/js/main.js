@@ -25,7 +25,9 @@ window.addEventListener(
       if (isleftswipe) {
         // left swipe
         backIcon.classList.toggle('js-swiped-left');
-        // window.location.replace('/swipe-test-left');
+        setTimeout(() => {
+          window.location.replace('/swipe-test-left');
+        }, 220);
       } else {
         // no left swipe
         console.log('sad boiiiii');
