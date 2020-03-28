@@ -20,8 +20,10 @@ function addDateInput() {
   if (checkDateInput()) {
     console.log('yes ik mag iets doen');
     const el = document.getElementById('js-date');
-    el.innerHTML =
-      '<input type="date" name="verjaardag" required max="2002-01-01">';
+    const answerEl = document.getElementById('js-date-answer');
+    const answer = answerEl.innerText;
+    console.log(answer);
+    el.innerHTML = `<input type="date" name="verjaardag" required max="2002-01-01" value="${answer}">`;
   }
 }
 

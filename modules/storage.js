@@ -7,26 +7,40 @@ module.exports = {
   checkAnswer,
 };
 
+function checkDateFormat(date) {
+  console.log('date: ');
+  console.log(date);
+  const pattern = /[0-9]{4}.(0[1-9]|1[012]).(0[1-9]|1[0-9]|2[0-9]|3[01])/g;
+  const valid = pattern.test(date);
+  console.log('valid: ');
+  console.log(valid);
+  if (!valid) {
+    const splitStr = date.split('-');
+    const reverseArr = splitStr.reverse();
+    const joinArr = reverseArr.join('-');
+    date = joinArr;
+  }
+  console.log('check: ');
+  console.log(date);
+  return date;
+}
+
 function checkAnswer(userid, name, route, res) {
-  console.log(name);
-  console.log(route);
   const json = readFromJson();
   const user = json.find(user => user.id === userid);
   const index = json.map(o => o.id).indexOf(user.id);
-
   const data = json[index];
-  const vraagObj = data[`${name}`];
-  console.log(data);
+  const vraagObj = data[name];
+  const question = Object.keys(vraagObj)[0];
   let answer = '';
-  console.log('vraag obj: ');
-  console.log(vraagObj);
   if (vraagObj) {
     const objKeys = Object.keys(vraagObj);
     const key = objKeys[0];
     answer = vraagObj[key];
   }
-  console.log('answer: ');
-  console.log(answer);
+  if (question === 'verjaardag') {
+    answer = checkDateFormat(answer);
+  }
 
   res.render(route, {
     userid: userid,
@@ -60,8 +74,7 @@ function readFromJson() {
 
 function writeToJson(data) {
   const content = JSON.stringify(data, null, 2);
-  // console.log('write: ');
-  // console.log(content);
+
   fs.writeFileSync('data/users.json', content);
 }
 

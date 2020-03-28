@@ -42,9 +42,11 @@ function renderNewRoute(input, res) {
   }
   console.log('unanswered');
   console.log(unanswerdCategories);
+  // TO DO: maak hier een redirect van -> /unanswerdCategories[0]/existingUser.id
   res.render(unanswerdCategories[0], {
     userid: existingUser.id,
     style: './css/styles.css',
     script: './../js/main.js',
+    answer: '',
   });
 }

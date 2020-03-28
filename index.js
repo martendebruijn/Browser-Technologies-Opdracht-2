@@ -70,6 +70,7 @@ app.post('/vraag5/:id', urlencodedParser, (req, res) => {
 });
 app.post('/vraag6/:id', urlencodedParser, (req, res) => {
   const id = req.params.id;
+  console.log(req.body);
   storage.checkAnswer(id, 'vraag6', 'vraag6', res);
   storage.addDataToArray(req.body, id, 'vraag5');
 });
