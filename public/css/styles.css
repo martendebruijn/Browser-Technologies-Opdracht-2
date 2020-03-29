@@ -399,31 +399,3 @@ input:-moz-read-only {
         width: 60%;
     }
 }
-#touchsurface {
-    position: absolute;
-    z-index: 3;
-    width: 100vw;
-    height: 100vh;
-    /* background: rgba(255, 0, 0, 0.199); */
-}
-.swipe-icon {
-    position: absolute;
-    height: 100%;
-    width: 100px;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    transition: all .2s ease-in-out;
-}
-.swipe-left {
-    left: calc(100vw - 1em);
-}
-.swipe-right {
-    left: calc(-100px - 3em);
-}
-.js-swiped-left {
-    left: 55vw;
-}
-.js-swiped-right {
-    left: 0;
-}
