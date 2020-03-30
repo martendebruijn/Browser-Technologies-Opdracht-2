@@ -8,20 +8,14 @@ module.exports = {
 };
 
 function checkDateFormat(date) {
-  console.log('date: ');
-  console.log(date);
   const pattern = /[0-9]{4}.(0[1-9]|1[012]).(0[1-9]|1[0-9]|2[0-9]|3[01])/g;
   const valid = pattern.test(date);
-  console.log('valid: ');
-  console.log(valid);
   if (!valid) {
     const splitStr = date.split('-');
     const reverseArr = splitStr.reverse();
     const joinArr = reverseArr.join('-');
     date = joinArr;
   }
-  console.log('check: ');
-  console.log(date);
   return date;
 }
 
@@ -60,12 +54,6 @@ function addDataToArray(data, id, name) {
   json[index][`${name}`] = data;
 
   writeToJson(json);
-
-  // res.render(route, {
-  //   userid: id,
-  //   style: './../css/styles.css',
-  //   answer: '',
-  // });
 }
 
 function readFromJson() {

@@ -64,7 +64,7 @@ body {
 h1 {
     font-size: 1.5em;
 }
-h1, h2, header, footer, a, button, h3, h4 {
+h1, h2, header, footer, a, button, h3, h4, b {
    font-weight: 700; 
 }
 /* icons */
@@ -72,12 +72,6 @@ h1, h2, header, footer, a, button, h3, h4 {
     fill: white;
 }
 /* utility */
-.hide {
-    display: none;
-}
-.show {
-    visibility: visible;
-}
 .justify-space-between {
     justify-content: space-between;
 }
@@ -298,7 +292,6 @@ input[type=range]::-moz-range-thumb {
   cursor: pointer; 
 }
 fieldset {
-    height: 100%;
     align-self: flex-start;
     -ms-grid-column-align: start;
 }
@@ -307,6 +300,13 @@ input:read-only {
 }
 input:-moz-read-only {
     border-bottom: none;
+}
+/* form validation error messages */
+.error {
+    background: #ff5c5c;
+    padding: .5em 1em;
+    border-radius: 6px;
+    margin-top: 1em;
 }
 .progress-bar {
     height: 20px;
@@ -341,44 +341,6 @@ input:-moz-read-only {
 .progress-v7  {
     width: 100%;
 }
-/* pop-up */
-.close:hover {
-    text-decoration: none;
-}
-.overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-}
-.overlay:target {
-    visibility: visible;
-    opacity: 1;
-}
-.close:after {
-    content: '\00d7';
-    font-size: 2em;
-}
-.popup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 0 1em;
-    width: 70%;
-}
-.content > ul {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1em;
-}
 /* desktop and tablets */
 @media (min-width: 750px) {
     section > section > section {
@@ -395,7 +357,7 @@ input:-moz-read-only {
     .progress-bar, form {
         width: 70%;
     }
-    .pop-up {
-        width: 60%;
-    }
+}
+.persoonlijke-code {
+    position: absolute;
 }

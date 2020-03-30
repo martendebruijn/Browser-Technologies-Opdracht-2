@@ -1,4 +1,5 @@
 <%- include('./partials/head.ejs') %> 
+<%- include ('./partials/persoonlijke-code.ejs') %>
 <main>
   <section>
     <h2>Vraag 1 van 7</h2>
@@ -6,29 +7,16 @@
     <form method="post" action="/vraag2/<%= userid %>">
       <label><h3>Wat is je naam?</h3>
         <input name="name" type="text" autocomplete="off" placeholder=" " required pattern="^[A-Za-z -]+" value="<%= answer %>"/>
-
         <p class="hint"><i>Gebruik alleen "a-z" en "-" of spatie.</i></p>
       </label>
       <section>
         <ul>
-            <li><a class="hide" href="/">Terug</a>
-              <a class="secundair show" href="#warning" hidden>Terug</a>
-              <div id="warning" class="overlay">
-                <div class="popup">
-                  <a class="close" href="#"></a> 
-                  <h4>Let op!</h4>
-                  <div class="content">Als je terug gaat, kun je verder gaan door je persoonlijke code in te vullen bij het beginscherm.
-                    <ul>
-                      <li><a class="secundair" href="/" hidden>Afsluiten</a></li>
-                      <li><a class="btn" href="#" hidden>Terug</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div></li>
+            <li><a class="secundair" href="/">Terug</a></li>
             <li><button type="submit" value="vraag2">Verder</button></li>
         </ul>
     </section>
     </form>
   </section>
   <%- include('./partials/footer.ejs') %>
-</main>
+  <%- include ('./partials/script-vraag1') %>
+  <%- include ('./partials/end') %>
