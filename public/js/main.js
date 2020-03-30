@@ -48,27 +48,52 @@ export function validationRadio(name) {
     checkRadio(radios);
   };
 }
+// theme chooser
 function showThemeChooser() {
   const wrapper = document.querySelector('.theme-switcher');
   wrapper.classList.remove('hide');
 }
-showThemeChooser();
-const root = document.documentElement;
-const wrapper = document.querySelector('.theme-switcher');
-const switcher = document.querySelector('.home');
-const light = document.querySelector('.light');
-const dark = document.querySelector('.dark');
-switcher.addEventListener('click', openThemeSwitcher);
+// check local storage
+// Source: https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available
+function lsTest() {
+  var test = 'test';
+  try {
+    localStorage.setItem(test, test);
+    localStorage.removeItem(test);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+if (lsTest() === true) {
+  showThemeChooser();
+  document.querySelector('.home').addEventListener('click', openThemeSwitcher);
+  document.querySelector('.light').addEventListener('click', lightTheme);
+  document.querySelector('.dark').addEventListener('click', darkTheme);
+}
 function openThemeSwitcher() {
+  const wrapper = document.querySelector('.theme-switcher');
   wrapper.classList.toggle('active');
 }
-light.addEventListener('click', lightTheme);
+const root = document.documentElement;
 function lightTheme() {
+  localStorage.setItem('theme', 'light');
   root.style.setProperty('--theme-color', 'white');
   root.style.setProperty('--theme-color-secundair', 'black');
 }
-dark.addEventListener('click', darkTheme);
 function darkTheme() {
+  localStorage.setItem('theme', 'dark');
   root.style.setProperty('--theme-color', 'black');
   root.style.setProperty('--theme-color-secundair', 'white');
 }
+function setTheme() {
+  const theme = localStorage.getItem('theme');
+  if (theme === 'light') {
+    root.style.setProperty('--theme-color', 'white');
+    root.style.setProperty('--theme-color-secundair', 'black');
+  } else if (theme === 'dark') {
+    root.style.setProperty('--theme-color', 'black');
+    root.style.setProperty('--theme-color-secundair', 'white');
+  }
+}
+setTheme();
