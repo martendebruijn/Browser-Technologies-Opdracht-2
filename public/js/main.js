@@ -1,4 +1,4 @@
-// /* form validation */
+/* form validation */
 const form = document.forms[0];
 export function getInput(name) {
   return form[name];
@@ -47,4 +47,28 @@ export function validationRadio(name) {
     const radios = getFieldset(name);
     checkRadio(radios);
   };
+}
+function showThemeChooser() {
+  const wrapper = document.querySelector('.theme-switcher');
+  wrapper.classList.remove('hide');
+}
+showThemeChooser();
+const root = document.documentElement;
+const wrapper = document.querySelector('.theme-switcher');
+const switcher = document.querySelector('.home');
+const light = document.querySelector('.light');
+const dark = document.querySelector('.dark');
+switcher.addEventListener('click', openThemeSwitcher);
+function openThemeSwitcher() {
+  wrapper.classList.toggle('active');
+}
+light.addEventListener('click', lightTheme);
+function lightTheme() {
+  root.style.setProperty('--theme-color', 'white');
+  root.style.setProperty('--theme-color-secundair', 'black');
+}
+dark.addEventListener('click', darkTheme);
+function darkTheme() {
+  root.style.setProperty('--theme-color', 'black');
+  root.style.setProperty('--theme-color-secundair', 'white');
 }
