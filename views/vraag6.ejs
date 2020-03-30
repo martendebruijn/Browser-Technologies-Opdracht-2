@@ -1,11 +1,13 @@
 <%- include ('./partials/head') %>
 <%- include ('./partials/persoonlijke-code.ejs') %>
 <main>
+    <%- include ('./partials/theme-chooser') %>
     <section>
         <h2>Vraag 6 van 7</h2>
         <div class="progress-bar"><div class="progress-v6"></div></div>
         <form method="post" action="/vraag7/<%= userid %>">
-            <label><h3>Welk cijfer zou jij deze minor geven? (1 tot 10)</h3><input type="range" min="1" value="<%= answer %>" max="10" name="cijfer" required></label>
+            <label><h3>Welk cijfer zou jij deze minor geven? (1 tot 10)</h3><input type="range" min="1" value="<%= answer %>" max="10" name="cijfer" required>
+                <p class="js-slider"><%= answer %></p></label>
             <section>
                 <ul>
                     <li><a class="secundair" href="/vraag5/<%= userid %>">Terug</a></li>
@@ -17,4 +19,5 @@
   
 
     <%- include ('./partials/footer') %>
+    <%- include ('./partials/script-vraag6') %>
     <%- include ('./partials/end') %>

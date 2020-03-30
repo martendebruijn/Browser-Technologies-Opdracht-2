@@ -74,7 +74,7 @@ table {
     z-index: 1;
     border-color: grey;  /* fallback */
     border-color: var(--grey);
-    background: white;
+    background: black;
 }
 .theme-switcher.active .dark {
     transform: translateY(-4em);
@@ -86,7 +86,7 @@ table {
     z-index: 1;
     border-color: grey; /* fallback */
     border-color: var(--grey);
-    background: black; 
+    background: white; 
 }
 .home {
     z-index: 1;
@@ -281,8 +281,7 @@ input[type=text] {
     transition: all .3s ease-in-out;
 }
 input[type=date] {
-    color: black; /* fallback */
-    color: var(--theme-color);
+    color: black;
 }
 .label > h3, legend {
     margin-bottom: 1em;
