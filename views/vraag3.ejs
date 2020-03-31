@@ -9,19 +9,19 @@
             <fieldset>
                 <legend><h3>Welke opleiding doe je?</h3></legend>
                 <% if(answer === 'cmd') {%>
-                    <input id="cmd" type="radio" name="opleiding" value="cmd" required checked><label for="cmd">Communicatie Multimedia Design</label>
+                    <label><input type="radio" name="opleiding" value="cmd" required checked>Communicatie Multimedia Design</label>
                     <% } else { %>
-                        <input id="cmd" type="radio" name="opleiding" value="cmd" required><label for="cmd">Communicatie Multimedia Design</label>
+                        <label><input type="radio" name="opleiding" value="cmd" required>Communicatie Multimedia Design</label>
                     <% } %>
                 <% if(answer === 'ict') {%>
-                    <input id="ict" type="radio" name="opleiding" value="ict" required checked><label for="ict">ICT</label>
+                    <label><input type="radio" name="opleiding" value="ict" required checked>ICT</label>
                    <% } else { %>
-                    <input id="ict" type="radio" name="opleiding" value="ict" required><label for="ict">ICT</label>
+                    <label><input type="radio" name="opleiding" value="ict" required>ICT</label>
                    <% } %>
                 <% if(answer === 'anders') {%>
-                    <input type="radio" id="anders" name="opleiding" value="anders" required checked><label for="anders">Anders</label>
+                    <label><input type="radio" name="opleiding" value="anders" required checked>Anders</label>
                    <% } else { %>
-                    <input type="radio" id="anders" name="opleiding" value="anders" required><label for="anders">Anders</label>
+                    <label><input type="radio" name="opleiding" value="anders" required>Anders</label>
                    <% } %>
             </fieldset>
             

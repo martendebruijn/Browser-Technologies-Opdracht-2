@@ -41,14 +41,9 @@ app.post('/use-user-code', urlencodedParser, (req, res) => {
   user.check(req.body, res);
 });
 app.post('/vraag1/:id', urlencodedParser, (req, res) => {
-  console.log('req: ');
-  console.log(req.body);
   storage.setup(req.body, res);
 });
 app.post('/vraag2/:id', urlencodedParser, (req, res) => {
-  console.log('req: ');
-  console.log(req.body);
-  console.log(req.params.id);
   const id = req.params.id;
   storage.checkAnswer(id, 'vraag2', 'vraag2', res);
   storage.addDataToArray(req.body, id, 'vraag1');
@@ -70,7 +65,6 @@ app.post('/vraag5/:id', urlencodedParser, (req, res) => {
 });
 app.post('/vraag6/:id', urlencodedParser, (req, res) => {
   const id = req.params.id;
-  console.log(req.body);
   storage.checkAnswer(id, 'vraag6', 'vraag6', res);
   storage.addDataToArray(req.body, id, 'vraag5');
 });

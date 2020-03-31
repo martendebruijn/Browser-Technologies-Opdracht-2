@@ -53,10 +53,21 @@ function showThemeChooser() {
   const wrapper = document.querySelector('.theme-switcher');
   wrapper.classList.remove('hide');
 }
+// check CSS Custom Properties
+const root = document.documentElement;
+function customVariablesTest() {
+  const themeColor = getComputedStyle(root).getPropertyValue('--theme-color');
+  if (themeColor) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // check local storage
 // Source: https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available
 function lsTest() {
-  var test = 'test';
+  const test = 'test';
   try {
     localStorage.setItem(test, test);
     localStorage.removeItem(test);
@@ -65,7 +76,7 @@ function lsTest() {
     return false;
   }
 }
-if (lsTest() === true) {
+if (lsTest() === true && customVariablesTest() === true) {
   showThemeChooser();
   document.querySelector('.home').addEventListener('click', openThemeSwitcher);
   document.querySelector('.light').addEventListener('click', lightTheme);
@@ -75,16 +86,17 @@ function openThemeSwitcher() {
   const wrapper = document.querySelector('.theme-switcher');
   wrapper.classList.toggle('active');
 }
-const root = document.documentElement;
 function lightTheme() {
   localStorage.setItem('theme', 'light');
   root.style.setProperty('--theme-color', 'white');
   root.style.setProperty('--theme-color-secundair', 'black');
+  root.style.setProperty('--btn-color', '#1089ff');
 }
 function darkTheme() {
   localStorage.setItem('theme', 'dark');
   root.style.setProperty('--theme-color', 'black');
   root.style.setProperty('--theme-color-secundair', 'white');
+  root.style.setProperty('--btn-color', 'black');
 }
 function setTheme() {
   const theme = localStorage.getItem('theme');

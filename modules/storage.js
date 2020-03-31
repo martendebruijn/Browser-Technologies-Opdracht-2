@@ -49,8 +49,6 @@ function addDataToArray(data, id, name) {
   const json = readFromJson();
   const user = json.find(user => user.id === id);
   const index = json.map(o => o.id).indexOf(user.id);
-  console.log('id: ');
-  console.log(id);
   json[index][`${name}`] = data;
 
   writeToJson(json);
