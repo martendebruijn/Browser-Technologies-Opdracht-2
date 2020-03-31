@@ -232,14 +232,12 @@ header a, header h2 {
     border: 2px solid var(--theme-color-secundair);
 }
 button, .btn {
-    background: white; /* fallback */
-    background: var(--theme-color-secundair);
+    background: white;
 }
 .secundair {
     border: 2px solid #1089ff; /* fallback */
     border: 2px solid var(--theme-color-accent);
-    background: black; /* fallback */
-    background: var(--theme-color);
+    background: white;
 }
 .btn, .secundair {
     height: 3em;
