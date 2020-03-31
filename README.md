@@ -43,6 +43,7 @@ Onderstaand een lijst van de meest gebruikte tools en bronnen.
 - 🛠 [Can I Use](https://caniuse.com/)
 - 🛠 [Colorable](https://colorable.jxnblk.com/)
 - 🛠 [Colorblinding Chrome Extentie](https://chrome.google.com/webstore/detail/colorblinding/dgbgleaofjainknadoffbjkclicbbgaa)
+- 🛠 [Regex patronen](https://regexr.com/)
 - 📖 [Form Field Validation without JavaScript - Fionna Chan - medium.com](https://medium.com/@fionnachan/form-field-validation-without-javascript-2e40696ba999)
 - 📖 [Input types test](https://quirksmode.org/html5/inputs/tests/inputs_js.html)
 - 📖 [Check if localstorage is available](https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available)
