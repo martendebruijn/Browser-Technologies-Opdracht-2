@@ -1,17 +1,40 @@
-<%- include ('./partials/head') %>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<%= style %>">
+    <title>ENQUETE MINOR WEB DEV</title>
+</head>
+<body>
 
 <main>
-    <%- include ('./partials/theme-chooser') %>
     <section>
         <div>
-            <h2>Je persoonlijke code</h2>
+            <h1>Je persoonlijke code</h1>
             <p>Bewaar deze code om later verder te gaan.</p>
         </div>
 
-        <form class="f1" method="post" action="/vraag1/<%= userid %>">
-            <input class="i1" type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
-            <button type="submit" value="start">Beginnen</button>
+        <form class="usercode-form" method="post" action="/vraag1/<%= userid %>">
+            <input class="code" type="text" autocomplete="off" name="usercode" value="<%= userid %>" readonly>
+            <button autofocus type="submit" value="start">Beginnen</button>
         </form>
     </section>
 
-    <%- include ('./partials/footer') %>
+    <section class="progress-dots-wrapper">
+        <a href="/v2"> <span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot active-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+        <a href="/v2"><span class="progress-dot"></span></a>
+    </section>
+</main>
+    
+    <script type="module" src="<%= script %>"></script>
+</body>
+</html>

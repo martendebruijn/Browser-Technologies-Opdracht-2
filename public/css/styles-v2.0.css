@@ -1,0 +1,195 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+/* body {
+	line-height: 1;
+} */
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* --------- */
+body {
+    background: #2f2fa2;
+    line-height: 1.5 !important;
+    font-family: 'Roboto', Verdana, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    width: 80%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+main > section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+}
+form, label, legend, fieldset {
+   width: 100%;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input[type=text] {
+    width: 50%;
+}
+.section-width-100 {
+    width: 100%;
+}
+h1, h3 {
+    font-weight: 700;
+    font-size: 2em;
+}
+a {
+    color: #f64c72;
+}
+.home-links {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn, button {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 13px 32px;
+    text-decoration: none;
+    border: 3px solid #f64c72;
+    color: #f64c72;
+    background: none;
+}
+.btn:hover, .btn:focus, button:hover, button:focus {
+    background: #f64c72;
+    color: white;
+}
+
+.progress-dot:hover {
+    background: #f64c72;
+    transform: scale(1.1);
+}
+/* .usercode-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 1.5em;
+    outline: 0;
+    transition: all 1.5s ease-in-out;
+}
+fieldset {
+    outline: 0;
+    transition: all 1.5s ease-in-out;
+}
+input[type=text], fieldset{
+    left: 100%;
+    position: fixed;
+}
+input[type=text]:focus, fieldset:focus-within {
+    left: 25%;
+}
+
+input[type=text] ~ label, input, legend{
+    opacity: 0;
+}
+input[type=text] ~ label, legend {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-25%, -30%);
+}
+.sub {
+    margin-top: 3em;
+}
+.progress-dot {
+    border-radius: 50%;
+    background: white;
+    height: 20px;
+    width: 20px;
+    display: block;
+    cursor: pointer;
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+}
+
+.dot-one {
+    left: 50%;
+}
+.dot-two {
+    left: 54%;
+}
+
+input:nth-of-type(1):valid ~ .progress-dot:first-of-type, input:nth-of-type(1):focus ~ .progress-dot:first-of-type {
+    background: #f64c72;
+}
+/* input:nth-of-type(2):valid ~ .progress-dot:nth-of-type(2), input:nth-of-type(2):focus ~ .progress-dot:nth-of-type(2) {
+    background: #f64c72;
+} */
+input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus {
+    opacity: 1;
+}
+fieldset:focus-within ~ .progress-dot:nth-of-type(2) {
+    background: #f64c72;
+}
+fieldset:focus-within input[type=radio], fieldset:focus-within legend {
+    opacity: 1;
+}

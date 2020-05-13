@@ -6,9 +6,11 @@
         <h2>Vraag 6 van 7</h2>
         <div class="progress-bar"><div class="progress-v6"></div></div>
         <form method="post" action="/vraag7/<%= userid %>">
-            <label><h3>Welk cijfer zou jij deze minor geven? (1 tot 10)</h3><input type="range" min="1" value="<%= answer %>" max="10" name="cijfer" required>
-                <p class="js-slider"><%= answer %></p></label>
+            <label><h3>Welk cijfer zou jij deze minor geven? (1 tot 10)</h3>
+                <div class="range"><p>1</p><input autofocus type="range" min="1" value="<%= answer %>" max="10" name="cijfer" required><p>10</p></div>
+                <p class="js-slider">Gekozen cijfer: <%= answer %></p></label>
             <section>
+                <p>Gebruik de pijltjestoetsten om van cijfer te wisselen. Druk op enter om verder te gaan.</p>
                 <ul>
                     <li><a class="secundair" href="/vraag5/<%= userid %>">Terug</a></li>
                     <li><button type="submit" value="vraag7">Verder</button></li>

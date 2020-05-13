@@ -130,6 +130,9 @@ body {
     color: var(--theme-color-secundair);
     position: relative;
 }
+.range {
+    display: flex;
+}
 /* headers */
 h1 {
     font-size: 1.5em;

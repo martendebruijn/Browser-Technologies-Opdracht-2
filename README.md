@@ -2,6 +2,12 @@
 
 ![Screenshot of app](./img/screenshot.png)
 
+## Aanvulling
+
+- added `autofocus` to input fields.
+- added 1 and 10 to the end of the range
+- added keyboard navigation help text to questions
+
 ## Introductie
 
 Korte enquête voor de minor web development met de mogelijkheid om verder te gaan waar men gebleven was. Op basis van Progressive Enhancement en Feature Detection. Zie de wiki voor uitgebreidere uitleg.

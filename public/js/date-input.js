@@ -19,7 +19,7 @@ function checkDateInput() {
 }
 
 function validationDate() {
-  return function(e) {
+  return function (e) {
     e.preventDefault();
     const input = getInput('verjaardag');
     const empty = checkIfEmpty(input);
@@ -39,7 +39,7 @@ function addDateInput() {
     const el = document.getElementById('js-date');
     const answerEl = document.getElementById('js-date-answer');
     const answer = answerEl.innerText;
-    el.innerHTML = `<input type="date" name="verjaardag" required max="2002-01-01" value="${answer}">`;
+    el.innerHTML = `<input autofocus type="date" name="verjaardag" required max="2002-01-01" value="${answer}">`;
   }
 }
 addDateInput();
