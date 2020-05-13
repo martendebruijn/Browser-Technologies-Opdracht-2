@@ -86,7 +86,7 @@ form {
     flex-direction: column;
     align-items: center;
 }
-input[type=text] {
+input[type=text], select {
     width: 50%;
 }
 .section-width-100 {
@@ -124,11 +124,14 @@ a {
     background: #f64c72;
     transform: scale(1.1);
 }
-/* .usercode-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
+.hints {
+    position: fixed;
+    padding-top: 20vh;
+    opacity: 0;
+}
+ul.hints {
+    list-style: disc;
+}
 input {
     background: none;
     border: none;
@@ -159,9 +162,7 @@ input[type=text] ~ label, legend {
     top: 30%;
     transform: translate(-25%, -30%);
 }
-.sub {
-    margin-top: 3em;
-}
+
 .progress-dot {
     border-radius: 50%;
     background: white;
@@ -172,44 +173,58 @@ input[type=text] ~ label, legend {
     position: fixed;
   
 }
-
 .dot-one {
-    left: 20%;
-    /* bottom: -800%; */
+    left: 15%;
     margin-top: 50vh;
 }
 .dot-two {
-    left: 50%;
-    /* bottom: 12%; */
-    margin-top: 50vh;
+    left: 45%;
+    margin-top: 38.5vh;
 }
 .dot-three {
+    left: 25%;
+    margin-top: 50vh;
+}
+.dot-four {
     left: 30%;
     margin-top: 50vh;
 }
-
-.dot-four {
-    left: 40%;
-    margin-top: 50vh;
-}
 .dot-five {
-    left: 45%;
+    left: 35%;
     margin-top: 50vh;
 }
 
-input:nth-of-type(1):valid ~ label:first-of-type .progress-dot, input:nth-of-type(1):focus ~ label:first-of-type .progress-dot {
+input:nth-of-type(1):focus ~ label:first-of-type .progress-dot {
     background: #f64c72;
 }
-select:valid + label .progress-dot, select:focus + label .progress-dot {
+input:nth-of-type(1):valid ~ label:first-of-type .progress-dot {
+    background: lightgreen;
+}
+select:focus + label .progress-dot {
     background: #f64c72;
 }
-#birthday:valid + label .progress-dot, #birthday:focus + label .progress-dot {
+select:valid + label .progress-dot {
+    background: lightgreen;
+}
+#birthday:focus + label .progress-dot {
     background: #f64c72;
 }
-input:nth-of-type(1):focus ~ label:nth-of-type(1) h3, input:focus {
+#birthday:valid + label .progress-dot {
+    background: lightgreen;
+}
+ #grade:focus + label .progress-dot {
+    background: #f64c72;
+}
+#grade:valid + label .progress-dot {
+    background: lightgreen;
+}
+input:nth-of-type(1):focus ~ label:nth-of-type(1) h3, input:focus, input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints {
     opacity: 1;
 }
-#birthday:focus + label h3 {
+#birthday:focus + label h3, #birthday:focus + label .hints {
+    opacity: 1;
+}
+#grade:focus + label h3, #grade:focus + label .hints {
     opacity: 1;
 }
 fieldset:focus-within .progress-dot {
@@ -221,10 +236,23 @@ fieldset:focus-within input[type=radio], fieldset:focus-within legend {
 span {
     outline: 0;
 }
-input[type=radio]:valid + .progress-dot {
-    background: #f64c72; 
+input[type=radio]:valid ~ .progress-dot {
+    background: lightgreen; 
 }
 select:focus-within + label h3 {
     opacity: 1;
 }
+.btns {
+    width: 65%;
+    display: flex;
+    /* justify-content: space-evenly; -> do this in js*/
+    justify-content: flex-end;
+    margin-top: 3em;
+}
 
+input:nth-of-type(1):invalid ~ label:first-of-type .hints, #grade:invalid + label .hints, #birthday:invalid + label .hints  {
+    color: #f64c72;
+}
+input:nth-of-type(1):valid ~ label:first-of-type .hints, #grade:valid + label .hints, #birthday:valid + label .hints  {
+    color: lightgreen;
+}

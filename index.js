@@ -24,6 +24,20 @@ app.get('/v2', (req, res) => {
     answer: ' ',
   });
 });
+app.get('/v2/enquete', (req, res) => {
+  res.render('enquetev2', {
+    style: '../css/styles-v2.0.css',
+    script: '../js/main-v2.0.js',
+    answer: ' ',
+  });
+});
+app.get('/v2/enquete/finished', (req, res) => {
+  res.render('finishedv2', {
+    style: '../../css/styles-v2.0.css',
+    script: '../../js/main-v2.0.js',
+    answer: ' ',
+  });
+});
 app.get('/', (req, res) => {
   res.render('home', {
     style: './css/styles.css',
