@@ -87,9 +87,13 @@ document.addEventListener('keydown', function (e) {
 });
 checkInput('date');
 checkInput('color');
-if (checkInput('date')) {
-  // render date input
-}
-if (checkInput('color')) {
-  // render color input
-}
+checkInput('range');
+// if (checkInput('date')) {
+//   // render date input
+// }
+// if (checkInput('color')) {
+//   // render color input
+// }
+// if (checkInput('range')) {
+//   // render range input
+// }
