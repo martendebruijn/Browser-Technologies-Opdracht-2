@@ -48,7 +48,7 @@ table {
 }
 
 /* --------- */
-.back {
+.d-none {
     display: none;
 }
 body {
@@ -245,7 +245,6 @@ select:focus-within + label h3 {
 .btns {
     width: 65%;
     display: flex;
-    /* justify-content: space-evenly; -> do this in js*/
     justify-content: flex-end;
     margin-top: 3em;
 }

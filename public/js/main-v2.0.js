@@ -1,12 +1,14 @@
 /* TODO
-add everything to ls
-fix header birthday
-add input type color
-add input type date
-fix 18 years issue
-fix birthday dot issue
-terug btn
-fix submit
+[ ] add everything to ls
+[x] fix header birthday
+[ ] add input type color
+[ ] add input type date
+[ ] add input type range
+[ ] fix 18 years issue
+[ ] fix birthday dot issue
+[ ] terug btn
+[ ] fix submit
+[ ] fix .hints
 */
 
 const form = document.querySelector('form'),
@@ -19,7 +21,12 @@ const form = document.querySelector('form'),
   radios = document.getElementsByName('leeftijd'),
   colors = document.getElementById('color'),
   birthdayEl = document.getElementById('birthday'),
-  gradeEl = document.getElementById('grade');
+  gradeEl = document.getElementById('grade'),
+  backBtn = document.querySelector('.back'),
+  btnsWrapper = document.querySelector('.btns');
+
+backBtn.classList.remove('d-none');
+btnsWrapper.style.justifyContent = 'space-evenly';
 
 function addToLS(key, value) {
   localStorage.setItem(key, value);
