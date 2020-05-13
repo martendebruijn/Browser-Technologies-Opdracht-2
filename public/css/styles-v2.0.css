@@ -48,6 +48,9 @@ table {
 }
 
 /* --------- */
+.back {
+    display: none;
+}
 body {
     background: #2f2fa2;
     line-height: 1.5 !important;
@@ -135,19 +138,19 @@ input {
     outline: 0;
     transition: all 1.5s ease-in-out;
 }
-fieldset {
+fieldset, select {
     outline: 0;
     transition: all 1.5s ease-in-out;
 }
-input[type=text], fieldset{
+input[type=text], fieldset, select{
     left: 100%;
     position: fixed;
 }
-input[type=text]:focus, fieldset:focus-within {
+input[type=text]:focus, fieldset:focus-within, select:focus-within {
     left: 25%;
 }
 
-input[type=text] ~ label, input, legend{
+input[type=text] ~ label h3, input, legend, select ~ label h3{
     opacity: 0;
 }
 input[type=text] ~ label, legend {
@@ -167,29 +170,61 @@ input[type=text] ~ label, legend {
     display: block;
     cursor: pointer;
     position: fixed;
-    bottom: 5%;
-    left: 50%;
+  
 }
 
 .dot-one {
-    left: 50%;
+    left: 20%;
+    /* bottom: -800%; */
+    margin-top: 50vh;
 }
 .dot-two {
-    left: 54%;
+    left: 50%;
+    /* bottom: 12%; */
+    margin-top: 50vh;
+}
+.dot-three {
+    left: 30%;
+    margin-top: 50vh;
 }
 
-input:nth-of-type(1):valid ~ .progress-dot:first-of-type, input:nth-of-type(1):focus ~ .progress-dot:first-of-type {
+.dot-four {
+    left: 40%;
+    margin-top: 50vh;
+}
+.dot-five {
+    left: 45%;
+    margin-top: 50vh;
+}
+
+input:nth-of-type(1):valid ~ label:first-of-type .progress-dot, input:nth-of-type(1):focus ~ label:first-of-type .progress-dot {
     background: #f64c72;
 }
-/* input:nth-of-type(2):valid ~ .progress-dot:nth-of-type(2), input:nth-of-type(2):focus ~ .progress-dot:nth-of-type(2) {
+select:valid + label .progress-dot, select:focus + label .progress-dot {
     background: #f64c72;
-} */
-input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus {
+}
+#birthday:valid + label .progress-dot, #birthday:focus + label .progress-dot {
+    background: #f64c72;
+}
+input:nth-of-type(1):focus ~ label:nth-of-type(1) h3, input:focus {
     opacity: 1;
 }
-fieldset:focus-within ~ .progress-dot:nth-of-type(2) {
+#birthday:focus + label h3 {
+    opacity: 1;
+}
+fieldset:focus-within .progress-dot {
     background: #f64c72;
 }
 fieldset:focus-within input[type=radio], fieldset:focus-within legend {
     opacity: 1;
 }
+span {
+    outline: 0;
+}
+input[type=radio]:valid + .progress-dot {
+    background: #f64c72; 
+}
+select:focus-within + label h3 {
+    opacity: 1;
+}
+
