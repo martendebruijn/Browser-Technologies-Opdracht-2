@@ -20,7 +20,7 @@ const user = require('./modules/user.js');
 app.get('/v2', (req, res) => {
   res.render('homev2', {
     style: './css/styles-v2.0.css',
-    script: './js/main-v2.0.js',
+    script: '',
     answer: ' ',
   });
 });

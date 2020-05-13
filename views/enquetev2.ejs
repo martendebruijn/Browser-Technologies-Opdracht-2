@@ -14,8 +14,8 @@
             </label> 
  
            <fieldset>
-               <legend><h3 tabindex="-1">Hoe oud ben je?</h3></legend>
-               <input type="radio" name="leeftijd" id="18ofjonger" value="18 of jonger" required />
+               <legend><h3 id="js-ageHeader" tabindex="-1">Hoe oud ben je?</h3></legend>
+               <input type="radio" name="leeftijd" id="18ofjonger" value="18" required />
                <label for="18ofjonger">18 jaar of jonger</label>
                <input type="radio" name="leeftijd" id="19jaar" value="19" required />
                <label for="19jaar">19 jaar</label>
@@ -43,12 +43,12 @@
                 <option value="other">Een andere kleur</option>
             </select>
 
-            <label for="color"><h3 tabindex="-1">Wat is je favoriete kleur?</h3>
+            <label for="color"><h3 id="js-colorHeader" tabindex="-1">Wat is je favoriete kleur?</h3>
                 <span class="progress-dot dot-three" tabindex="1"></span> 
             </label>
 
             <input id="birthday" autocomplete="off" placeholder="04-09-1996" type="text" name="verjaardag" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value=""/>
-            <label for="birthday"><h3 tabindex="-1">Wat is je geboortedatum?</h3>
+            <label for="birthday"><h3 id="js-birthdayHeader" tabindex="-1">Wat is je geboortedatum?</h3> <h3>Vul hieronder je geboortedatum in:</h3>
                 <span class="progress-dot dot-four" tabindex="1"></span> 
                 <div class="hints">
                     <p>Toegestaan formaat:</p>
@@ -57,7 +57,7 @@
             </label> 
 
             <input id="grade" autocomplete="off" placeholder="8" type="text" name="grade" required pattern="(1[0]|[1-9]{1})" value=""/>
-            <label for="grade"><h3 tabindex="-1">Welk cijfer zou jij de minor geven?</h3>
+            <label for="grade"><h3 id="js-gradeHeader" tabindex="-1">Welk cijfer zou jij de minor geven?</h3>
                 <span class="progress-dot dot-five" tabindex="1"></span> 
                 <ul class="hints">
                     <p>Toegestane tekens:</p>
