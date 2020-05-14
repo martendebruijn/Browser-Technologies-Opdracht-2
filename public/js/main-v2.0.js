@@ -6,15 +6,15 @@
 [x] add input type range
 [x] fix 18 years issue
 [x] fix birthday dot issue
-[ ] terug btn
-[ ] fix submit
+[x] terug btn
+[x] fix submit
 [x] fix .hints
-[ ] add color and range only to localstoragge when the rest is done
+[x] add color and range only to localstoragge when the rest is done
 [ ] read and enter everything from localstorage
+[ ] add localstorage reset
 */
 
 const form = document.querySelector('form'),
-  submitBtn = document.querySelector('.sub'),
   nameEl = document.getElementById('input1'),
   ageHeader = document.getElementById('js-ageHeader'),
   colorHeader = document.getElementById('js-colorHeader'),
@@ -29,10 +29,13 @@ const form = document.querySelector('form'),
 let colors = document.getElementById('color'),
   n = 0,
   gradeEl = document.getElementById('grade'),
-  birthdayEl = document.getElementById('birthday');
+  birthdayEl = document.getElementById('birthday'),
+  submitBtn = document.querySelector('.sub');
 
 backBtn.classList.remove('d-none');
 btnsWrapper.style.justifyContent = 'space-evenly';
+submitBtn.outerHTML = `<button class="sub">Volgende</button>`;
+submitBtn = document.querySelector('.sub');
 
 function addToLS(key, value) {
   localStorage.setItem(key, value);
@@ -106,10 +109,19 @@ document.addEventListener('keydown', function (e) {
 
 const questionArray = [nameEl, ageHeader, colors, birthdayEl, gradeEl, gradeEl];
 let qnr = 0;
+function checkLSlength() {
+  const l = localStorage.length;
+  if (l >= 1) {
+    qnr = l;
+    changeHeaders();
+  }
+}
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
   if (qnr < 5) {
     qnr++;
+  } else if (localStorage.length === 5) {
+    form.submit();
   } else if (qnr >= 5) {
     qnr = 0;
   }
@@ -127,23 +139,60 @@ backBtn.addEventListener('click', function (e) {
   focusOnQNR(qnr);
 });
 function focusOnQNR(qnr, name) {
+  const __name = getLS('name'),
+    __age = getLS('age'),
+    __color = getLS('color'),
+    __birthday = getLS('birthday'),
+    __grade = getLS('grade');
+
   const out = document.getElementById('js-gradeOutput');
   if (qnr === 1) {
+    if (__name && __name.length !== 0) {
+      nameEl.value = __name;
+      console.log('jahallo');
+    }
     nameQuestion();
+    changeHeaders();
   } else if (qnr === 2) {
+    if (__age && __age.length !== 0) {
+      radios.forEach(function (radio) {
+        if (radio.value == getLS('age')) {
+          radio.checked = true;
+          qnr = 2;
+        }
+      });
+    }
     const _name = nameEl.value;
     checkedRadioBtn(_name);
   } else if (qnr === 3) {
     if (!checkInput('color')) {
+      if (__color && __color.length !== 0) {
+        console.log(__color);
+      }
       checkSelectedOption();
     } else if (checkInput('color')) {
+      if (__color && __color.length !== 0) {
+        colors.value = __color;
+      }
       addToLS('color', colors.value);
     }
   } else if (qnr === 4) {
-    const birthday = birthdayEl.value;
+    let birthday = birthdayEl.value;
+    if (__birthday && __birthday.length !== 0) {
+      console.log(__birthday);
+      birthday = __birthday;
+      birthdayEl.value = __birthday;
+    }
+
     addToLS('birthday', birthday);
   } else if (qnr === 5) {
-    const grade = gradeEl.value;
+    let grade = gradeEl.value;
+    if (__grade && __grade.length !== 0) {
+      console.log(__grade);
+      grade = __grade;
+      gradeEl.value = __grade;
+    }
+
     addToLS('grade', grade);
   }
   if (
@@ -172,6 +221,7 @@ function focusOnQNR(qnr, name) {
     questionArray[qnr].focus();
   }
 }
+checkLSlength();
 focusOnQNR(qnr);
 
 // if (getLS('name')) {
@@ -186,13 +236,16 @@ focusOnQNR(qnr);
 //     }
 //   });
 // }
-getLS('color');
-getLS('birthday');
-getLS('grade');
+// getLS('color');
+// getLS('birthday');
+// getLS('grade');
 function nameQuestion() {
   const name = nameEl.value;
+  addToLS('name', name);
+}
+function changeHeaders() {
+  const name = getLS('name');
   if (name) {
-    addToLS('name', name);
     ageHeader.innerText = `${name}, hoe oud ben je?`;
     if (checkInput('color') && qnr < 2) {
       colorHeader.innerHTML = `${name}, wat is je favoriete kleur?
