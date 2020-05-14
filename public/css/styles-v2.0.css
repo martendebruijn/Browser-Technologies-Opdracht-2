@@ -86,15 +86,19 @@ form {
     flex-direction: column;
     align-items: center;
 }
-input[type=text], select {
+input[type=text], select, input[type=date], input[type=color], input[type=range] {
     width: 50%;
 }
 .section-width-100 {
     width: 100%;
 }
-h1, h3 {
+h1, label, legend {
     font-weight: 700;
     font-size: 2em;
+}
+fieldset label, .hints p, .hints li {
+    font-weight: 400;
+    font-size: 16px;
 }
 a {
     color: #f64c72;
@@ -126,7 +130,7 @@ a {
 }
 .hints {
     position: fixed;
-    padding-top: 20vh;
+    top: 35vh;
     opacity: 0;
 }
 ul.hints {
@@ -145,18 +149,22 @@ fieldset, select {
     outline: 0;
     transition: all 1.5s ease-in-out;
 }
-input[type=text], fieldset, select{
+fieldset {
+    z-index: 20;
+}
+input[type=text], fieldset, select, input[type=date], input[type=color], input[type=range]{
     left: 100%;
     position: fixed;
 }
-input[type=text]:focus, fieldset:focus-within, select:focus-within {
+input[type=text]:focus, fieldset:focus-within, select:focus-within, input[type=date]:focus, input[type=range]:focus {
     left: 25%;
 }
 
-input[type=text] ~ label h3, input, legend, select ~ label h3{
-    opacity: 0;
+input[type=text] ~ label, input, legend, select ~ label, input[type=date] ~ label, input[type=color] ~ label, input[type=range] ~ label {
+    background: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
 }
-input[type=text] ~ label, legend {
+input[type=text] ~ label, legend, input[type=date] ~ label, input[type=color] ~ label, input[type=range] ~ label {
     position: fixed;
     left: 50%;
     top: 30%;
@@ -187,23 +195,23 @@ input[type=text] ~ label, legend {
 }
 .dot-four {
     left: 30%;
-    margin-top: 50vh;
+    margin-top: 45.4vh;
 }
 .dot-five {
     left: 35%;
     margin-top: 50vh;
 }
 
-input:nth-of-type(1):focus ~ label:first-of-type .progress-dot {
+#input1:focus ~ label:first-of-type .progress-dot {
     background: #f64c72;
 }
-input:nth-of-type(1):valid ~ label:first-of-type .progress-dot {
+#input1:valid ~ label:first-of-type .progress-dot {
     background: lightgreen;
 }
-select:focus + label .progress-dot {
+select:focus + label .progress-dot, input[type=color] + label .progress-dot, input[type=range] + label .progress-dot {
     background: #f64c72;
 }
-select:valid + label .progress-dot {
+select:valid + label .progress-dot, input[type=color] + label .progress-dot, input[type=color] + label .progress-dot {
     background: lightgreen;
 }
 #birthday:focus + label .progress-dot {
@@ -218,29 +226,27 @@ select:valid + label .progress-dot {
 #grade:valid + label .progress-dot {
     background: lightgreen;
 }
-input:nth-of-type(1):focus ~ label:nth-of-type(1) h3, input:focus, input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints {
+input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus, #birthday:focus + label, #grade:focus + label, fieldset:focus-within input[type=radio], fieldset:focus-within legend, select:focus-within + label {
+    color: white;
+}
+.color-label {
+    color: white !important;
+}
+.color-input {
+    left: 25% !important;
+}
+input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints, #birthday:focus + label .hints,  #grade:focus + label .hints {
     opacity: 1;
 }
-#birthday:focus + label h3, #birthday:focus + label .hints {
-    opacity: 1;
-}
-#grade:focus + label h3, #grade:focus + label .hints {
-    opacity: 1;
-}
+
 fieldset:focus-within .progress-dot {
     background: #f64c72;
-}
-fieldset:focus-within input[type=radio], fieldset:focus-within legend {
-    opacity: 1;
 }
 span {
     outline: 0;
 }
 input[type=radio]:valid ~ .progress-dot {
     background: lightgreen; 
-}
-select:focus-within + label h3 {
-    opacity: 1;
 }
 .btns {
     width: 65%;
@@ -254,4 +260,13 @@ input:nth-of-type(1):invalid ~ label:first-of-type .hints, #grade:invalid + labe
 }
 input:nth-of-type(1):valid ~ label:first-of-type .hints, #grade:valid + label .hints, #birthday:valid + label .hints  {
     color: lightgreen;
+}
+.white-dot {
+    background: white !important;
+}
+#js-gradeOutput {
+    margin-left: 9em;
+    font-weight: 600;
+    font-size: 33px;
+    position: fixed;
 }

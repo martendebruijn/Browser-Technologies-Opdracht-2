@@ -1,14 +1,16 @@
 /* TODO
-[ ] add everything to ls
+[x] add everything to ls
 [x] fix header birthday
-[ ] add input type color
-[ ] add input type date
-[ ] add input type range
-[ ] fix 18 years issue
-[ ] fix birthday dot issue
+[x] add input type color
+[x] add input type date
+[x] add input type range
+[x] fix 18 years issue
+[x] fix birthday dot issue
 [ ] terug btn
 [ ] fix submit
-[ ] fix .hints
+[x] fix .hints
+[ ] add color and range only to localstoragge when the rest is done
+[ ] read and enter everything from localstorage
 */
 
 const form = document.querySelector('form'),
@@ -19,11 +21,15 @@ const form = document.querySelector('form'),
   birthHeader = document.getElementById('js-birthdayHeader'),
   gradeHeader = document.getElementById('js-gradeHeader'),
   radios = document.getElementsByName('leeftijd'),
-  colors = document.getElementById('color'),
-  birthdayEl = document.getElementById('birthday'),
-  gradeEl = document.getElementById('grade'),
   backBtn = document.querySelector('.back'),
-  btnsWrapper = document.querySelector('.btns');
+  btnsWrapper = document.querySelector('.btns'),
+  dotThree = document.getElementById('js-dotThree'),
+  dotFive = document.getElementById('js-dotFive');
+
+let colors = document.getElementById('color'),
+  n = 0,
+  gradeEl = document.getElementById('grade'),
+  birthdayEl = document.getElementById('birthday');
 
 backBtn.classList.remove('d-none');
 btnsWrapper.style.justifyContent = 'space-evenly';
@@ -32,7 +38,9 @@ function addToLS(key, value) {
   localStorage.setItem(key, value);
 }
 function getLS(key) {
-  localStorage.getItem(key);
+  const val = localStorage.getItem(key);
+  console.log(key + ' ' + val);
+  return val;
 }
 /* Detect input type="date"
 Source: https://quirksmode.org/html5/inputs/tests/inputs_js.html 
@@ -52,6 +60,20 @@ function checkInput(prefType) {
   console.log(`${prefType} = ${supported}`);
   return supported;
 }
+if (checkInput('date')) {
+  birthdayEl.outerHTML = `<input  id="birthday" type="date" name="verjaardag" required min="1980-01-01" max="2002-01-01"/>`;
+  birthdayEl = document.getElementById('birthday');
+}
+if (checkInput('color')) {
+  colors.outerHTML = `<input id="color" type="color" name="kleur" required>`;
+  colors = document.getElementById('color');
+  dotThree.classList.add('white-dot');
+}
+if (checkInput('range')) {
+  gradeEl.outerHTML = `<input type="range" min="1" value="" max="10" name="grade" id="grade" required>`;
+  gradeEl = document.getElementById('grade');
+  dotFive.classList.add('white-dot');
+}
 function checkedRadioBtn(name) {
   radios.forEach(function (radio) {
     if (radio.checked) {
@@ -60,7 +82,13 @@ function checkedRadioBtn(name) {
         date = today.getFullYear();
       addToLS('age', age);
       const birthYear = date - age;
-      birthHeader.innerText = `${name} je bent waarschijnlijk in ${birthYear} geboren.`;
+      birthHeader.innerHTML = `${name} je bent waarschijnlijk in ${birthYear} geboren.
+      <h3>Vul hieronder je geboortedatum in:</h3>
+      <span class="progress-dot dot-four" tabindex="1"></span> 
+      <div class="hints">
+          <p>Toegestaan formaat:</p>
+          <p>DD-MM-YYYY</p>
+      </div>`;
     }
   });
 }
@@ -69,38 +97,130 @@ function checkSelectedOption() {
   addToLS('color', sel);
 }
 
-function doEverything() {
-  const name = nameEl.value,
-    birthday = birthdayEl.value,
-    grade = gradeEl.value;
-  addToLS('name', name);
-  addToLS('birthday', birthday);
-  addToLS('grade', grade);
-  ageHeader.innerText = `${name}, hoe oud ben je?`;
-  colorHeader.innerText = `${name}, wat is je favoriete kleur?`;
-  gradeHeader.innerText = `${name}, welk cijfer zou jij deze minor geven?`;
-  checkedRadioBtn(name);
-  checkSelectedOption();
-}
-
-submitBtn.addEventListener('click', function (e) {
-  doEverything();
-});
-
 document.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
-    doEverything();
+    // doEverything(e);
+    e.preventDefault();
   }
 });
-checkInput('date');
-checkInput('color');
-checkInput('range');
-// if (checkInput('date')) {
-//   // render date input
+
+const questionArray = [nameEl, ageHeader, colors, birthdayEl, gradeEl, gradeEl];
+let qnr = 0;
+submitBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (qnr < 5) {
+    qnr++;
+  } else if (qnr >= 5) {
+    qnr = 0;
+  }
+  console.log(qnr);
+  focusOnQNR(qnr);
+});
+backBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (qnr <= 5 && qnr > 0) {
+    qnr--;
+  } else if (qnr <= 0) {
+    qnr = 0;
+  }
+  console.log(qnr);
+  focusOnQNR(qnr);
+});
+function focusOnQNR(qnr, name) {
+  const out = document.getElementById('js-gradeOutput');
+  if (qnr === 1) {
+    nameQuestion();
+  } else if (qnr === 2) {
+    const _name = nameEl.value;
+    checkedRadioBtn(_name);
+  } else if (qnr === 3) {
+    if (!checkInput('color')) {
+      checkSelectedOption();
+    } else if (checkInput('color')) {
+      addToLS('color', colors.value);
+    }
+  } else if (qnr === 4) {
+    const birthday = birthdayEl.value;
+    addToLS('birthday', birthday);
+  } else if (qnr === 5) {
+    const grade = gradeEl.value;
+    addToLS('grade', grade);
+  }
+  if (
+    colors.classList.contains('color-input') &&
+    colorHeader.classList.contains('color-label')
+  ) {
+    colors.classList.remove('color-input');
+    colorHeader.classList.remove('color-label');
+  }
+  if (!out.classList.contains('d-none')) {
+    out.classList.add('d-none');
+  }
+  if (qnr === 2 && checkInput('color')) {
+    colorHeader.focus();
+    colors.classList.add('color-input');
+    colorHeader.classList.add('color-label');
+    dotThree.classList.remove('white-dot');
+  } else if (qnr === 4 && checkInput('range')) {
+    gradeEl.focus();
+    dotFive.classList.remove('white-dot');
+    out.classList.remove('d-none');
+    gradeEl.oninput = function () {
+      out.innerText = this.value;
+    };
+  } else {
+    questionArray[qnr].focus();
+  }
+}
+focusOnQNR(qnr);
+
+// if (getLS('name')) {
+//   nameEl.value = getLS('name');
+//   qnr = 1;
 // }
-// if (checkInput('color')) {
-//   // render color input
+// if (getLS('age')) {
+//   radios.forEach(function (radio) {
+//     if (radio.value == getLS('age')) {
+//       radio.checked = true;
+//       qnr = 2;
+//     }
+//   });
 // }
-// if (checkInput('range')) {
-//   // render range input
-// }
+getLS('color');
+getLS('birthday');
+getLS('grade');
+function nameQuestion() {
+  const name = nameEl.value;
+  if (name) {
+    addToLS('name', name);
+    ageHeader.innerText = `${name}, hoe oud ben je?`;
+    if (checkInput('color') && qnr < 2) {
+      colorHeader.innerHTML = `${name}, wat is je favoriete kleur?
+    <span id="js-dotThree" class="progress-dot dot-three white-dot" tabindex="1"></span> `;
+    } else if (checkInput('color')) {
+      colorHeader.innerHTML = `${name}, wat is je favoriete kleur?
+    <span id="js-dotThree" class="progress-dot dot-three" tabindex="1"></span> `;
+    } else {
+      colorHeader.innerHTML = `${name}, wat is je favoriete kleur?`;
+    }
+    if (checkInput('range') && qnr < 4) {
+      gradeHeader.innerHTML = `${name}, welk cijfer zou jij deze minor geven?
+          <span id="js-dotFive" class="progress-dot dot-five white-dot" tabindex="1"></span> 
+          <ul class="hints">
+              <p>Toegestane tekens:</p>
+              <li>1 t/m 9</li>
+              <li>10</li>
+          </ul>`;
+    } else if (checkInput('range')) {
+      gradeHeader.innerHTML = `${name}, welk cijfer zou jij deze minor geven?
+          <span id="js-dotFive" class="progress-dot dot-five white-dot" tabindex="1"></span> 
+          <ul class="hints">
+              <p>Toegestane tekens:</p>
+              <li>1 t/m 9</li>
+              <li>10</li>
+          </ul>`;
+    } else {
+      gradeHeader.innerText = `${name}, welk cijfer zou jij deze minor geven?`;
+    }
+  }
+}
