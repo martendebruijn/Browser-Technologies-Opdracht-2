@@ -11,7 +11,9 @@
 [x] fix .hints
 [x] add color and range only to localstoragge when the rest is done
 [x] read and enter everything from localstorage
-[ ] add localstorage reset
+[x] add localstorage reset
+[ ] final test
+[ ] README CONCLUSIE
 */
 
 const form = document.querySelector('form'),
