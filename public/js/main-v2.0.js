@@ -331,3 +331,48 @@ function changeHeaders() {
     }
   }
 }
+document.getElementById('js-dotOne').addEventListener('click', function (e) {
+  const out = document.getElementById('js-gradeOutput');
+  if (!out.classList.contains('d-none')) {
+    out.classList.add('d-none');
+  }
+  // prettier-ignore
+  if ( colors.classList.contains('color-input') && colorHeader.classList.contains('color-label') ) {
+        colors.classList.remove('color-input');
+        colorHeader.classList.remove('color-label');
+      }
+});
+document.getElementById('js-dotTwo').addEventListener('click', function (e) {
+  const out = document.getElementById('js-gradeOutput');
+  if (!out.classList.contains('d-none')) {
+    out.classList.add('d-none');
+  }
+  // prettier-ignore
+  if ( colors.classList.contains('color-input') && colorHeader.classList.contains('color-label') ) {
+        colors.classList.remove('color-input');
+        colorHeader.classList.remove('color-label');
+      }
+});
+document.getElementById('js-dotFour').addEventListener('click', function (e) {
+  const out = document.getElementById('js-gradeOutput');
+  if (!out.classList.contains('d-none')) {
+    out.classList.add('d-none');
+  }
+  // prettier-ignore
+  if ( colors.classList.contains('color-input') && colorHeader.classList.contains('color-label') ) {
+    colors.classList.remove('color-input');
+    colorHeader.classList.remove('color-label');
+  }
+});
+
+document.getElementById('js-dotFive').addEventListener('click', function (e) {
+  const out = document.getElementById('js-gradeOutput');
+  // prettier-ignore
+  if ( colors.classList.contains('color-input') && colorHeader.classList.contains('color-label') ) {
+    colors.classList.remove('color-input');
+    colorHeader.classList.remove('color-label');
+}
+  if (checkInput('range')) {
+    out.classList.remove('d-none');
+  }
+});
