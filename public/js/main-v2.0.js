@@ -10,7 +10,7 @@
 [x] fix submit
 [x] fix .hints
 [x] add color and range only to localstoragge when the rest is done
-[ ] read and enter everything from localstorage
+[x] read and enter everything from localstorage
 [ ] add localstorage reset
 */
 
@@ -116,6 +116,17 @@ function checkLSlength() {
     changeHeaders();
   }
 }
+function checkDateFormat(date) {
+  const pattern = /[0-9]{4}.(0[1-9]|1[012]).(0[1-9]|1[0-9]|2[0-9]|3[01])/g;
+  const valid = pattern.test(date);
+  if (!valid) {
+    const splitStr = date.split('-');
+    const reverseArr = splitStr.reverse();
+    const joinArr = reverseArr.join('-');
+    date = joinArr;
+  }
+  return date;
+}
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
   if (qnr < 5) {
@@ -180,6 +191,7 @@ function focusOnQNR(qnr, name) {
     let birthday = birthdayEl.value;
     if (__birthday && __birthday.length !== 0) {
       console.log(__birthday);
+      __birthday = checkDateFormat(__birthday);
       birthday = __birthday;
       birthdayEl.value = __birthday;
     }
