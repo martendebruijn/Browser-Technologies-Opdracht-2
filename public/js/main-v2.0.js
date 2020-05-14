@@ -14,6 +14,9 @@
 [x] add localstorage reset
 [ ] final test
 [ ] README CONCLUSIE
+[ ] color dot
+[ ] grade dot
+[ ] before submitting screen
 */
 
 const form = document.querySelector('form'),
@@ -21,18 +24,19 @@ const form = document.querySelector('form'),
   ageHeader = document.getElementById('js-ageHeader'),
   colorHeader = document.getElementById('js-colorHeader'),
   birthHeader = document.getElementById('js-birthdayHeader'),
-  gradeHeader = document.getElementById('js-gradeHeader'),
   radios = document.getElementsByName('leeftijd'),
   backBtn = document.querySelector('.back'),
   btnsWrapper = document.querySelector('.btns'),
-  dotThree = document.getElementById('js-dotThree'),
-  dotFive = document.getElementById('js-dotFive');
+  readyEl = document.getElementById('js-ready');
 
 let colors = document.getElementById('color'),
   n = 0,
   gradeEl = document.getElementById('grade'),
   birthdayEl = document.getElementById('birthday'),
-  submitBtn = document.querySelector('.sub');
+  submitBtn = document.querySelector('.sub'),
+  dotThree = document.getElementById('js-dotThree'),
+  dotFive = document.getElementById('js-dotFive'),
+  gradeHeader = document.getElementById('js-gradeHeader');
 
 backBtn.classList.remove('d-none');
 btnsWrapper.style.justifyContent = 'space-evenly';
@@ -109,7 +113,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-const questionArray = [nameEl, ageHeader, colors, birthdayEl, gradeEl, gradeEl];
+const questionArray = [nameEl, ageHeader, colors, birthdayEl, gradeEl, readyEl];
 let qnr = 0;
 function checkLSlength() {
   const l = localStorage.length;
@@ -127,13 +131,15 @@ function checkDateFormat(date) {
     const joinArr = reverseArr.join('-');
     date = joinArr;
   }
+  console.log('HIERO');
+  console.log(date);
   return date;
 }
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
   if (qnr < 5) {
     qnr++;
-  } else if (localStorage.length === 5) {
+  } else if (localStorage.length === 5 && qnr === 5) {
     form.submit();
   } else if (qnr >= 5) {
     qnr = 0;
@@ -143,6 +149,7 @@ submitBtn.addEventListener('click', function (e) {
 });
 backBtn.addEventListener('click', function (e) {
   e.preventDefault();
+  //   readyEl.classList.add('d-none');
   if (qnr <= 5 && qnr > 0) {
     qnr--;
   } else if (qnr <= 0) {
@@ -151,56 +158,83 @@ backBtn.addEventListener('click', function (e) {
   console.log(qnr);
   focusOnQNR(qnr);
 });
+function addName(__name) {
+  if (__name && __name.length !== 0) {
+    nameEl.value = __name;
+  }
+}
+function addAge(__age) {
+  if (__age && __age.length !== 0) {
+    radios.forEach(function (radio) {
+      if (radio.value == getLS('age')) {
+        radio.checked = true;
+      }
+    });
+  }
+}
+function addColor(__color) {
+  if (__color && __color.length !== 0) {
+    colors.value = __color;
+  }
+}
+function addBirthday(__birthday, birthday) {
+  if (__birthday && __birthday.length !== 0) {
+    console.log(__birthday);
+    __birthday = checkDateFormat(__birthday);
+    birthday = __birthday;
+    birthdayEl.value = __birthday;
+  }
+}
+
 function focusOnQNR(qnr, name) {
+  if (!readyEl.classList.contains('d-none') && qnr !== 5) {
+    readyEl.classList.add('d-none');
+  } else if (readyEl.classList.contains('d-none') && qnr === 5) {
+    readyEl.classList.remove('d-none');
+  }
   const __name = getLS('name'),
     __age = getLS('age'),
     __color = getLS('color'),
-    __birthday = getLS('birthday'),
     __grade = getLS('grade');
+  let __birthday = getLS('birthday');
 
   const out = document.getElementById('js-gradeOutput');
   if (qnr === 1) {
-    if (__name && __name.length !== 0) {
-      nameEl.value = __name;
-      console.log('jahallo');
-    }
+    addName(__name);
     nameQuestion();
     changeHeaders();
   } else if (qnr === 2) {
-    if (__age && __age.length !== 0) {
-      radios.forEach(function (radio) {
-        if (radio.value == getLS('age')) {
-          radio.checked = true;
-          qnr = 2;
-        }
-      });
-    }
+    addName(__name);
+    addAge(__age);
+
     const _name = nameEl.value;
     checkedRadioBtn(_name);
   } else if (qnr === 3) {
     if (!checkInput('color')) {
-      if (__color && __color.length !== 0) {
-        console.log(__color);
-      }
+      addName(__name);
+      addAge(__age);
+      addColor(__color);
       checkSelectedOption();
     } else if (checkInput('color')) {
-      if (__color && __color.length !== 0) {
-        colors.value = __color;
-      }
+      addName(__name);
+      addAge(__age);
+      addColor(__color);
       addToLS('color', colors.value);
     }
   } else if (qnr === 4) {
     let birthday = birthdayEl.value;
-    if (__birthday && __birthday.length !== 0) {
-      console.log(__birthday);
-      __birthday = checkDateFormat(__birthday);
-      birthday = __birthday;
-      birthdayEl.value = __birthday;
-    }
-
+    addName(__name);
+    addAge(__age);
+    addColor(__color);
+    addBirthday(__birthday, birthday);
     addToLS('birthday', birthday);
   } else if (qnr === 5) {
+    let birthday = birthdayEl.value;
     let grade = gradeEl.value;
+    addName(__name);
+    addAge(__age);
+    addColor(__color);
+    addBirthday(__birthday, birthday);
     if (__grade && __grade.length !== 0) {
       console.log(__grade);
       grade = __grade;
@@ -209,13 +243,11 @@ function focusOnQNR(qnr, name) {
 
     addToLS('grade', grade);
   }
-  if (
-    colors.classList.contains('color-input') &&
-    colorHeader.classList.contains('color-label')
-  ) {
-    colors.classList.remove('color-input');
-    colorHeader.classList.remove('color-label');
-  }
+  // prettier-ignore
+  if ( colors.classList.contains('color-input') && colorHeader.classList.contains('color-label') ) {
+        colors.classList.remove('color-input');
+        colorHeader.classList.remove('color-label');
+      }
   if (!out.classList.contains('d-none')) {
     out.classList.add('d-none');
   }
@@ -232,6 +264,7 @@ function focusOnQNR(qnr, name) {
       out.innerText = this.value;
     };
   } else {
+    console.log(qnr);
     questionArray[qnr].focus();
   }
 }
@@ -264,9 +297,11 @@ function changeHeaders() {
     if (checkInput('color') && qnr < 2) {
       colorHeader.innerHTML = `${name}, wat is je favoriete kleur?
     <span id="js-dotThree" class="progress-dot dot-three white-dot" tabindex="1"></span> `;
-    } else if (checkInput('color')) {
+      dotThree = document.getElementById('js-dotThree');
+    } else if (checkInput('color') && qnr >= 2) {
       colorHeader.innerHTML = `${name}, wat is je favoriete kleur?
     <span id="js-dotThree" class="progress-dot dot-three" tabindex="1"></span> `;
+      dotThree = document.getElementById('js-dotThree');
     } else {
       colorHeader.innerHTML = `${name}, wat is je favoriete kleur?`;
     }
@@ -278,7 +313,9 @@ function changeHeaders() {
               <li>1 t/m 9</li>
               <li>10</li>
           </ul>`;
-    } else if (checkInput('range')) {
+      dotFive = document.getElementById('js-dotFive');
+      gradeHeader = document.getElementById('js-gradeHeader');
+    } else if (checkInput('range') && qnr >= 4) {
       gradeHeader.innerHTML = `${name}, welk cijfer zou jij deze minor geven?
           <span id="js-dotFive" class="progress-dot dot-five white-dot" tabindex="1"></span> 
           <ul class="hints">
@@ -286,8 +323,11 @@ function changeHeaders() {
               <li>1 t/m 9</li>
               <li>10</li>
           </ul>`;
+      dotFive = document.getElementById('js-dotFive');
+      gradeHeader = document.getElementById('js-gradeHeader');
     } else {
       gradeHeader.innerText = `${name}, welk cijfer zou jij deze minor geven?`;
+      gradeHeader = document.getElementById('js-gradeHeader');
     }
   }
 }

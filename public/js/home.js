@@ -8,8 +8,8 @@ const newStartBtn = document.getElementById('js-startBtn'),
 
 newStartBtn.addEventListener('click', function (e) {
   localStorage.clear();
-  window.location.href = window.location.href + '/enquete';
+  window.location.href = window.location.href + 'v2/enquete';
 });
 newContinueBtn.addEventListener('click', function (e) {
-  window.location.href = window.location.href + '/enquete';
+  window.location.href = window.location.href + 'v2/enquete';
 });

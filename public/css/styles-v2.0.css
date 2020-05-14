@@ -226,7 +226,7 @@ select:valid + label .progress-dot, input[type=color] + label .progress-dot, inp
 #grade:valid + label .progress-dot {
     background: lightgreen;
 }
-input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus, #birthday:focus + label, #grade:focus + label, fieldset:focus-within input[type=radio], fieldset:focus-within legend, select:focus-within + label {
+input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus, #birthday:focus + label, #grade:focus + label, fieldset:focus-within input[type=radio], fieldset:focus-within legend, select:focus-within + label, input[type=range]:focus ~ label {
     color: white;
 }
 .color-label {
@@ -269,4 +269,10 @@ input:nth-of-type(1):valid ~ label:first-of-type .hints, #grade:valid + label .h
     font-weight: 600;
     font-size: 33px;
     position: fixed;
+}
+#js-ready {
+    position: fixed;
+    top: 30%;
+    left: 25%;
+    /* transform: translate(-25%, -25%); */
 }

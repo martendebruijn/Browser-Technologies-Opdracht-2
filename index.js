@@ -11,31 +11,26 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-// Imported functions
-const storage = require('./modules/storage.js');
-const generate = require('./modules/generate.js');
-const user = require('./modules/user.js');
-
 // Routes
-app.get('/v2', (req, res) => {
+app.get('/', (req, res) => {
   res.render('homev2', {
     style: './css/styles-v2.0.css',
     script: './js/home.js',
-    answer: ' ',
   });
+});
+app.get('/v2', (req, res) => {
+  res.redirect('/');
 });
 app.get('/v2/enquete', (req, res) => {
   res.render('enquetev2', {
     style: '../css/styles-v2.0.css',
     script: '../js/main-v2.0.js',
-    answer: ' ',
   });
 });
 app.get('/v2/enquete/finished', (req, res) => {
   res.render('finishedv2', {
     style: '../../css/styles-v2.0.css',
     script: '../../js/main-v2.0.js',
-    answer: ' ',
   });
 });
 app.get('/', (req, res) => {
