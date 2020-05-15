@@ -76,16 +76,15 @@ npm start
 
 ## 📍 Table of Contents
 
-- [Progressive Enhancements](#Progressive-Enhancements)
-- [Features](#Features)
-- [Feature Detection](#Feature-Detection)
-- [Accessibility](#Accessibility)
-- [Conclusie](#Conclusie)
+- [🧙‍♂️ Progressive Enhancements](#Progressive-Enhancements)
+- [🔍 Feature Detection](#Feature-Detection)
+- [👨‍🦽 Accessibility](#Accessibility)
+- [💈 Conclusie](#Conclusie)
 - [✨ Whishlist](#-Whishlist)
 - [🙌 Credits](#-Credits)
 - [📚 Sources](#-Sources)
 
-## Progressive Enhancements
+## 🧙‍♂️ Progressive Enhancements
 
 ### Orginele versie
 <details><summary>CSS Selectors</summary>
@@ -983,7 +982,7 @@ input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints, #birthday:focus + labe
 ```
 </details>
 
-## Feature Detection
+## 🔍 Feature Detection
 
 ### Orginele versie
 <details><summary>Date Input</summary>
@@ -1169,11 +1168,11 @@ if (checkInput('range')) {
 </details>
 
 
-## Accessibility
+## 👨‍🦽 Accessibility
 
 - [Tests en toegankelijkheid](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/tests)
 
-## Conclusie
+## 💈 Conclusie
 ### C-Core functionaliteit
 De core functionaliteit van de app is het kunnen invullen van de enquête en het bewaren van de antwoorden zodat de gebruiker terug kan gaan en verder kan gaan waar hij gebleven is. Dit gaat via een url met queries of als de gebruiker over JavaScript beschikt, automatisch via LocalStorage.
 
