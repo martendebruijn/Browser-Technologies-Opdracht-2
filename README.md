@@ -121,6 +121,8 @@ HTML, CSS en JavaScript.
 ![Screenshot pleasurable layer](./img/screenshots/js.png)
 </details>
 
+#
+
 ### Orginele versie
 <details><summary>CSS Selectors</summary>
 
