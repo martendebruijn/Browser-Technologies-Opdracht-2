@@ -76,27 +76,35 @@ npm start
 </ul>
 </details>
 
-<details><summary>Aanvulling</summary>
-<ul>
-    <li>Enquête opslaan
-        <ul>
-            <li><details><summary>Opslaan in query</summary>
-            ```js
-            const test = test
-            ```</details></li>
-            <li>Automatisch opslaan in local storage</li>
-        </ul>
-    </li>
-    <li>Vraag headers 
-        <ul>
-            <li>Gebruiker naam invullen</li>
-            <li>Geboortejaar uitrekenen</li>
-        </ul>
-    </li>
-    <li>Voortgangs cirkels</li>
-    <li>Per vraag laten zien</li>
-<ul>
+<details><summary>Aanvulling</summary><blockquote>
 
+    <details><summary>Enquête opslaan</summary><blockquote>
+           <details><summary>Opslaan in query</summary>
+            ~~~
+            js
+            const test = test
+            ~~~
+            </details>
+
+            <details><summary>Automatisch opslaan in local storage</summary>
+            ~~~
+            js
+            const test = test
+            ~~~
+            </details>
+            </blockcode>
+            </details>
+
+<!--
+    Vraag headers
+
+            Gebruiker naam invullen
+            Geboortejaar uitrekenen
+
+    Voortgangs cirkels
+    Per vraag laten zien -->
+
+</blockquote>
 </details>
 
 ## Features
