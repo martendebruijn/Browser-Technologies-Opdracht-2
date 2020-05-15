@@ -68,13 +68,11 @@ npm start
 
 ### Orginele versie
 
-<ul>
-    <li>[CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)</li>
-    <li>[CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)</li>
-    <li>[Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)</li>
-    <li>[Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)</li>
-    <li>[CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)</li>
-</ul>
+- [CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)
+- [CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)
+- [Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)
+- [Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)
+- [CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)
 <!-- <details><summary></summary></details> -->
 
 ### Aanvulling
@@ -82,6 +80,7 @@ npm start
 #### Enquete opslaan
 
 <details><summary>Opslaan in query</summary>
+<p>
 In de orginele versie regelde ik het opslaan en het terughalen van de antwoorden in zijn geheel op de server. Voor de aanvulling heb ik dit veranderd naar de antwoorden op te slaan in de query van de url. Het opslaan en terug halen van de antwoorden op de server was vrij complex, waardoor ik veel ingewikkelde JavaScript moest schrijven met veel POST en GET requests. Hier had ik bij de orginele versie dan ook mijn meeste tijd ingestopt. Het opslaan in de query is eenvoudiger, wat ervoor zorgt dat de enquête veel minder buggy is en beter werkt.
 ```js
 app.get('/save', (req, res) => {
@@ -93,6 +92,7 @@ app.get('/save', (req, res) => {
     destination,
   });
 ```
+</p>
 </details>
 <details><summary>Automatisch opslaan in local storage</summary></details>
 
