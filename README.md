@@ -20,43 +20,64 @@
 - links naar wiki
 - js: range feedback (zet deze ff iets meer naar rechts)
 
-## Introductie
+![Screenshot van de applicatie](/img/screenshot-web-design.png)
+![GIF van de applicatie](/img/web-design-eind-product.gif)
+
+## 👾 Introductie
 
 Korte enquête voor de minor web development met de mogelijkheid om verder te gaan waar men gebleven was. Op basis van Progressive Enhancement en Feature Detection. Zie de wiki voor uitgebreidere uitleg.
 
-## Live Demo
+## ✏️ Concept
 
-[Live Demo](https://enquete-minor-webdev.herokuapp.com/)
+## 🕹 Live Demo
 
-## Table of Contents
+[Bekijk hier de live demo 😃](https://enquete-minor-webdev.herokuapp.com/)
 
-- [Usage](#usage)
-- [Whishlist](#whishlist)
-- [Credits](#credits)
-- [Sources](#sources)
+## 👨‍🦯 Usage
 
-## Usage
-
-```
+```zsh
 git clone https://github.com/martendebruijn/Browser-Technologies-Opdracht-2.git
 cd browser-technologies-opdracht-2
 npm install
 npm start
 ```
 
-## Whishlist
+## 📍 Table of Contents
+
+- [Progressive Enhancements](#Progressive-Enhancements)
+- [Features](#Features)
+- [Feature Detection](#Feature-Detection)
+- [Conclusie](#Conclusie)
+- [Artikelen](#Artikelen)
+- [Opdrachten](#Opdrachten)
+- [✨ Whishlist](#-Whishlist)
+- [🙌 Credits](#-Credits)
+- [📚 Sources](#-Sources)
+
+## Progressive Enhancements
+
+## Features
+
+## Feature Detection
+
+## Conclusie
+
+## Artikelen
+
+## Opdrachten
+
+## ✨ Whishlist
 
 - [ ] Laatste pagina met wat er is ingevuld en de mogelijkheid om terug te gaan of te submitten
 
-## Credits
+## 🙌 Credits
 
-1. [Choerd - Basis van antwoorden opslaan op de server en het gebruik van een persoonlijke code](https://github.com/Choerd/browser-technologies-1920)
+- [Meyerweb: CSS Reset](http://meyerweb.com/eric/tools/css/reset/)
+- [Choerd - Basis van antwoorden opslaan op de server en het gebruik van een persoonlijke code](https://github.com/Choerd/browser-technologies-1920)
 
-## Sources
+## 📚 Sources
 
-Onderstaand een lijst van de meest gebruikte tools en bronnen.
-🛠 = Tool
-📖 = Article
+📖 Artikel & Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools **|** 📓 Has notes in the wiki of this repo
 
 - 🛠 [Can I Use](https://caniuse.com/)
 - 🛠 [Colorable](https://colorable.jxnblk.com/)
@@ -66,3 +87,6 @@ Onderstaand een lijst van de meest gebruikte tools en bronnen.
 - 📖 [Input types test](https://quirksmode.org/html5/inputs/tests/inputs_js.html)
 - 📖 [Check if localstorage is available](https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available)
 - 📖 [Improving Color Accessibility for color blind users - Smashing Magazine](https://www.smashingmagazine.com/2016/06/improving-color-accessibility-for-color-blind-users/)
+
+❤️ Thanks for reading ❤️<br/>
+❤️ Marten de Bruijn ❤️
