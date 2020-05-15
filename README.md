@@ -1,4 +1,5 @@
 # Browser Technologies Opdracht 2
+![Screenshot applicatie](./img/screenshots/text.png)
 
 <details><summary>Screenshot orgineel</summary>
 
@@ -26,21 +27,39 @@ De core functionaliteit van de app is het kunnen invullen van de enquête en het
 ![Mobile schets](./img/desktop.jpeg)
 </details>
 
-<details><summary>Input types used</summary>
+### Input types used
+<details><summary>text</summary>
 
-- Text
-- Color
-- Range
-- Radio
-- Date
-- Select 
+![Screenshot applicatie](./img/screenshots/text.png)
+</details>
+<details><summary>radio</summary>
 
+![Screenshot applicatie](./img/screenshots/radio.png)
+</details>
+<details><summary>range</summary>
+
+![Screenshot applicatie](./img/screenshots/range.png)
+</details>
+<details><summary>color</summary>
+
+![Screenshot applicatie](./img/screenshots/color.png)
+</details>
+<details><summary>select</summary>
+
+![Screenshot applicatie](./img/screenshots/select.png)
+</details>
+<details><summary>date</summary>
+
+![Screenshot applicatie](./img/screenshots/date.png)
 </details>
 
 ### Aanvulling
 Bij de aanvulling heb ik ervoor gekozen om meer de focus te leggen op de vragen. Hierom geef ik (met CSS) één vraag weer, groot, in het midden van het scherm.
 
-<details><summary>Screenshot</summary></details>
+<details><summary>Screenshot</summary>
+
+![Screenshot applicatie](./img/screenshots/text.png)
+</details>
 
 ## 🕹 Live Demo
 
@@ -223,7 +242,6 @@ input[type='radio']:checked + label:before {
 </details>
 
 <details><summary>Overig CSS</summary>
-# Overig CSS - Properties
 
 ## Transition
 
@@ -904,7 +922,9 @@ function checkedRadioBtn(name) {
     }
   });
 }
+
 ```
+![Screenshot date header](./img/screenshots/date.png)
 </details>
     
 #### Voortgangs cirkels en feedback hints
@@ -935,7 +955,7 @@ select:valid + label .progress-dot, input[type=color] + label .progress-dot, inp
     background: lightgreen;
 }
 ```
-
+![Screenshot not valid](./img/screenshots/notvalid.png)
 </details>
 
 #### Per vraag laten zien
@@ -1181,7 +1201,7 @@ Feature detection is het controleren of een bepaalde feature ondersteund wordt. 
 ## 🙌 Credits
 
 - [Meyerweb: CSS Reset](http://meyerweb.com/eric/tools/css/reset/)
-- [Choerd - Basis van antwoorden opslaan op de server en het gebruik van een persoonlijke code](https://github.com/Choerd/browser-technologies-1920)
+- Orginele versie: [Choerd - Basis van antwoorden opslaan op de server en het gebruik van een persoonlijke code](https://github.com/Choerd/browser-technologies-1920)
 
 ## 📚 Sources
 
