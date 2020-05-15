@@ -1,6 +1,6 @@
 const ul = document.querySelector('.home-links'),
   startBtn = `<li><button id="js-startBtn">Naar de enquête</button></li>`;
-ul.innerHTML = continueBtn + startBtn;
+ul.innerHTML = startBtn;
 
 const newStartBtn = document.getElementById('js-startBtn');
 

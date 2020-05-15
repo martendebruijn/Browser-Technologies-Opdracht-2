@@ -106,13 +106,6 @@ function checkSelectedOption() {
   addToLS('color', sel);
 }
 
-document.addEventListener('keydown', function (e) {
-  if (e.keyCode === 13) {
-    // doEverything(e);
-    e.preventDefault();
-  }
-});
-
 const questionArray = [nameEl, ageHeader, colors, birthdayEl, gradeEl, readyEl];
 let qnr = 0;
 function checkLSlength() {
@@ -133,6 +126,21 @@ function checkDateFormat(date) {
   }
   return date;
 }
+
+document.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    if (qnr < 5) {
+      qnr++;
+    } else if (localStorage.length === 5 && qnr === 5) {
+      form.submit();
+    } else if (qnr >= 5) {
+      qnr = 0;
+    }
+    console.log(qnr);
+    focusOnQNR(qnr);
+  }
+});
 submitBtn.addEventListener('click', function (e) {
   e.preventDefault();
   if (qnr < 5) {
