@@ -25,6 +25,7 @@ app.get('/v2/enquete', (req, res) => {
   res.render('enquetev2', {
     style: '../css/styles-v2.0.css',
     script: '../js/main-v2.0.js',
+    query: req.query,
   });
 });
 app.get('/v2/enquete/finished', (req, res) => {
@@ -33,10 +34,13 @@ app.get('/v2/enquete/finished', (req, res) => {
     script: '../../js/main-v2.0.js',
   });
 });
-app.get('/', (req, res) => {
-  res.render('home', {
-    style: './css/styles.css',
-    script: './js/main.js',
+app.get('/save', (req, res) => {
+  let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  let destination = fullUrl.replace('save', 'v2/enquete');
+  res.render('save', {
+    style: '../css/styles-v2.0.css',
+    script: '../js/main-v2.0.js',
+    destination,
   });
 });
 

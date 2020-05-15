@@ -235,6 +235,10 @@ input:nth-of-type(1):focus ~ label:nth-of-type(1), input:focus, #birthday:focus 
 .color-input {
     left: 25% !important;
 }
+input:read-only {
+    left: 25% !important;
+    color: #f64c72 !important;
+}
 input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints, #birthday:focus + label .hints,  #grade:focus + label .hints {
     opacity: 1;
 }
@@ -275,4 +279,7 @@ input:nth-of-type(1):valid ~ label:first-of-type .hints, #grade:valid + label .h
     top: 30%;
     left: 25%;
     /* transform: translate(-25%, -25%); */
+}
+.save-header {
+    margin-bottom: 5em;
 }

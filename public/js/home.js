@@ -1,15 +1,10 @@
 const ul = document.querySelector('.home-links'),
-  continueBtn = `<li><button id="js-continueBtn">Ga verder</button></li>`,
   startBtn = `<li><button id="js-startBtn">Naar de enquête</button></li>`;
 ul.innerHTML = continueBtn + startBtn;
 
-const newStartBtn = document.getElementById('js-startBtn'),
-  newContinueBtn = document.getElementById('js-continueBtn');
+const newStartBtn = document.getElementById('js-startBtn');
 
 newStartBtn.addEventListener('click', function (e) {
   localStorage.clear();
-  window.location.href = window.location.href + 'v2/enquete';
-});
-newContinueBtn.addEventListener('click', function (e) {
   window.location.href = window.location.href + 'v2/enquete';
 });

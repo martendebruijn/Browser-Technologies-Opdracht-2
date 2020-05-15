@@ -4,9 +4,21 @@
 
 ## Aanvulling
 
-- added `autofocus` to input fields.
-- added 1 and 10 to the end of the range
-- added keyboard navigation help text to questions
+- changed opslaan op de server naar opslaan in url
+- js enhancement: automatisch opslaan in ls
+- css: meer focus op de vragen en input fields
+- css: feedback of antwoord is valid of niet
+- css: progress-dots
+- css: animaties invliegen
+- js: per vraag laten invliegen
+- input color fallback
+- input range fallback
+- input date fallback
+- conclusie
+- js: naam in de titel
+- js: geboortejaar uitrekenen
+- links naar wiki
+- js: range feedback (zet deze ff iets meer naar rechts)
 
 ## Introductie
 

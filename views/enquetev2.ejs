@@ -2,7 +2,7 @@
        <%- include('partials/header'); %>
        <section>
         <form id="form" class="form" method="GET" autocomplete="off" action='/v2/enquete/finished'>
-            <input id="input1" autofocus name="name" type="text" autocomplete="off" placeholder="Marten de Bruijn" required pattern="^[A-Za-z -]+" value="" data-n="0"/>
+            <input id="input1" autofocus name="name" type="text" autocomplete="off" placeholder="Marten de Bruijn" required pattern="^[A-Za-z -]+" value="<%= query.name %>" />
             <label for="input1" tabindex="-1">Wat is je naam?
                 <span id="js-dotOne" class="progress-dot dot-one" tabindex="1"></span> 
                 <ul class="hints">
@@ -15,39 +15,97 @@
  
            <fieldset>
                <legend id="js-ageHeader" tabindex="-1">Hoe oud ben je?</legend>
-               <input type="radio" name="leeftijd" id="18jaar" value="18" required />
+               <% if (query.leeftijd == '18') { %>
+                <input type="radio" name="leeftijd" id="18jaar" value="18" required checked />
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="18jaar" value="18" required />
+                <% } %>
                <label for="18jaar">18 jaar of jonger</label>
-               <input type="radio" name="leeftijd" id="19jaar" value="19" required />
+               <% if (query.leeftijd == '19') { %>
+                <input type="radio" name="leeftijd" id="19jaar" value="19" required checked />
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="19jaar" value="19" required />
+                <% } %>
                <label for="19jaar">19 jaar</label>
-               <input type="radio" name="leeftijd" id="20jaar" value="20" required />
+               <% if (query.leeftijd == '20') { %>
+                <input type="radio" name="leeftijd" id="20jaar" value="20" required checked/>
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="20jaar" value="20" required />
+                <% } %>
+               
                <label for="20jaar">20 jaar</label>
-               <input type="radio" name="leeftijd" id="21jaar" value="21" required />
+               <% if (query.leeftijd == '21') { %>
+                <input type="radio" name="leeftijd" id="21jaar" value="21" required checked/>
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="21jaar" value="21" required />
+                <% } %>
+               
                <label for="21jaar">21 jaar</label>
-               <input type="radio" name="leeftijd" id="22jaar" value="22" required />
+               <% if (query.leeftijd == '22') { %>
+                <input type="radio" name="leeftijd" id="22jaar" value="22" required checked/>
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="22jaar" value="22" required />
+                <% } %>
+              
                <label for="22jaar">22 jaar</label>
-               <input type="radio" name="leeftijd" id="23jaar" value="23" required />
+               <% if (query.leeftijd == '23') { %>
+                <input type="radio" name="leeftijd" id="23jaar" value="23" required checked />
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="23jaar" value="23" required />
+                <% } %>
+               
                <label for="23jaar">23 jaar</label>
-               <input type="radio" name="leeftijd" id="24jaar" value="24" required />
+               <% if (query.leeftijd == '24') { %>
+                <input type="radio" name="leeftijd" id="24jaar" value="24" required checked/>
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="24jaar" value="24" required />
+                <% } %>
+               
                <label for="24jaar">24 jaar</label>
-               <input type="radio" name="leeftijd" id="25jaar" value="25" required />
+               <% if (query.leeftijd == '25') { %>
+                <input type="radio" name="leeftijd" id="25jaar" value="25" required checked/>
+              <% } else { %>
+                <input type="radio" name="leeftijd" id="25jaar" value="25" required />
+                <% } %>
+               
                <label for="25jaar">25 jaar of ouder</label>
                <span id="js-dotTwo" class="progress-dot dot-two" tabindex="1"></span> 
            </fieldset> 
 
-            <select id="color" required>
+            <select id="color" name="kleur" required>
                 <option value="">Kies een kleur</option>
-                <option value="#ff0000">Rood</option>
-                <option value="#008000">Groen</option>
-                <option value="#0000ff">Blauw</option>
-                <option value="#ffff00">Geel</option>
-                <option value="#000000">Een andere kleur</option>
+                <% if (query.kleur == '#ff0000') { %>
+                    <option selected value="#ff0000">Rood</option>
+                  <% } else { %>
+                    <option value="#ff0000">Rood</option>
+                    <% } %>
+                    <% if (query.kleur == '#008000') { %>
+                        <option selected value="#008000">Groen</option>
+                      <% } else { %>
+                        <option value="#008000">Groen</option>
+                        <% } %>
+                        <% if (query.kleur == '#0000ff') { %>
+                            <option selected value="#0000ff">Blauw</option>
+                          <% } else { %>
+                            <option value="#0000ff">Blauw</option>
+                            <% } %>
+                            <% if (query.kleur == '#ffff00') { %>
+                                <option selected value="#ffff00">Geel</option>
+                              <% } else { %>
+                                <option value="#ffff00">Geel</option>
+                                <% } %>
+                                <% if (query.kleur != '#ff0000' && query.kleur != '#008000' && query.kleur != '#0000ff' && query.kleur != '#ffff00' && query.kleur) { %>
+                                    <option selected value="#000000">Een andere kleur</option>
+                                  <% } else { %>
+                                    <option value="#000000">Een andere kleur</option>
+                                    <% } %>
             </select>
 
             <label for="color" id="js-colorHeader" tabindex="-1">Wat is je favoriete kleur?
                 <span id="js-dotThree" class="progress-dot dot-three" tabindex="1"></span> 
             </label>
 
-            <input id="birthday" autocomplete="off" placeholder="04-09-1996" type="text" name="verjaardag" required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value=""/>
+            <input id="birthday" autocomplete="off" placeholder="04-09-1996" type="text" name="verjaardag"  required pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" value="<%= query.verjaardag %>"/>
             <label for="birthday" id="js-birthdayHeader" tabindex="-1">Wat is je geboortedatum?
                 <h3>Vul hieronder je geboortedatum in:</h3>
                 <span id="js-dotFour" class="progress-dot dot-four" tabindex="1"></span> 
@@ -57,7 +115,7 @@
                 </div>
             </label> 
 
-            <input id="grade" autocomplete="off" placeholder="8" type="text" name="grade" required pattern="(1[0]|[1-9]{1})" value=""/><h3 id="js-gradeOutput" class="d-none">6</h3>
+            <input id="grade" autocomplete="off" placeholder="8" type="text" name="grade" required pattern="(1[0]|[1-9]{1})" value="<%= query.grade %>"/><h3 id="js-gradeOutput" class="d-none">6</h3>
             <label for="grade" id="js-gradeHeader" tabindex="-1">Welk cijfer zou jij de minor geven?
                 <span id="js-dotFive" class="progress-dot dot-five" tabindex="1"></span> 
                 <ul class="hints">
@@ -69,6 +127,7 @@
               
             <div class="btns">
             <button class="back d-none">Terug</button>
+            <button formaction="/save" formnovalidate type="save" class="save" id="save" aria-label="Send">Opslaan </button>
             <button class="sub" formaction="/v2/enquete/finished" name="submit" type="submit">Volgende</button>
         </div>
         </form>
