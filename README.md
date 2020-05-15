@@ -27,6 +27,8 @@ De core functionaliteit van de app is het kunnen invullen van de enquête en het
 ![Mobile schets](./img/desktop.jpeg)
 </details>
 
+#
+
 ### Input types used
 <details><summary>text</summary>
 
@@ -52,6 +54,8 @@ De core functionaliteit van de app is het kunnen invullen van de enquête en het
 
 ![Screenshot applicatie](./img/screenshots/date.png)
 </details>
+
+#
 
 ### Aanvulling
 Bij de aanvulling heb ik ervoor gekozen om meer de focus te leggen op de vragen. Hierom geef ik (met CSS) één vraag weer, groot, in het midden van het scherm.
@@ -768,7 +772,7 @@ document.addEventListener('invalid', validationDate(), true);
 Voor de geboortedatum hebben we twee verschillende input types. `type=date` en wanneer deze niet ondersteund wordt `type=text`. Wanneer `type=date` wél wordt ondersteund, hoeven we ons niet druk te maken over het juiste patroon, dit staat automatisch goed. Bij `type=text` is dit niet het geval.
 </details>
 
-<!-- <details><summary></summary></details> -->
+#
 
 ### Aanvulling
 
@@ -851,6 +855,7 @@ app.get('/save', (req, res) => {
 ##### Antwoorden automatisch opslaan in LocalStorage
 Wanneer men beschikt over JavaScript, worden de antwoorden automatisch opgeslagen in `LocalStorage`. Als de pagina herladen wordt, worden de antwoorden automatisch ingevuld en gaat de gebruiker naar de laatste vraag die hij nog niet heeft ingevuld.
 
+#
 
 #### Vraag headers
 Wanneer men beschikt over JavaScript én zijn of haar naam heeft ingevuld worden de vragen aangepast naar `naam + vraag`. Zodra men zijn of haar leeftijd heeft ingevuld wordt bij de geboortedatum vraag berekent in welk jaar hij of zij waarschijnlijk geboren is.
@@ -926,6 +931,8 @@ function checkedRadioBtn(name) {
 ![Screenshot date header](./img/screenshots/date.png)
 </details>
     
+#
+
 #### Voortgangs cirkels en feedback hints
 Onderaan de pagina heb ik voortgangs cirkels toegevoegd. Deze staan in `label`, waardoor ze navigeerbaar worden met enkel CSS. Ook kan men zien of het gegeven antwoord valid is of niet. Als dit het geval is, wordt de cirkel groen. Wanneer dit niet het geval is, is de cirkel rood.
 </br>
@@ -956,6 +963,8 @@ select:valid + label .progress-dot, input[type=color] + label .progress-dot, inp
 ```
 ![Screenshot not valid](./img/screenshots/notvalid.png)
 </details>
+
+#
 
 #### Per vraag laten zien
 D.m.v. CSS laat ik maar één vraag per keer zien. Als een vraag focus heeft, slide deze in vanaf de rechterkant.
@@ -1103,6 +1112,7 @@ Doordat QQ Browser het blijkbaar wél ondersteund, had ik een andere manier nodi
 
 </details>
 
+#
 
 ### Aanvulling
 In de orginele versie controleerde ik alleen of `input type date` werd ondersteund. Met de aanvulling heb ik hier ook `input type range` en `input type color` aan toegevoegd. 
