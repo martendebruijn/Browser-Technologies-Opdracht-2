@@ -23,11 +23,18 @@
 ![Screenshot van de applicatie](/img/screenshot-web-design.png)
 ![GIF van de applicatie](/img/web-design-eind-product.gif)
 
+<!-- <details><summary>CLICK ME</summary></details> -->
+
 ## 👾 Introductie
 
 Korte enquête voor de minor web development met de mogelijkheid om verder te gaan waar men gebleven was. Op basis van Progressive Enhancement en Feature Detection. Zie de wiki voor uitgebreidere uitleg.
 
 ## ✏️ Concept
+
+- [Use Case](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki#Use-case)
+- [Core Functionaliteit](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki#core-functionaliteit)
+- [Wireflow](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/wireflow)
+- [Enquête vragen](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/enquete)
 
 ## 🕹 Live Demo
 
@@ -47,6 +54,7 @@ npm start
 - [Progressive Enhancements](#Progressive-Enhancements)
 - [Features](#Features)
 - [Feature Detection](#Feature-Detection)
+- [Accessibility](#Accessibility)
 - [Conclusie](#Conclusie)
 - [Artikelen](#Artikelen)
 - [Opdrachten](#Opdrachten)
@@ -56,9 +64,30 @@ npm start
 
 ## Progressive Enhancements
 
+<details><summary>Orginele versie</summary>
+- [CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)
+- [CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)
+- [Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)
+- [Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)
+- [CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)
+</details>
+<details><summary>Aanvulling</summary></details>
+
 ## Features
 
+- [Data opslaan op de server](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/save-on-server)
+- [Thema's](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/themes)
+- [Form Validatie](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/form-validation)
+
 ## Feature Detection
+
+- [Date Input](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input)
+- [Local Storage](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/local-storage)
+- [Custom Properties](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/custom-properties)
+
+## Accessibility
+
+- [Tests en toegankelijkheid](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/tests)
 
 ## Conclusie
 
