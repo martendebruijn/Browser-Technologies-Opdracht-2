@@ -66,71 +66,71 @@ npm start
 
 ## Progressive Enhancements
 
-<details><summary>Orginele versie</summary>
+### Orginele versie
+
 <ul>
-<li>[CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)</li>
-<li>[CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)</li>
-<li>[Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)</li>
-<li>[Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)</li>
-<li>[CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)</li>
+    <li>[CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)</li>
+    <li>[CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)</li>
+    <li>[Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)</li>
+    <li>[Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)</li>
+    <li>[CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)</li>
 </ul>
+<!-- <details><summary></summary></details> -->
+
+### Aanvulling
+
+#### Enquete opslaan
+
+<details><summary>Opslaan in query</summary>
+In de orginele versie regelde ik het opslaan en het terughalen van de antwoorden in zijn geheel op de server. Voor de aanvulling heb ik dit veranderd naar de antwoorden op te slaan in de query van de url. Het opslaan en terug halen van de antwoorden op de server was vrij complex, waardoor ik veel ingewikkelde JavaScript moest schrijven met veel POST en GET requests. Hier had ik bij de orginele versie dan ook mijn meeste tijd ingestopt. Het opslaan in de query is eenvoudiger, wat ervoor zorgt dat de enquête veel minder buggy is en beter werkt.
+```js
+app.get('/save', (req, res) => {
+  let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  let destination = fullUrl.replace('save', 'v2/enquete');
+  res.render('save', {
+    style: '../css/styles-v2.0.css',
+    script: '../js/main-v2.0.js',
+    destination,
+  });
+```
 </details>
+<details><summary>Automatisch opslaan in local storage</summary></details>
 
-<details><summary>Aanvulling</summary>
+#### Vraag headers
 
-    <details><summary>Enquête opslaan</summary>
-           <details><summary>Opslaan in query</summary>
-            ~~~
-            js
-            const test = test
-            ~~~
-            </details>
+<details><summary>Gebruikers naam invullen</summary></details>
+<details><summary>Geboortejaar uitrekenen</summary></details>
+    
+#### Voortgangs cirkels
+<details><summary>Voortgangs cirkels</summary></details>
 
-            <details><summary>Automatisch opslaan in local storage</summary>
-            ~~~
-            js
-            const test = test
-            ~~~
-            </details>
+#### Per vraag laten zien
 
-            </details>
-
-<!--
-    Vraag headers
-
-            Gebruiker naam invullen
-            Geboortejaar uitrekenen
-
-    Voortgangs cirkels
-    Per vraag laten zien -->
-
-</details>
+<details><summary>Per vraag laten zien</summary></details>
 
 ## Features
 
-<details><summary>Orginele versie</summary>
-<ul>
-<li>[Data opslaan op de server](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/save-on-server)</li>
-<li>[Thema's](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/themes)</li>
-<li>[Form Validatie](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/form-validation)</li>
-</ul>
-</details>
+### Orginele versie
 
-<details><summary>Aanvulling</summary>
-</details>
+<ul>
+    <li>[Data opslaan op de server](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/save-on-server)</li>
+    <li>[Thema's](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/themes)</li>
+    <li>[Form Validatie](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/form-validation)</li>
+</ul>
+
+### Aanvulling
 
 ## Feature Detection
 
-<details><summary>Orginele versie</summary>
-<ul>
-<li>[Date Input](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input)</li>
-<li>[Local Storage](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/local-storage)</li>
-<li>[Custom Properties](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/custom-properties)</li>
-</ul>
-</details>
+### Orginele versie
 
-<details><summary>Aanvulling</summary>
-</details>
+<ul>
+    <li>[Date Input](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input)</li>
+    <li>[Local Storage](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/local-storage)</li>
+    <li>[Custom Properties](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/custom-properties)</li>
+</ul>
+
+### Aanvulling
 
 ## Accessibility
 
