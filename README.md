@@ -4,7 +4,6 @@
 
 ![Screenshot of app](./img/screenshot.png)
 </details>
-<!-- <details><summary>CLICK ME</summary></details> -->
 
 ## 👾 Introductie
 
@@ -21,11 +20,11 @@ De core functionaliteit van de app is het kunnen invullen van de enquête en het
 <details><summary>Mobile schets</summary>
 
 ![Mobile schets](./img/mobile.jpeg)
-<details>
+</details>
 <details><summary>Desktop schets</summary>
 
 ![Mobile schets](./img/desktop.jpeg)
-<details>
+</details>
 
 <details><summary>Input types used</summary>
 
@@ -41,7 +40,7 @@ De core functionaliteit van de app is het kunnen invullen van de enquête en het
 ### Aanvulling
 Bij de aanvulling heb ik ervoor gekozen om meer de focus te leggen op de vragen. Hierom geef ik (met CSS) één vraag weer, groot, in het midden van het scherm.
 
-<details><summary>Screenshot</summary><details>
+<details><summary>Screenshot</summary></details>
 
 ## 🕹 Live Demo
 
