@@ -65,11 +65,13 @@ npm start
 ## Progressive Enhancements
 
 <details><summary>Orginele versie</summary>
-- [CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)
-- [CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)
-- [Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)
-- [Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)
-- [CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)
+<ul>
+<li>[CSS Selectors](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/css-selectors)</li>
+<li>[CSS Flexbox](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/flexbox)</li>
+<li>[Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)</li>
+<li>[Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)</li>
+<li>[CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)</li>
+</ul>
 </details>
 <details><summary>Aanvulling</summary></details>
 
