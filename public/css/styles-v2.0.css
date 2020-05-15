@@ -242,7 +242,6 @@ input:read-only {
 input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints, #birthday:focus + label .hints,  #grade:focus + label .hints {
     opacity: 1;
 }
-
 fieldset:focus-within .progress-dot {
     background: #f64c72;
 }

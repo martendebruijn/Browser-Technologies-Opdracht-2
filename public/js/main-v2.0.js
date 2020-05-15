@@ -131,8 +131,6 @@ function checkDateFormat(date) {
     const joinArr = reverseArr.join('-');
     date = joinArr;
   }
-  console.log('HIERO');
-  console.log(date);
   return date;
 }
 submitBtn.addEventListener('click', function (e) {

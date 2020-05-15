@@ -1,30 +1,9 @@
 # Browser Technologies Opdracht 2
 
+<details><summary>Screenshot orgineel</summary>
+
 ![Screenshot of app](./img/screenshot.png)
-
-## Aanvulling
-
-PE
-
-Features
-
-- changed opslaan op de server naar opslaan in url
-- meer focus op de vraag
-
-FD
-
-- input color fallback
-- input range fallback
-- input date fallback
-
-* conclusie
-
-* links naar wiki
-* js: range feedback (zet deze ff iets meer naar rechts)
-
-![Screenshot van de applicatie](/img/screenshot-web-design.png)
-![GIF van de applicatie](/img/web-design-eind-product.gif)
-
+</details>
 <!-- <details><summary>CLICK ME</summary></details> -->
 
 ## 👾 Introductie
@@ -73,6 +52,9 @@ npm start
 - [Progress Bar](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/progress-bar)
 - [Overig CSS](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/overig-css)
 - [CSS Checkbox Hack](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/checkbox-hack)
+- [Data opslaan op de server](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/save-on-server)</li>
+- [Thema's](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/themes)</li>
+- [Form Validatie](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/form-validation)</li>
 <!-- <details><summary></summary></details> -->
 
 ### Aanvulling
@@ -159,7 +141,7 @@ Wanneer men beschikt over JavaScript, worden de antwoorden automatisch opgeslage
 
 #### Vraag headers
 Wanneer men beschikt over JavaScript én zijn of haar naam heeft ingevuld worden de vragen aangepast naar `naam + vraag`. Zodra men zijn of haar leeftijd heeft ingevuld wordt bij de geboortedatum vraag berekent in welk jaar hij of zij waarschijnlijk geboren is.
-<details><summary>Gebruikers naam invullen</summary>
+<details><summary>Gebruikers naam invullen (main-v2.0js)</summary>
 
 ```js
 function changeHeaders() {
@@ -205,7 +187,7 @@ function changeHeaders() {
 }
 ```
 </details>
-<details><summary>Geboortejaar uitrekenen</summary>
+<details><summary>Geboortejaar uitrekenen (main-v2.0js)</summary>
 
 ```js
 function checkedRadioBtn(name) {
@@ -229,46 +211,139 @@ function checkedRadioBtn(name) {
 ```
 </details>
     
-#### Voortgangs cirkels
-<details><summary>Voortgangs cirkels</summary></details>
+#### Voortgangs cirkels en feedback hints
+Onderaan de pagina heb ik voortgangs cirkels toegevoegd. Deze staan in `label`, waardoor ze navigeerbaar worden met enkel CSS. Ook kan men zien of het gegeven antwoord valid is of niet. Als dit het geval is, wordt de cirkel groen. Wanneer dit niet het geval is, is de cirkel rood.
+</br>
+Ook heb ik een hints sectie gemaakt, waarmen kan zien welke tekens of patronen zijn toegestaan. Als men hieraan voldoet, wordt deze ook groen.
+<details><summary>Voortgangs cirkels</summary>
+
+```html
+<form id="form" class="form" method="GET" autocomplete="off" action='/v2/enquete/finished'>
+            <input id="input1" autofocus name="name" type="text" autocomplete="off" placeholder="Marten de Bruijn" required pattern="^[A-Za-z -]+" value="<%= query.name %>" />
+            <label for="input1" tabindex="-1">Wat is je naam?
+                <span id="js-dotOne" class="progress-dot dot-one" tabindex="1"></span> 
+                <ul class="hints">
+                    <p>Toegestane tekens:</p>
+                    <li>a-z of A-Z</li>
+                    <li>-</li>
+                    <li>spatie</li>
+                </ul>
+            </label> 
+```
+
+```css
+select:focus + label .progress-dot, input[type=color] + label .progress-dot, input[type=range] + label .progress-dot {
+    background: #f64c72;
+}
+select:valid + label .progress-dot, input[type=color] + label .progress-dot, input[type=color] + label .progress-dot {
+    background: lightgreen;
+}
+```
+
+</details>
 
 #### Per vraag laten zien
+D.m.v. CSS laat ik maar één vraag per keer zien. Als een vraag focus heeft, slide deze in vanaf de rechterkant.
 
-<details><summary>Per vraag laten zien</summary></details>
+<details><summary>Per vraag laten zien</summary>
 
-## Features
-
-### Orginele versie
-
-<ul>
-    <li>[Data opslaan op de server](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/save-on-server)</li>
-    <li>[Thema's](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/themes)</li>
-    <li>[Form Validatie](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/form-validation)</li>
-</ul>
-
-### Aanvulling
+```css
+input[type=text], fieldset, select, input[type=date], input[type=color], input[type=range]{
+    left: 100%;
+    position: fixed;
+}
+input[type=text]:focus, fieldset:focus-within, select:focus-within, input[type=date]:focus, input[type=range]:focus {
+    left: 25%;
+}
+input[type=text] ~ label, legend, input[type=date] ~ label, input[type=color] ~ label, input[type=range] ~ label {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-25%, -30%);
+}
+input:nth-of-type(1):focus ~ label:nth-of-type(1) .hints, #birthday:focus + label .hints,  #grade:focus + label .hints {
+    opacity: 1;
+}
+```
+</details>
 
 ## Feature Detection
 
 ### Orginele versie
 
-<ul>
-    <li>[Date Input](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input)</li>
-    <li>[Local Storage](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/local-storage)</li>
-    <li>[Custom Properties](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/custom-properties)</li>
-</ul>
+- [Date Input](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input)
+- [Local Storage](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/local-storage)
+- [Custom Properties](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/custom-properties)
 
 ### Aanvulling
+In de orginele versie controleerde ik alleen of `input type date` werd ondersteund. Met de aanvulling heb ik hier ook `input type range` en `input type color` aan toegevoegd. 
+</br>
+
+Uitleg van onderstaande code kan men [hier](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/date-input) vinden.
+<details><summary>Input types test code</summary>
+
+```js
+Source: https://quirksmode.org/html5/inputs/tests/inputs_js.html 
+https://quirksmode.org/blog/archives/2015/03/better_modern_i.html */
+function checkInput(prefType) {
+  const test = document.createElement('input');
+  let supported = false;
+  test.type = prefType;
+  if (test.type === prefType) {
+    supported = true;
+  }
+  test.value = 'Hello World';
+  const helloWorldAccepted = test.value === 'Hello World';
+  if (helloWorldAccepted) {
+    supported = false;
+  }
+  console.log(`${prefType} = ${supported}`);
+  return supported;
+}
+```
+</details>
+<details><summary>Input type date</summary>
+Als input type date wordt ondersteund wordt deze ingeladen:
+
+```js
+
+if (checkInput('date')) {
+  birthdayEl.outerHTML = `<input  id="birthday" type="date" name="verjaardag" required min="1980-01-01" max="2002-01-01"/>`;
+  birthdayEl = document.getElementById('birthday');
+}
+```
+</details>
+
+<details><summary>Input type color</summary>
+Als input type color wordt ondersteund wordt deze ingeladen:
+
+```js
+if (checkInput('color')) {
+  colors.outerHTML = `<input id="color" type="color" name="kleur" required>`;
+  colors = document.getElementById('color');
+  dotThree.classList.add('white-dot');
+}
+```
+</details>
+
+<details><summary>Input type range</summary>
+Als input type range wordt ondersteund wordt deze ingeladen, ook wordt er een feadback weergegeven die reageerd als de input veranderd:
+
+```js
+if (checkInput('range')) {
+  gradeEl.outerHTML = `<input type="range" min="1" value="" max="10" name="grade" id="grade" required>`;
+  gradeEl = document.getElementById('grade');
+  dotFive.classList.add('white-dot');
+}
+```
+</details>
+
 
 ## Accessibility
 
 - [Tests en toegankelijkheid](https://github.com/martendebruijn/Browser-Technologies-Opdracht-2/wiki/tests)
 
 ## Conclusie
-
-## Artikelen
-
-## Opdrachten
 
 ## ✨ Whishlist
 
@@ -281,7 +356,7 @@ function checkedRadioBtn(name) {
 
 ## 📚 Sources
 
-📖 Artikel & Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools **|** 📓 Has notes in the wiki of this repo
+📖 Artikel & Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools 
 
 - 🛠 [Can I Use](https://caniuse.com/)
 - 🛠 [Colorable](https://colorable.jxnblk.com/)
