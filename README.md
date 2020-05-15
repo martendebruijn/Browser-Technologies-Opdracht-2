@@ -76,10 +76,10 @@ npm start
 
 ## 📍 Table of Contents
 
-- [🧙‍♂️ Progressive Enhancements](#Progressive-Enhancements)
-- [🔍 Feature Detection](#Feature-Detection)
-- [👨‍🦽 Accessibility](#Accessibility)
-- [💈 Conclusie](#Conclusie)
+- [🧙‍♂️ Progressive Enhancements](#%EF%B8%8F-progressive-enhancements)
+- [🔍 Feature Detection](#-feature-detection)
+- [👨‍🦽 Accessibility](#-accessibility)
+- [💈 Conclusie](#-conclusie)
 - [✨ Whishlist](#-Whishlist)
 - [🙌 Credits](#-Credits)
 - [📚 Sources](#-Sources)
