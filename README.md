@@ -76,9 +76,9 @@ npm start
 </ul>
 </details>
 
-<details><summary>Aanvulling</summary><blockquote>
+<details><summary>Aanvulling</summary>
 
-    <details><summary>Enquête opslaan</summary><blockquote>
+    <details><summary>Enquête opslaan</summary>
            <details><summary>Opslaan in query</summary>
             ~~~
             js
@@ -92,7 +92,7 @@ npm start
             const test = test
             ~~~
             </details>
-            </blockcode>
+
             </details>
 
 <!--
@@ -104,7 +104,6 @@ npm start
     Voortgangs cirkels
     Per vraag laten zien -->
 
-</blockquote>
 </details>
 
 ## Features
