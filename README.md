@@ -115,7 +115,7 @@ Wordt bij IE ondersteund door `:-ms-input-placeholder` te gebruiken.
 
 1. [Can I Use - :placeholder-shown](https://caniuse.com/#search=%3Aplaceholder-shown)
 
-<details>
+</details>
 <details><summary>CSS Flexbox</summary>
 
 ## display: flex
