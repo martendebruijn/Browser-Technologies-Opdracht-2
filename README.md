@@ -90,6 +90,37 @@ npm start
 
 ## 🧙‍♂️ Progressive Enhancements
 
+<details><summary>Functional Layer</summary>
+Alleen HTML.
+
+- alle vragen als geheel weergeven
+- antwoorden opslaan via url query
+
+![Screenshot functional layer](./img/screenshots/html.png)
+</details>
+<details><summary>Usable Layer</summary>
+HTML en CSS.
+
+- één vraag tegelijk
+- validatie feedback
+- navigeermogelijkheid
+
+![Screenshot usable layer](./img/screenshots/css.png)
+</details>
+<details><summary>Pleasurable Layer</summary>
+HTML, CSS en JavaScript.
+
+- antwoorden automatisch opslaan met LocalStorage
+- vragen worden aangepast aan de naam en geboortejaar
+- enter toets toevoeging
+- terug knop
+- indien mogelijk input type date
+- indien mogelijk input type range
+- indien mogelijk input type color
+
+![Screenshot pleasurable layer](./img/screenshots/js.png)
+</details>
+
 ### Orginele versie
 <details><summary>CSS Selectors</summary>
 
